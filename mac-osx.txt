@@ -1,0 +1,5 @@
+Ctrl+Command+F
+	toggle between full screen and normal windowed mode
+Command+Space
+	spotlight search
+
