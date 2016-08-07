@@ -1,0 +1,108 @@
+remove all blank lines
+	:g/^\s*/d
+remove all lines _not_ matching a pattern
+	:g!/somepattern/d
+
+can use d_ to send all matched lines to blackhole register, which will be faster
+
+
+
+copy all lines matching a pattern into register (a)
+qaq:g/pattern/y A
+
+	here, first three commands q,a,q will clera the a register
+	last command :g/pattern/y A is effectively global YANK of lines matching into register a (captial A for _appending_ into a)
+
+
+=====
+COPY-PASTING
+=====
+
+copying is called Yanking and so the command y is for yanking
+pasting is called Pasting and so the command p is for pasting
+register can be cleared by recording nothing into it, e.g. to clear the register a, type qaq
+to access register a, use double quotes, e.g. to paste contents of register, use the command "ap
+
+copy all lines matching a pattern like so:
+	qaq:g/pattern/y A
+optionally, open new buffer using the :new command
+and paste the contents of the a register into it
+	"ap
+
+MORE EXAMPLES
+
+to copy the current line into register k, you can type
+	"kyy
+Or you can append to a register by using a capital letter
+	"Kyy
+You can then move through the document and paste it elsewhere using
+	"kp
+To paste from system clipboard ("+ is the sytem clipboard register)
+	"+p
+To access all currently defined registers type
+	:reg
+
+
+
+to DUPLICATE A LINE use a combination of yank and paste like so:
+YP
+	or
+Yp
+	or
+yyp
+
+(yy to yank current line, Y is the same as yy)
+(p pastes after the cursor, P paste before the cursor)
+
+=====
+CLOSING and (not) SAVING
+=====
+
+:w
+	write current buffer to file (effectively SAVE)
+:wa
+	write all buffers (save all files)
+:wq
+	write and quit
+
+
+:up
+	update
+:x
+	update and quit
+
+:w and :wq will always udate the timestamp, as they will always write the buffer out to the file
+:up and :x will not update timestamp if there are no changes to write. Update will only write if there's any changes to update in the underlying file
+
+mental checklist
+- do I want to write the file? (w) 
+- do I want to quit the file? (q) 
+- do I want to quit ALL the files? (a) 
+- do I want to write/abandon any changes? (!) 
+
+
+ZZ	Write current file, if modified, and exit. (same as :x)
+ZQ	Quit current file and exit (same as ":q!").
+
+
+
+=====
+BUFFERS
+=====
+
+:new
+:ls
+	list all open buffers
+
+
+
+
+
+=====
+LINKS TO INTERESTING PAGES
+=====
+using the g command for global pattern matching
+	http://vim.wikia.com/wiki/Power_of_g
+using vim buffers
+	http://vim.wikia.com/wiki/Vim_buffer_FAQ
+

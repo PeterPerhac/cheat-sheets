@@ -1,0 +1,68 @@
+lsof -sTCP:LISTEN -iTCP:27017
+	which process listens on port 27017? for ports below 1000 use "sudo"
+du -cmd 1 | sort -n
+	list current disk usage of files/folders in a directory, in megabytes, in ascending order (largest file/folder at the bottom of the listing)
+find
+	recursively descends the directory tree for each path listed, evaluating an expression
+	e.g. find . -type f
+		finds all files in current directory, equivalent of Ctrl+B in Total Commander
+wc
+	word count - counts words, lines, characters (&bytes)
+printenv
+	prints out the current environment
+head -10
+	top ten lines
+tail -10
+	last ten lines
+grep
+	search any given input, selecting lines that match one or more patterns
+	e.g. grep -r 'selenium' **/build.sbt
+		this will search recursively (-r) in current directory to find all build.sbt files containing the 'selenium' text
+egrep
+	equivalent to grep -E, used to specify pattern as regular expression
+	e.g. egrep -r '^[Pp]attern.*$' **/*.java
+fgrep
+	equivalent to grep -F, used to find simple text pattern, faster than egrep or grep
+cd -
+	previous location
+cd
+	cd to home directory
+which
+	like windows "where"
+ps aux
+	process status with switches
+		a, u, x
+launchctl
+	interfaces with launchd to manage and inspect daemons, agents and XPC services.
+date
+	current date
+ifconfig
+	network interface configuration
+netstat
+	network status
+hostname
+	current hostname
+whomi
+	current user
+groups
+	current user's groups
+chown
+	change owner
+chmod
+	change file modes
+less, cat
+	display to terminal
+nano, vi
+	edit files directly in terminal
+atom
+	editor
+man <command>
+	displays manual for given command
+ls -lrt
+	list files, long listing, ordered by time (reversed)
+clear
+	clears the screen
+touch <file>
+	creates a file
+echo
+	print to terminal
