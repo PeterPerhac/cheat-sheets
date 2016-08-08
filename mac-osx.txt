@@ -2,4 +2,22 @@ Ctrl+Command+F
 	toggle between full screen and normal windowed mode
 Command+Space
 	spotlight search
+F11
+	show/unshow the desktop
+
+
+
+=====
+SCREENSHOTS
+=====
+Shift+Cmd+3
+	saves screenshot on desktop
+Shift+Cmd+4
+	saves screenshot on desktop - starts rectangular selection first
+	press SPACE to change to CAMERA mode, which makes life easier to snapshot only selected window
+
+same as above but with Ctrl in the combo, the snapshot is not stored on the desktop, but copied into your cliboard
+i.e.
+Shift+Ctrl+Cmd+3
+Shift+Ctrl+Cmd+4
 
