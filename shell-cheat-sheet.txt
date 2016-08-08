@@ -1,7 +1,8 @@
 lsof -sTCP:LISTEN -iTCP:27017
 	which process listens on port 27017? for ports below 1000 use "sudo"
 du -cmd 1 | sort -n
-	list current disk usage of files/folders in a directory, in megabytes, in ascending order (largest file/folder at the bottom of the listing)
+	list current disk usage of files/folders in a directory, in megabytes, in ascending order
+	-c to display total, -m megabytes (or use -k for kilbytes), -d (depth) followed by space 1
 find
 	recursively descends the directory tree for each path listed, evaluating an expression
 	e.g. find . -type f
