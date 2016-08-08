@@ -13,6 +13,15 @@ qaq:g/pattern/y A
 	here, first three commands q,a,q will clera the a register
 	last command :g/pattern/y A is effectively global YANK of lines matching into register a (captial A for _appending_ into a)
 
+=====
+UNDO/REDO
+=====
+
+u
+	to undo
+Ctrl+r
+	to un-undo
+
 
 =====
 COPY-PASTING
@@ -20,6 +29,13 @@ COPY-PASTING
 
 copying is called Yanking and so the command y is for yanking
 pasting is called Pasting and so the command p is for pasting
+cutting is same as deleting - any deleted lines end up in a default register, so can just be pasted after deleting
+
+
+SELECT TEXT
+	press V then up/down arrows to select text
+		then press y to copy or d to cut
+
 register can be cleared by recording nothing into it, e.g. to clear the register a, type qaq
 to access register a, use double quotes, e.g. to paste contents of register, use the command "ap
 
@@ -53,6 +69,47 @@ yyp
 
 (yy to yank current line, Y is the same as yy)
 (p pastes after the cursor, P paste before the cursor)
+
+
+
+
+=====
+SEARCHING
+=====
+
+/ or ? followed by pattern, then press ENTER to perform the search
+	n or N to navigate to next/previous search match
+
+
+*
+	to search for next occurrence of word currently under cursor
+[I
+	to get a listing of all occurrences of word currently under cursor
+
+
+** interesting settings for searching
+
+:set hlsearch - to enable search highlighting
+:set incsearch - show match as search proceeds
+:set ignorecase - case insensitive
+:set smartcase - use case if any caps used 
+
+
+=====
+COMMAND HISTORY
+=====
+
+:his
+	to list command history
+:his /
+
+	to list search history
+
+:<up/down> to go through previous commands
+/<up/down> to go through previous searches
+
+
+
 
 =====
 CLOSING and (not) SAVING
@@ -95,6 +152,11 @@ BUFFERS
 	list all open buffers
 
 
+=====
+VARIOUS
+=====
+insert new line with o or O but this will leave you in insert mode
+dd to delete a line
 
 
 
@@ -105,4 +167,6 @@ using the g command for global pattern matching
 	http://vim.wikia.com/wiki/Power_of_g
 using vim buffers
 	http://vim.wikia.com/wiki/Vim_buffer_FAQ
+very nice collection of tips
+	https://www.cs.swarthmore.edu/help/vim/home.html
 
