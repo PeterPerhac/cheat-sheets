@@ -110,6 +110,26 @@ COMMAND HISTORY
 
 
 
+=====
+REPLACING (SUBSTITUTING)
+=====
+:%s/searchFor/replaceWith/g
+	:% across all lines
+	/g across the matched line, replace all matched occurrences, rather than just fist
+:s/search/replace/
+	on current line, just the first occurrence
+
+
+can reference captured groups in the _replace_ by using \1 \2 etc (\0 references the entire match)
+however, the _search_ part needs to escape the capturing groups' parentheses like so:
+	:%s/\(wrapInQuotes\)/"\1"/g
+
+	
+
+to repeat last : command
+@:
+@@
+
 
 =====
 CLOSING and (not) SAVING
