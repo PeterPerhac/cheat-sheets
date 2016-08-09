@@ -67,3 +67,6 @@ touch <file>
 	creates a file
 echo
 	print to terminal
+jar
+    part of the JDK, use "jar -vtf jarfile.jar" to list the contents of a JAR file
+
