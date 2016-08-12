@@ -7,6 +7,11 @@ find
 	recursively descends the directory tree for each path listed, evaluating an expression
 	e.g. find . -type f
 		finds all files in current directory, equivalent of Ctrl+B in Total Commander
+    e.g. find . -type f | xargs md5
+        list MD5 hashes of all files under current directory
+xargs
+    The xargs utility reads space, tab, newline and end-of-file delimited strings from the standard input and executes <utility> with the strings as arguments.
+    r.g. find . -type f | xargs md5
 wc
 	word count - counts words, lines, characters (&bytes)
 printenv

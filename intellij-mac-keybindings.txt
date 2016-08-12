@@ -1,0 +1,57 @@
+Command
+    Bckspace - delete line
+    W - close the current editor tab
+    E - recent files
+    R - search and replace
+    Y - definition of identifier under cursor
+    O - open a class
+        (+Shift open a file)
+    D - duplicate line
+    F - find
+    G - find next
+        (+Shift find previous)
+    H - hides the facking window!
+    J - insert live template
+        (+Alt to _surround_ with live template)
+    K - commit changes
+    L - go to line
+    Z - undo
+        (+Shift to redo)
+    B - go to declaration (same as Command+Click)
+    N - generate (very useful)
+    M - minimizes the facking window!
+    . - fold current block
+    / - toggle line comment
+    ; - project structure
+    []- navigate backwards/forwards
+    -= folds and unfolds
+
+    1 - Project view
+    2 - Favourites
+    
+    4 - Run view
+    5 - Debug
+    6 - TODOs
+    7 - Structure
+    
+    9 - Version control
+    0 - Messages (like problems view in Eclipse)
+    
+    ` - toggle different view modes
+
+Control
+    T - refactor menu
+    A/E - home/end
+    O - override members
+    G - selects current word, press multiple times for wonders
+    H - class hierarchy
+
+
+
+Alt
+    Enter - list of intention actions
+    
+
+Shift
+    Enter - starts a new line
+
