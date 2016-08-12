@@ -1,0 +1,16 @@
+1) git diff file
+    check unstaged changes
+2) git diff --cached file
+    check staged changes
+3) git diff HEAD
+    check all changes between working copy and HEAD revision in repo
+    includes 1) and 2)
+
+git checkout -- .
+    this will revert your local unstaged changes - effectively checks out file from your local index into working directory, any added files not be removed by this
+git clean -fxdn
+    throw away any untracked files/directories
+    ignored files (with the x switch)
+    and only do a _dry run_ (list what would be deleted), if executed witout the -n option
+    -f switch requried to prevent accidental cleans
+

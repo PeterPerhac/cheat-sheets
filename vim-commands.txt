@@ -164,6 +164,20 @@ ZQ	Quit current file and exit (same as ":q!").
 
 
 =====
+JOINING/SPLITTING LINES
+=====
+
+gJ
+    to join
+
+splitting done by replacing a character - e.g. a space - with Enter - i.e. r<Enter>
+if no character to replace, just enter insert mode and press Enter
+    or
+yank a blank line and paste as many times as required, e.g. 2p
+
+
+
+=====
 BUFFERS
 =====
 
