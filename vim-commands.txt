@@ -1,3 +1,6 @@
+semicolon ; repeats last command
+
+
 remove all blank lines
 	:g/^\s*/d
 remove all lines _not_ matching a pattern
