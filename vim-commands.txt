@@ -109,6 +109,15 @@ COMMAND HISTORY
 /<up/down> to go through previous searches
 
 
+=====
+CHANGING
+=====
+ci)    or    ci" (or any other paired character like ] } etc)
+    Changes all text inside quotes or brackets
+    Similarly, to change only text from current cursor position up till the next bracket/quote, use:
+ct)    or    ct"
+
+
 
 =====
 REPLACING (SUBSTITUTING)
