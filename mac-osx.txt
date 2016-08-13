@@ -6,6 +6,8 @@ F11
 	show/unshow the desktop
 
 
+To achieve side-by-side full screen view, press AND HOLD the green full screen button in top left corner, then choose which side of screen to use for window #1, then select window #2
+
 
 =====
 SCREENSHOTS
