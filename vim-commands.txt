@@ -1,3 +1,6 @@
+semicolon ; repeats last command
+
+
 remove all blank lines
 	:g/^\s*/d
 remove all lines _not_ matching a pattern
@@ -21,6 +24,17 @@ u
 	to undo
 Ctrl+r
 	to un-undo
+	
+	
+=====
+NAVIGATING
+=====
+backwards by pressing Ctrl+o
+forwards by Tabbing
+can jump to any line number by typing the number followed by capital G
+
+can easily place marks in file, like so : ma mb mc md etc...
+can then navigate back to these marks like so: `a `b `c `d etc... (note, it's a backtick)
 
 
 =====
