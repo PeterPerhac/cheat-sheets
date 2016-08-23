@@ -1,3 +1,6 @@
+DIFF
+====
+
 1) git diff file
     check unstaged changes
 2) git diff --cached file
@@ -6,11 +9,40 @@
     check all changes between working copy and HEAD revision in repo
     includes 1) and 2)
 
+STATUS
+======
+
+git status -u
+    shows UNtracked files in the status as well as the tracked changes
+
+LOG
+===
+
+git log -5 --stat
+    -5 limits the log to the most recent 5 commits
+    --stat switches the mode to display also various details about each commit, like number of lines added etc.
+
+REMOTE
+======
+
+git remote -v
+    shows currently configured remotes (URLs)
+
+DANGER ZONE
+===========
+
 git checkout -- .
     this will revert your local unstaged changes - effectively checks out file from your local index into working directory, any added files not be removed by this
-git clean -fxdn
+
+git reset --hard HEAD
+    reverts all working copy changes to the state of files in the index at HEAD
+
+git clean -fdxn
     throw away any untracked files/directories
     ignored files (with the x switch)
     and only do a _dry run_ (list what would be deleted), if executed witout the -n option
     -f switch requried to prevent accidental cleans
+
+git gc --prune=now
+    clean up a git repository, optionally with --aggressive switch to do a more thorough job that takes longer to perform
 
