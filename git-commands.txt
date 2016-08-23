@@ -28,6 +28,19 @@ REMOTE
 git remote -v
     shows currently configured remotes (URLs)
 
+STASHES
+=======
+
+git stash list
+    to see the stack of stashes
+git stash save
+    to create stash [-pkuaq] [message]
+git stash pop
+    pops stash@{0} onto current working copy
+git stash drop stash@{revision}
+    may need to manyally drop a stash if a stash is created and never popped or popping resulted in conflicts
+
+
 DANGER ZONE
 ===========
 
