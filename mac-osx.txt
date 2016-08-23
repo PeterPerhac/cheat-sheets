@@ -1,3 +1,8 @@
+
+Command+Shift+Y
+    with any text selected, this will launch Stickies and paste the currently selected text into a fresh sticky. Neat!
+
+
 Ctrl+Command+F
 	toggle between full screen and normal windowed mode
 Command+Space
