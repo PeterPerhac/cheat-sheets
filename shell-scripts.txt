@@ -1,9 +1,0 @@
-Run git pull over all subdirectories
-
-ls | xargs -I{} git -C {} pull
-    to do this in parallel:
-ls | xargs -P10 -I{} git -C {} pull
-    
-        [http://stackoverflow.com/a/29072745/81520]
-
-
