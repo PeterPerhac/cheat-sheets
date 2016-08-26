@@ -43,7 +43,7 @@ Control
     T - refactor menu
     A/E - home/end
     O - override members
-    G - selects current word, press multiple times for wonders
+    G - selects current word, press multiple times to select more occurrences of the selected word, and edit all selections in parallel, great for renaming stuff.
     H - class hierarchy
 
 
@@ -54,4 +54,5 @@ Alt
 
 Shift
     Enter - starts a new line
+
 
