@@ -205,6 +205,8 @@ BUFFERS
 =====
 
 :new
+:edit
+    reload current buffer from underlying file (if edited outside vim)
 :ls
 	list all open buffers
 
