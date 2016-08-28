@@ -1,4 +1,4 @@
 # cheat-sheets
-Where I store various cheat sheets I create as I go through life. keyboard shortcuts for various tools, tricks I'd learned, shell scripts or commands that I find useful, and any other such sundry malarkey
+A store of various cheat sheets, keyboard shortcuts for various tools, tricks I'd learned, shell scripts or commands that I found useful, and any other such stuff
 
 Welcome
