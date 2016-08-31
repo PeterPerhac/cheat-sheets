@@ -28,3 +28,12 @@ i.e.
 Shift+Ctrl+Cmd+3
 Shift+Ctrl+Cmd+4
 
+
+
+
+
+#find out where java_home is pointing to
+/usr/libexec/java_home
+this returns the path to the JDK home
+/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home
+
