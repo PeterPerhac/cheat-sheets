@@ -109,6 +109,13 @@ SEARCHING
 :set smartcase - use case if any caps used 
 
 
+====
+OTHER SET-tings
+====
+set nu
+    sets line numbering
+
+
 =====
 COMMAND HISTORY
 =====
@@ -216,7 +223,11 @@ VARIOUS
 =====
 insert new line with o or O but this will leave you in insert mode
 dd to delete a line
+d$ to delete from current cursor position to the end of line
+2dd to delete 2 lines
 
+sort lines by selecting them (Ctrl+V to visual mode, line selection), then running the sort command like so:
+    :sort
 
 
 =====
