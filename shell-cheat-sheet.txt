@@ -24,6 +24,9 @@ grep
 	search any given input, selecting lines that match one or more patterns
 	e.g. grep -r 'selenium' **/build.sbt
 		this will search recursively (-r) in current directory to find all build.sbt files containing the 'selenium' text
+    -o to dump matches into the standard output
+        e.g. grep -o 'HREF="[^"]\+"' bookmarks.html
+            will output all HREF attributes from the bookmarks.html file
 egrep
 	equivalent to grep -E, used to specify pattern as regular expression
 	e.g. egrep -r '^[Pp]attern.*$' **/*.java
