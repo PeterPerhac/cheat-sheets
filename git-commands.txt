@@ -59,3 +59,8 @@ git clean -fdxn
 git gc --prune=now
     clean up a git repository, optionally with --aggressive switch to do a more thorough job that takes longer to perform
 
+git rm --cached -r <some_directory>
+    or
+git rm --cached <some_file>
+    to remove files/directories accidentally added to staging area. This removes them from the staging area ONLY, leaving the files/directories untouched in the working copy
+
