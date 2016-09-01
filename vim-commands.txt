@@ -239,4 +239,6 @@ using vim buffers
 	http://vim.wikia.com/wiki/Vim_buffer_FAQ
 very nice collection of tips
 	https://www.cs.swarthmore.edu/help/vim/home.html
+multiline editing
+    http://stackoverflow.com/a/11790464/81520
 
