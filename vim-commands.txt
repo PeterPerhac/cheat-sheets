@@ -214,8 +214,12 @@ BUFFERS
 :new
 :edit
     reload current buffer from underlying file (if edited outside vim)
+:edit <file>
+    opens a file in vim
 :ls
 	list all open buffers
+:bd
+    buffer delete (effectively close the current file)
 
 
 =====
