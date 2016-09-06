@@ -114,6 +114,8 @@ OTHER SET-tings
 ====
 set nu
     sets line numbering
+set nonumber
+    un-sets line numbering
 
 
 =====
@@ -137,7 +139,7 @@ ci)    or    ci" (or any other paired character like ] } etc)
     Changes all text inside quotes or brackets
     Similarly, to change only text from current cursor position up till the next bracket/quote, use:
 ct)    or    ct"
-
+    Change 'till, erases all text up to the first occurrence of character pressed after ct
 
 
 =====
