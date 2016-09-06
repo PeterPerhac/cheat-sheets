@@ -1,4 +1,6 @@
 . (full stop) repeats last command
+; (semicolon) repeats last motion (t/f, T/F)
+, (comma) reverse last motion (t -> T, f -> F)
 @: repeats last :command
 
 remove all blank lines
@@ -6,8 +8,18 @@ remove all blank lines
 remove all lines _not_ matching a pattern
 	:g!/somepattern/d
 
-can use d_ to send all matched lines to blackhole register, which will be faster
+* can use d_ to send all matched lines to blackhole register, which will be faster
 
+
+x,X (del/backspace) without entering insert mode
+
+
+~ toggle case (a -> A, A -> a)
+S substitute whole line
+C change to EOL
+
+
+H move to screen top
 
 
 copy all lines matching a pattern into register (a)
