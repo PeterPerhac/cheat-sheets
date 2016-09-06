@@ -1,5 +1,5 @@
-semicolon ; repeats last command
-
+. (full stop) repeats last command
+@: repeats last :command
 
 remove all blank lines
 	:g/^\s*/d
