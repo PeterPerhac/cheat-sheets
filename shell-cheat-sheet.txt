@@ -23,8 +23,12 @@ printenv
 	prints out the current environment
 head -10
 	top ten lines
-tail -10
-	last ten lines
+tail
+    show the end of a file; e.g.:
+    tail -10
+	    show last ten lines of a file
+    tail -10f
+        follow the last 10 lines (data appended to output as the file grows)
 grep
 	search any given input, selecting lines that match one or more patterns
 	e.g. grep -r 'selenium' **/build.sbt
