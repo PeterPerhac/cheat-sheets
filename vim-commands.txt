@@ -48,6 +48,23 @@ can jump to any line number by typing the number followed by capital G
 can easily place marks in file, like so : ma mb mc md etc...
 can then navigate back to these marks like so: `a `b `c `d etc... (note, it's a backtick)
 
+
+====
+BLOCK EDITING
+====
+
+Ctrl-v % Shift-i // Esc
+    Ctrl-v to enter visual block edit mode
+    % motion to visually edit until next matching bracket
+    Shift-i means insert at start of line
+    // is to be inserted
+    Esc to escape visual block editing mode
+
+Ctrl-v % $ Shift-a , Esc
+    in a similar manner will append comma to the end of each line in the current block
+    trick is first need to move cursor to end of line $ and then "append" with Shift-a
+    whatever is typed prior to pressing Esc will be appended to the end of each line in the block
+
 ====
 TAGS (xml / html)
 ====
@@ -118,7 +135,7 @@ yyp
 (yy to yank current line, Y is the same as yy)
 (p pastes after the cursor, P paste before the cursor)
 
-
+trl
 
 
 =====
