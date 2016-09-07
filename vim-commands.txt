@@ -56,11 +56,19 @@ Selecting insides/outsides of xml tags
 
 vat
     select outside tag in visual mode
-vaat
+vatat
     select outside-outside tag in visual mode
-vit
-    select inside of the current tag
+vatatat
+    you acn guess...
+o
+    jump to opposite tag, while still in visual mode
 
+vit
+    select the inside (/innerHtml) of the current tag
+vitit
+    select the inside (/innerHtml) of the parent tag
+vititit
+    you can guess...
 
 
 =====
