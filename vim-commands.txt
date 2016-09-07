@@ -173,11 +173,13 @@ SEARCHING
 ====
 OTHER SET-tings
 ====
-set nu
+:set nu
     sets line numbering
-set nonumber
+:set nonumber
     un-sets line numbering
-
+:set list
+:set nolist
+    sets and unsets the display of invisible characters, like spaces and tabs, etc.
 
 =====
 COMMAND HISTORY
