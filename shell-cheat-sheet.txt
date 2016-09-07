@@ -1,3 +1,6 @@
+cd $(dirname "$0")
+    cd to the directory in which executed script resides
+    relative path from current working directory to the currently executing script is available as the 0th env arugment
 lsof -sTCP:LISTEN -iTCP:27017
 	which process listens on port 27017? for ports below 1000 use "sudo"
 du -cmd 1 | sort -n
