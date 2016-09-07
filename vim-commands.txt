@@ -48,6 +48,20 @@ can jump to any line number by typing the number followed by capital G
 can easily place marks in file, like so : ma mb mc md etc...
 can then navigate back to these marks like so: `a `b `c `d etc... (note, it's a backtick)
 
+====
+TAGS (xml / html)
+====
+Selecting insides/outsides of xml tags
+===
+
+vat
+    select outside tag in visual mode
+vaat
+    select outside-outside tag in visual mode
+vit
+    select inside of the current tag
+
+
 
 =====
 COPY-PASTING
@@ -259,4 +273,6 @@ very nice collection of tips
 	https://www.cs.swarthmore.edu/help/vim/home.html
 multiline editing
     http://stackoverflow.com/a/11790464/81520
+visual mode selecting xml tags
+    http://stackoverflow.com/a/10881471/81520
 
