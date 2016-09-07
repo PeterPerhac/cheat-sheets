@@ -135,7 +135,17 @@ yyp
 (yy to yank current line, Y is the same as yy)
 (p pastes after the cursor, P paste before the cursor)
 
-trl
+
+
+====
+MACROS
+====
+q<letter><commands>q
+    records a series of commands into a
+@a
+    replays macro a
+@@
+    replays previous macro
 
 
 =====
