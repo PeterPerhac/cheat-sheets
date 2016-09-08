@@ -41,6 +41,39 @@ git stash drop stash@{revision}
     may need to manyally drop a stash if a stash is created and never popped or popping resulted in conflicts
 
 
+SYNC FORKED REPOSITORY WITH UPSTREAM
+====================================
+
+# Add the remote, call it "upstream":
+
+git remote add upstream https://github.com/whoever/whatever.git
+
+# Fetch all the branches of that remote into remote-tracking branches,
+# such as upstream/master:
+
+git fetch upstream
+
+# Make sure that you're on your master branch:
+
+git checkout master
+
+# Rewrite your master branch so that any commits of yours that
+# aren't already in upstream/master are replayed on top of that
+# other branch:
+
+git rebase upstream/master
+
+# in case you get in merge trouble, resolve merge issues
+#you can only continue with rebasing once merge issues have been resolved, and committed
+git add .
+git commit -m "whatever"
+git rebase --continue
+
+# -f may or may not be required for the final push back to the forked remote
+git push -f origin master
+
+
+
 DANGER ZONE
 ===========
 
