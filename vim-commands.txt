@@ -270,6 +270,13 @@ if no character to replace, just enter insert mode and press Enter
     or
 yank a blank line and paste as many times as required, e.g. 2p
 
+join multiple lines by selecting them in visual mode, V, then press J
+join all lines by pressing:
+    ggVGJ
+        gg - first line
+        V - visual line select
+        G - last line
+        J - join
 
 
 =====
