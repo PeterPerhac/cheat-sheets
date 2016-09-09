@@ -73,6 +73,21 @@ git rebase --continue
 git push -f origin master
 
 
+MOVE TO FORK
+============
+So you've cloned somebody's repo from github, but now you want to fork it and contribute back. Never fear!
+Technically, when you fork "origin" should be your fork and "upstream" should be the project you forked
+
+1. Fork their repo on Github
+2. In your local, rename your origin remote to upstream
+    git remote rename origin upstream
+3. Add a new origin
+    git remote add origin git@github...my-fork
+4. Fetch & push
+    git fetch origin
+    git push origin
+
+(adapted from: https://gist.github.com/jagregory/710671#file-gistfile1-txt
 
 DANGER ZONE
 ===========
