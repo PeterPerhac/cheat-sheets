@@ -86,6 +86,8 @@ Technically, when you fork "origin" should be your fork and "upstream" should be
 4. Fetch & push
     git fetch origin
     git push origin
+5. Change current branch to track the branch in the new origin (not in the old origin that is now called upstream)
+    git branch --set-upstream-to origin/master
 
 (adapted from: https://gist.github.com/jagregory/710671#file-gistfile1-txt
 
