@@ -99,7 +99,8 @@ git checkout -- .
 
 git reset --hard HEAD
     reverts all working copy changes to the state of files in the index at HEAD
-
+git reset --hard HEAD^
+    drops most recent commit from local repo
 git clean -fdxn
     throw away any untracked files/directories
     ignored files (with the x switch)
