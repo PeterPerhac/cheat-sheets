@@ -213,6 +213,7 @@ REPLACING (SUBSTITUTING)
 	/g across the matched line, replace all matched occurrences, rather than just fist
 :s/search/replace/
 	on current line, just the first occurrence
+in the non-global version of substitute, (i.e. :s/x/y/) use & to repeat - to perform the substitute on next match
 
 
 can reference captured groups in the _replace_ by using \1 \2 etc (\0 references the entire match)
