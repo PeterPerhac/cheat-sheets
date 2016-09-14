@@ -76,7 +76,7 @@ vat
 vatat
     select outside-outside tag in visual mode
 vatatat
-    you acn guess...
+    you can guess...
 o
     jump to opposite tag, while still in visual mode
 
