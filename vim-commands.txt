@@ -2,6 +2,9 @@
 ; (semicolon) repeats last motion (t/f, T/F)
 , (comma) reverse last motion (t -> T, f -> F)
 @: repeats last :command
+    replays (@) the colon maro
+@@ repeats the last repeat
+    replays (@) the replay (@) of a macro
 
 remove all blank lines
 	:g/^\s*/d
@@ -15,7 +18,7 @@ x,X (del/backspace) without entering insert mode
 
 
 ~ toggle case (a -> A, A -> a)
-S substitute whole line
+S substitute whole line (from the soft BOL)
 C change to EOL
 
 
@@ -75,9 +78,8 @@ Ctrl-v % $ Shift-a , Esc
 
 ====
 TAGS (xml / html)
-====
 Selecting insides/outsides of xml tags
-===
+====
 
 vat
     select outside tag in visual mode
@@ -221,18 +223,16 @@ REPLACING (SUBSTITUTING)
 	/g across the matched line, replace all matched occurrences, rather than just fist
 :s/search/replace/
 	on current line, just the first occurrence
-in the non-global version of substitute, (i.e. :s/x/y/) use & to repeat - to perform the substitute on next match
+in the non-global version of substitute, (i.e. :s/x/y/) use n (to find next occurrence) and & to repeat the substitution
+    alternative way is to specify the c option on a global substitute like so:
+        :%s/needle/replacement/gc
+            here g is for all occurrences on a line
+            and c requests a confirmation of each substitution
 
 
 can reference captured groups in the _replace_ by using \1 \2 etc (\0 references the entire match)
 however, the _search_ part needs to escape the capturing groups' parentheses like so:
 	:%s/\(wrapInQuotes\)/"\1"/g
-
-	
-
-to repeat last : command
-@:
-@@
 
 
 =====
