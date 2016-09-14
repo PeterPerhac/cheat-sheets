@@ -49,6 +49,14 @@ can easily place marks in file, like so : ma mb mc md etc...
 can then navigate back to these marks like so: `a `b `c `d etc... (note, it's a backtick)
 
 
+end of line by pressing $
+start of line by pressing ^ or 0
+    ^ - soft bol - follows indentation
+    0 - hard bol - takes you to column 0
+
+Shift+i (I) - insert at (soft) bol - prepend to line
+Shift+a (A) - append to line
+
 ====
 BLOCK EDITING
 ====
