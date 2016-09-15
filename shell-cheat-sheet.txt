@@ -3,6 +3,8 @@ cd $(dirname "$0")
     relative path from current working directory to the currently executing script is available as the 0th env arugment
 lsof -sTCP:LISTEN -iTCP:27017
 	which process listens on port 27017? for ports below 1000 use "sudo"
+    similarly, lists all processess listening on the TCP interface:
+        lsof -iTCP -sTCP:LISTEN | sort
 du -cmd 1 | sort -n
 	list current disk usage of files/folders in a directory, in megabytes, in ascending order
 	-c to display total, -m megabytes (or use -k for kilbytes), -d (depth) followed by space 1
