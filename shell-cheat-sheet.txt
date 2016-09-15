@@ -89,3 +89,23 @@ echo
 jar
     part of the JDK, use "jar -vtf jarfile.jar" to list the contents of a JAR file
 
+======
+======
+UBUNTU
+======
+======
+to fiddle with touchpad settings (finger pressure)
+	xinput list
+		to show all input devices
+		(note the device ID for below commands)
+	xinput list-props <id>
+		to see all properties of given input device
+		(good idea to grep for one that we're interested in)
+		e.g.
+			xinput list-props 15 | grep -i finger
+		(note the prop id in brackets)
+	xinput set-prop <deviceID> <propertyID> <newValue>
+		e.g.
+			xinput set-prop 15 297 30 40 100
+
+good idea to first list-props of a device into a file and keep a copy of original settings BEFORE changing these!
