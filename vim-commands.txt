@@ -76,6 +76,16 @@ Ctrl-v % $ Shift-a , Esc
     trick is first need to move cursor to end of line $ and then "append" with Shift-a
     whatever is typed prior to pressing Esc will be appended to the end of each line in the block
 
+===
+FORMATTING CODE
+===
+
+= formats code.
+	Takes a motion as argument, so to format all code in a file do:
+	gg=G
+=% formats code up to matching bracket (round, square, angle, squiggly, doesn't matter)
+	NB, must position cursor on opening/closing bracket for this to work properly
+
 ====
 TAGS (xml / html)
 Selecting insides/outsides of xml tags
