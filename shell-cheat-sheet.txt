@@ -88,3 +88,10 @@ echo
 	print to terminal
 jar
     part of the JDK, use "jar -vtf jarfile.jar" to list the contents of a JAR file
+
+
+LINKS
+=====
+setting up user groups and adding users to groups (setting up the sftp group)
+	http://serverfault.com/a/155067/20522
+
