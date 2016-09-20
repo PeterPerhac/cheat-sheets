@@ -14,6 +14,17 @@ find
 		finds all files in current directory, equivalent of Ctrl+B in Total Commander
     e.g. find . -type f | xargs md5
         list MD5 hashes of all files under current directory
+cmd
+    for fast-comapring two files, byte-by-byte, stops reading file on first mis-match and reports position of difference
+    e.g. cmp raven.txt raven-huffman-decoded.txt 
+md5
+    calculate MD5 hash / digest / checksum of a file passed as argument
+shasum
+    for calculating SHA digests / hashes / checksums
+        e.g. 
+        shasum -a 256 /path/to/file
+    or
+        shasum -a 1 /path/to/file
 xargs
     The xargs utility reads space, tab, newline and end-of-file delimited strings from the standard input and executes <utility> with the strings as arguments.
     e.g.
