@@ -1,3 +1,13 @@
+TIPS
+====
+posfix completion
+    "something".sout<tab>
+        (Java)  --> System.out.println("something");
+        (Scala) --> println("something")
+    expression.par<tab>
+        --> (expression)
+
+
 Command
     Bckspace - delete line
     W - close the current editor tab
