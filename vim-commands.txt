@@ -61,6 +61,21 @@ Shift+i (I) - insert at (soft) bol - prepend to line
 Shift+a (A) - append to line
 
 ====
+FOLDING
+====
+
+zA
+    toggle ALL folds on/off (expand/contract)
+za
+    toggle current fold on/off
+
+zc/zo
+    close/open current fold
+zr/zm
+    reduces/increases folding by opening/closing one more level of folds throughout the whole buffer (the cursor position is not relevant)
+    Use zR to open all folds. Use zM to close all folds.
+
+====
 BLOCK EDITING
 ====
 
