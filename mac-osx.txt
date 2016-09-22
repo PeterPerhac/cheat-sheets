@@ -1,3 +1,4 @@
+in terminal type `open .` to open the current location (directory) in finder
 
 Command+Shift+Y
     with any text selected, this will launch Stickies and paste the currently selected text into a fresh sticky. Neat!

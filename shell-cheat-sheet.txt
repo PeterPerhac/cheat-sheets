@@ -1,3 +1,5 @@
+open .
+    opens current location in Finder
 cd $(dirname "$0")
     cd to the directory in which executed script resides
     relative path from current working directory to the currently executing script is available as the 0th env arugment
