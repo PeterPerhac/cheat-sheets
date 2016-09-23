@@ -121,7 +121,7 @@ install the mr tool
     brew install mr
 cd to your workspace
     touch .mrconfig
-    ls -d */ | xargs -L1 mr register
+    ls -d */ | xargs -L1 -P4 mr register
 
 once repositories are registered with the mr tool, you can run commands like:
     mr status
