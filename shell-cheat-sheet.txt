@@ -32,6 +32,10 @@ xargs
     e.g.
         find . -type f | xargs md5
         ls | xargs -I{} git -C {} pull
+mr (non-standard)
+    Multiple Repositories - initialise .mrconfig file in your $WORKSPACE by running this command:
+        ls -d */ | xargs -L1 mr register
+        (assumes you have cd'ed to the $WORKSPACE directory and created a blank .mrconfig file
 wc
 	word count - counts words, lines, characters (&bytes)
 printenv
