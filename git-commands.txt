@@ -115,3 +115,17 @@ git rm --cached -r <some_directory>
 git rm --cached <some_file>
     to remove files/directories accidentally added to staging area. This removes them from the staging area ONLY, leaving the files/directories untouched in the working copy
 
+MULTIPLE REPOSITORIES
+=====================
+install the mr tool
+    brew install mr
+cd to your workspace
+    touch .mrconfig
+    ls -d */ | xargs -L1 mr register
+
+once repositories are registered with the mr tool, you can run commands like:
+    mr status
+    mr update
+        (performs a pull)
+
+    etc.
