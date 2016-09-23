@@ -3,6 +3,8 @@ open .
 cd $(dirname "$0")
     cd to the directory in which executed script resides
     relative path from current working directory to the currently executing script is available as the 0th env arugment
+find . -maxdepth 1 ! -path . ! -name "*.txt" | xargs rm -rf 
+    deletes all EXCEPT the pattern *.txt
 lsof -sTCP:LISTEN -iTCP:27017
 	which process listens on port 27017? for ports below 1000 use "sudo"
     similarly, lists all processess listening on the TCP interface:
