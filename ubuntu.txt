@@ -1,3 +1,7 @@
+top OPEN a file using default application:
+	xdg-open 
+
+
 to fiddle with touchpad settings (finger pressure)
 	xinput list
 		to show all input devices
