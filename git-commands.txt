@@ -129,3 +129,11 @@ once repositories are registered with the mr tool, you can run commands like:
         (performs a pull)
 
     etc.
+
+
+BASH scripts
+============
+find . -maxdepth 1 -name 'app-config-*' | xargs -I{} git -C {} pull -r
+    pulls (rebasing any local unpushed changes) from all app-config-* directories found under .
+
+
