@@ -6,9 +6,11 @@ Historical UNIX-like filesystem hierarchies contained both static and variable f
 
  | shareable | unshareable
 --- | --- | ---
-static | /usr | /etc
+static | | 
+ | /usr | /etc
  | /opt | /boot
-variable | /var/mail | /var/run
+variable | |
+ | /var/mail | /var/run
  | /var/spool/news | /var/lock
 
 directory | desription
