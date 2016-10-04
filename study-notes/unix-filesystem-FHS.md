@@ -4,26 +4,27 @@
 
 Historical UNIX-like filesystem hierarchies contained both static and variable files under both /usr and /etc. In order to realize the advantages mentioned above, the /var hierarchy was created and all _variable files_ were transferred from /usr to _/var_. Consequently /usr can now be mounted read-only (if it is a separate filesystem). Variable files have been transferred from /etc to /var over a longer period as technology has permitted.
 
+ | shareable | unshareable
+--- | --- | ---
+static | /usr | /etc
+ | /opt | /boot
+variable | /var/mail | /var/run
+ | /var/spool/news | /var/lock
 
-        shareable	        unshareable
-static  
-        /usr	            /etc
-        /opt	            /boot
-variable
-        /var/mail	        /var/run
- 	    /var/spool/news	    /var/lock
+directory | desription
+--- | ---
+bin |  Essential command binaries
+boot |  Static files of the boot loader
+dev |  Device files
+etc |  Host-specific system configuration
+lib |  Essential shared libraries and kernel modules
+media |  Mount point for removeable media
+mnt |  Mount point for mounting a filesystem temporarily
+opt |  Add-on application software packages
+sbin |  Essential system binaries
+srv |  Data for services provided by this system
+tmp |  Temporary files
+usr |  Secondary hierarchy
+var |  Variable data
 
-bin	Essential command binaries
-boot	Static files of the boot loader
-dev	Device files
-etc	Host-specific system configuration
-lib	Essential shared libraries and kernel modules
-media	Mount point for removeable media
-mnt	Mount point for mounting a filesystem temporarily
-opt	Add-on application software packages
-sbin	Essential system binaries
-srv	Data for services provided by this system
-tmp	Temporary files
-usr	Secondary hierarchy
-var	Variable data
 
