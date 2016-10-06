@@ -1,7 +1,0 @@
-xinput list-props 15 | grep -i finger
-	Synaptics Finger (297):	25, 30, 0
-	Synaptics Two-Finger Pressure (303):	282
-	Synaptics Two-Finger Width (304):	7
-	Synaptics Two-Finger Scrolling (307):	1, 1
-xinput set-prop 15 297 50 90 255
-
