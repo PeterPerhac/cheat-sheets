@@ -52,14 +52,16 @@ tail
         follow the last 10 lines (data appended to output as the file grows)
 grep
 	search any given input, selecting lines that match one or more patterns
-	e.g. grep -r 'selenium' **/build.sbt
-		this will search recursively (-r) in current directory to find all build.sbt files containing the 'selenium' text
+	e.g. grep -r --include="*.xml" --exclude=*target* --exclude=*idea* 'metrics' .
+		this will search recursively (-r) in current directory (note the last .) looking for XML files that are NOT in .idea or target folders and contain the word 'metrics'
     -o to dump matches into the standard output
         e.g. grep -o 'HREF="[^"]\+"' bookmarks.html
             will output all HREF attributes from the bookmarks.html file
+    -l only list files containing matches (not the matches themselves)
 egrep
 	equivalent to grep -E, used to specify pattern as regular expression
-	e.g. egrep -r '^[Pp]attern.*$' **/*.java
+    no need to escape brackets and pipes in pattern
+	e.g. egrep -r --include=*.java '^[Pp]attern.*$' .
 fgrep
 	equivalent to grep -F, used to find simple text pattern, faster than egrep or grep
 cd -
