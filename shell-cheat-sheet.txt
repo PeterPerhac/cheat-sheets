@@ -3,6 +3,8 @@ open .
 cd $(dirname "$0")
     cd to the directory in which executed script resides
     relative path from current working directory to the currently executing script is available as the 0th env arugment
+t7 >>out 2>&1
+    sends standard output from the t7 command to a file called out, also redirects standard error to standard out, so all ends up in 'out'
 find . -maxdepth 1 ! -path . ! -name "*.txt" | xargs rm -rf 
     deletes all EXCEPT the pattern *.txt
 lsof -sTCP:LISTEN -iTCP:27017
@@ -14,10 +16,12 @@ du -cmd 1 | sort -n
 	-c to display total, -m megabytes (or use -k for kilbytes), -d (depth) followed by space 1
 find
 	recursively descends the directory tree for each path listed, evaluating an expression
-	e.g. find . -type f
+	 find . -type f
 		finds all files in current directory, equivalent of Ctrl+B in Total Commander
-    e.g. find . -type f | xargs md5
+     find . -type f | xargs md5
         list MD5 hashes of all files under current directory
+    find . -iname systemout
+        finds anything (file or directory) with a name like systemout (case-insensitive)
 cmd
     for fast-comapring two files, byte-by-byte, stops reading file on first mis-match and reports position of difference
     e.g. cmp raven.txt raven-huffman-decoded.txt 
@@ -58,6 +62,7 @@ grep
         e.g. grep -o 'HREF="[^"]\+"' bookmarks.html
             will output all HREF attributes from the bookmarks.html file
     -l only list files containing matches (not the matches themselves)
+    -v inVerts the match so that only lines NOT matching the pattern are reported
 egrep
 	equivalent to grep -E, used to specify pattern as regular expression
     no need to escape brackets and pipes in pattern
