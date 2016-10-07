@@ -64,6 +64,7 @@ grep
     -l only list files containing matches (not the matches themselves)
     -v inVerts the match so that only lines NOT matching the pattern are reported
     -Bn / -An will output also `n` lines Before and/or After the matched line, fore example grep -B1 9293 $WORKSPACE/service-manager-config/services.json will show the line with matching port number 9293, but also the line before it, which contains the service name assigned to the port
+    -{n} will give you n lines of context around the matched line (same as -A3 -B3)
 egrep
 	equivalent to grep -E, used to specify pattern as regular expression
     no need to escape brackets and pipes in pattern
