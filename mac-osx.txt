@@ -38,7 +38,8 @@ osascript <<END
     end tell
 END
 
-
+Alt+2 to type Euro sign (€)
+Alt+3 to type a hash (#)
 
 
 #find out where java_home is pointing to
