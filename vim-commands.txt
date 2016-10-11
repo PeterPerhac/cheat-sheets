@@ -336,9 +336,19 @@ dd to delete a line
 d$ to delete from current cursor position to the end of line
 2dd to delete 2 lines
 
-sort lines by selecting them (Ctrl+V to visual mode, line selection), then running the sort command like so:
+sort all lines in the buffer like so:
     :sort
+sort in reverse order like so:
+    :sort!
+Sort a range of lines by selecting them (Shift+V to visual line selection mode). This will automatically insert '<, '> into the command line (on pressing `:`).  This translates as "range from start of visual selection to end of visual selection" and you do not need to clear the command line before typing the sort command.
+You can also manually specify the range. One way can be to drop a mark at the start (e.g. `ma` drops the a-mark) - then move to the last line of the text-to-be-sorted, then sort the range from the placed mark to the current line like so:
+    :'a,.sort
+    range from reference to mark a ('a) to (,) current line (.)
 
+You can also sort and REMOVE DUPLICATE LINES
+    :sort u
+or use numeric sort
+    :sort n
 
 =====
 LINKS TO INTERESTING PAGES
