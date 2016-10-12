@@ -128,7 +128,14 @@ unzip -l <zip/jar/war/ear-file>
     lists the contents of a zip-compressed file
 zip
     zip <zipfile-name> space-separated-list-of-files-or-patterns
-
+zipinfo
+    lists the contents of a zip file along with various information about the compressed conten
+    can be an easier to remember option for `unzip -l`
+zipgrep
+    search for text inside zipped files
+    e.g.
+        zipgrep -i interceptor my-app.jar
+    this will do a case-insensitive grep for the pattern 'interceptor' inside the my-app.jar
 
 LINKS
 =====
