@@ -116,6 +116,9 @@ echo
 	print to terminal
 jar
     part of the JDK, use "jar -vtf jarfile.jar" to list the contents of a JAR file
+openssl
+    openssl x509 -noout -text -in <path-to-crt>
+        shows details of a standard x509 certificate from a .crt file
 tar
     can be used to (un)pack archives of type: tar, pax, cpio, zip, jar, ar
     tar -zxvf file.zip
