@@ -116,6 +116,18 @@ echo
 	print to terminal
 jar
     part of the JDK, use "jar -vtf jarfile.jar" to list the contents of a JAR file
+tar
+    can be used to (un)pack archives of type: tar, pax, cpio, zip, jar, ar
+    tar -zxvf file.zip
+        z - it's a ZIP type archive
+        x - eXtract (unzip)
+        v - Verbose - list files on screen
+        f - take input from the File specified
+        note that f must come last in the clump of options, as file.zip is the value of the f option
+unzip -l <zip/jar/war/ear-file>
+    lists the contents of a zip-compressed file
+zip
+    zip <zipfile-name> space-separated-list-of-files-or-patterns
 
 
 LINKS
