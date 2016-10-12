@@ -40,6 +40,15 @@ git stash pop
 git stash drop stash@{revision}
     may need to manyally drop a stash if a stash is created and never popped or popping resulted in conflicts
 
+git FETCH
+=========
+fetch will update all of the "remote tracking branches" in your local repository.
+
+git PULL
+========
+a pull is effectively a fetch followed by a merge of the remote tracking branch associated with your current branch.
+in case of git pull -r it's a fetch followed by a rebase rather than merge
+
 
 SYNC FORKED REPOSITORY WITH UPSTREAM
 ====================================
