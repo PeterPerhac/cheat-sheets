@@ -128,6 +128,8 @@ unzip -l <zip/jar/war/ear-file>
     lists the contents of a zip-compressed file
 zip
     zip <zipfile-name> space-separated-list-of-files-or-patterns
+zipcloak
+    use this to encrypt / password-protect a zip file
 zipinfo
     lists the contents of a zip file along with various information about the compressed conten
     can be an easier to remember option for `unzip -l`
