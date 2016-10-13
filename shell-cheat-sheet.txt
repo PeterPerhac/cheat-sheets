@@ -7,6 +7,9 @@ t7 >>out 2>&1
     sends standard output from the t7 command to a file called out, also redirects standard error to standard out, so all ends up in 'out'
 find . -maxdepth 1 ! -path . ! -name "*.txt" | xargs rm -rf 
     deletes all EXCEPT the pattern *.txt
+find . -maxdepth 1 -not -path . -not -name "*.txt" | xargs rm -rf 
+    alternate syntax for the same as above, but using the -not predicate rather than exclamation mark
+    negative matching on paths or names or types performed by either -not predicate or !
 lsof -sTCP:LISTEN -iTCP:27017
 	which process listens on port 27017? for ports below 1000 use "sudo"
     similarly, lists all processess listening on the TCP interface:
