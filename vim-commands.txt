@@ -350,6 +350,19 @@ You can also sort and REMOVE DUPLICATE LINES
 or use numeric sort
     :sort n
 
+====
+MISC
+====
+
+Ctrl+a
+	increment number under cursor
+Ctrl+x
+	decrement number under cursor
+
+Ctrl+n
+	while typing this will show a list of suggestions for word completion
+
+
 =====
 LINKS TO INTERESTING PAGES
 =====
