@@ -1,9 +1,14 @@
+top
+    like the windows task manager in the linux world
+    see a pid you don't like, still within the top command use:
+        k <pid>
+    to kill that process
 open .
     opens current location in Finder
 cd $(dirname "$0")
     cd to the directory in which executed script resides
     relative path from current working directory to the currently executing script is available as the 0th env arugment
-t7 >>out 2>&1
+t7 > out 2>&1
     sends standard output from the t7 command to a file called out, also redirects standard error to standard out, so all ends up in 'out'
 find . -maxdepth 1 ! -path . ! -name "*.txt" | xargs rm -rf 
     deletes all EXCEPT the pattern *.txt
