@@ -4,12 +4,18 @@ top
         k <pid>
     to kill that process
 open .
-    opens current location in Finder
+    opens current location in Finder (OSX)
+    xdg-open . 2>/dev/null &
+	does the same on Ubuntu
 cd $(dirname "$0")
     cd to the directory in which executed script resides
     relative path from current working directory to the currently executing script is available as the 0th env arugment
-t7 > out 2>&1
-    sends standard output from the t7 command to a file called out, also redirects standard error to standard out, so all ends up in 'out'
+/bin/su -
+    starts a 'clean' super user shell
+    `su -` invokes a login shell after switching the user. A login shell resets most environment variables, providing a clean base.
+    `su` just switches the user, providing a normal shell with an environment nearly the same as with the old user, potentially a security risk if current shell uses dangerous aliases
+command > out 2>&1
+    sends standard output from some command to a file called out, also redirects standard error to standard out, so all ends up in 'out'
 find . -maxdepth 1 ! -path . ! -name "*.txt" | xargs rm -rf 
     deletes all EXCEPT the pattern *.txt
 find . -maxdepth 1 -not -path . -not -name "*.txt" | xargs rm -rf 
@@ -112,7 +118,7 @@ netstat
 	network status
 hostname
 	current hostname
-whomi
+whoami
 	current user
 groups
 	current user's groups
