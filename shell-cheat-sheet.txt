@@ -24,12 +24,26 @@ du -cmd 1 | sort -n
 	-c to display total, -m megabytes (or use -k for kilbytes), -d (depth) followed by space 1
 find
 	recursively descends the directory tree for each path listed, evaluating an expression
-	 find . -type f
-		finds all files in current directory, equivalent of Ctrl+B in Total Commander
-     find . -type f | xargs md5
+    find . -type f
+        finds all files in current directory, equivalent of Ctrl+B in Total Commander
+    find . -type f | xargs md5
         list MD5 hashes of all files under current directory
     find . -iname systemout
         finds anything (file or directory) with a name like systemout (case-insensitive)
+useradd / userdel
+    add/remove a user from the system
+    /etc/passwd
+        file containing information about all users
+groupadd / groupdel
+    add/remove a group from the system
+    /etc/group
+        file containing information about all groups
+adduser / deluser
+    adduser pperhac dba
+        adds/removes a user from a group, e.g.
+passwd
+    passwd pperhac
+        to change the password of pperhac user
 cmd
     for fast-comapring two files, byte-by-byte, stops reading file on first mis-match and reports position of difference
     e.g. cmp raven.txt raven-huffman-decoded.txt 
