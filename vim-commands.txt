@@ -11,7 +11,7 @@ remove all blank lines
 remove all lines _not_ matching a pattern
 	:g!/somepattern/d
 
-* can use d_ to send all matched lines to blackhole register, which will be faster
+Dealing with huge files, it's better to use d_ to send all matched lines to blackhole register, which will be faster.
 
 
 x,X (del/backspace) without entering insert mode
@@ -20,9 +20,6 @@ x,X (del/backspace) without entering insert mode
 ~ toggle case (a -> A, A -> a)
 S substitute whole line (from the soft BOL)
 C change to EOL
-
-
-H move to screen top
 
 
 copy all lines matching a pattern into register (a)
@@ -46,7 +43,10 @@ NAVIGATING
 =====
 backwards by pressing Ctrl+o
 forwards by Tabbing
+
 can jump to any line number by typing the number followed by capital G
+    e.g. 1233G
+        to go to line 1233
 
 can easily place marks in file, like so : ma mb mc md etc...
 can then navigate back to these marks like so: `a `b `c `d etc... (note, it's a backtick)
@@ -139,6 +139,9 @@ SELECT TEXT
 register can be cleared by recording nothing into it, e.g. to clear the register a, type qaq
 to access register a, use double quotes, e.g. to paste contents of register, use the command "ap
 
+The most recent yank and most recent delete are always stored (separately) in the numbered registers. The register 0 holds the most recent yank. The registers 1-9 hold the 9 most recent deletes (with 1 being the most recent).
+
+
 copy all lines matching a pattern like so:
 	qaq:g/pattern/y A
 optionally, open new buffer using the :new command
@@ -182,6 +185,10 @@ q<letter><commands>q
 @@
     replays previous macro
 
+to replay a macro for each line in a visual block selection, must do:
+    :norm! @a
+this is required to execute the a macro in normal mode, similarly this is to be used when applying a macro to lines matched with the :g command
+    :g/pattern/norm! @a
 
 =====
 SEARCHING
