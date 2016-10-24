@@ -369,6 +369,8 @@ Ctrl+x
 Ctrl+n
 	while typing this will show a list of suggestions for word completion
 
+gx
+    this will open the URL currently under cursor in the default browser
 
 =====
 LINKS TO INTERESTING PAGES
