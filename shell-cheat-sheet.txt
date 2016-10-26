@@ -1,3 +1,6 @@
+xxd
+    to view binary files in hex format (like Total Commander Viewer)
+    use with -b option to show binary files in binary format (not hex)
 top
     like the windows task manager in the linux world
     see a pid you don't like, still within the top command use:
@@ -155,6 +158,8 @@ tar
         v - Verbose - list files on screen
         f - take input from the File specified
         note that f must come last in the clump of options, as file.zip is the value of the f option
+unzip -d ./output-dir/  <zip/jar/war/ear-file>
+    extracts a zip file into a target directory
 unzip -l <zip/jar/war/ear-file>
     lists the contents of a zip-compressed file
 zip
@@ -162,7 +167,7 @@ zip
 zipcloak
     use this to encrypt / password-protect a zip file
 zipinfo
-    lists the contents of a zip file along with various information about the compressed conten
+    lists the contents of a zip file along with various information about the compressed content
     can be an easier to remember option for `unzip -l`
 zipgrep
     search for text inside zipped files
