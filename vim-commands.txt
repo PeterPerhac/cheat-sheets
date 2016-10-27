@@ -357,6 +357,25 @@ You can also sort and REMOVE DUPLICATE LINES
 or use numeric sort
     :sort n
 
+
+
+===================
+REGULAR EXPRESSIONS
+===================
+
+The syntax for regexes is weird and different in the world of Vim
+
+\< and \> mark word boundaries
+
+quantifiers:
+    * (star) quantifier does not need escaping BUT:
+    + (plus) quantifier however DOES need escaping like so \+
+    ? is not recognized, use \= instead
+    the OPEN curly bracket in quantifiers needs to be escaped, otherwise this works as usual: \{5} \{,3} \{2,} \{2,3}
+    round brackets also require escaping, however! note BOTH \( AND \) need to be escaped, not just the open one.
+
+
+
 ====
 MISC
 ====
