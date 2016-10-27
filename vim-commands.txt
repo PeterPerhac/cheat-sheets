@@ -37,7 +37,14 @@ u
 Ctrl+r
 	to un-undo
 	
-	
+g- / g+
+        previous / next state of the buffer "as was on screen" (navigates the undo tree), unlike a linear history with undo/redo
+        this also is good for just navigating to most recently edited location (first go backwards, then forwards g-g+)
+
+can also use :earlier :later
+like this: :earlier 20s to move to the state of buffer from 20 seconds ago
+
+
 =====
 NAVIGATING
 =====
@@ -235,6 +242,8 @@ COMMAND HISTORY
 
 :<up/down> to go through previous commands
 /<up/down> to go through previous searches
+to re-run previous search just type / on its own, this re-runs the previous forward search
+same goes for ? to re-run the previous backward search
 
 
 =====
