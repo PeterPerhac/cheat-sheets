@@ -245,6 +245,8 @@ ci)    or    ci" (or any other paired character like ] } etc)
     Similarly, to change only text from current cursor position up till the next bracket/quote, use:
 ct)    or    ct"
     Change 'till, erases all text up to the first occurrence of character pressed after ct
+ciw
+    change word (as opposed to `cw` which changes from current cursor to the beginning of next word)
 
 
 =====
@@ -390,6 +392,10 @@ Ctrl+n
 
 gx
     this will open the URL currently under cursor in the default browser
+
+Ex mode: switch to Ex mode by typing Q
+Commands entered in the Ex mode do not cause the screen to re-draw. One must type "visual" in the ex mode to exit to normal mode, this causes vim to re-draw (one gets "visual" feedback of) the changes on screen.
+
 
 =====
 LINKS TO INTERESTING PAGES
