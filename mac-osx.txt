@@ -14,6 +14,22 @@ F11
 
 To achieve side-by-side full screen view, press AND HOLD the green full screen button in top left corner, then choose which side of screen to use for window #1, then select window #2
 
+=======================
+TOP & KILLING processes
+=======================
+Run the `top` command, optionally with -U option to specify user, like so:
+    top -U peterperhac
+In order to specify primary sort, type the letter `o` , then specify the column, e.g.:
+    ocpu<enter>
+        to sort by cpu usage
+Default sort order is -pid, that is descending sort by pid (latest processes first)
+
+In order to kill a process, locate its PID. Type the letter `S` (signal) and then type `kill` <enter> now you will be prompted for the PID. type that and done. e.g:
+    Skill<enter>5000<enter>
+        to send the kill signal to PID 5000
+Note that typing a lower-case `s` is used to specify the refresh rate (in seconds)
+
+press ? at any time to see help
 
 =====
 SCREENSHOTS
