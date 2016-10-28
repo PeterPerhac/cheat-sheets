@@ -19,6 +19,7 @@ To achieve side-by-side full screen view, press AND HOLD the green full screen b
 TERMINAL
 ========
 Ctrl+r to search command history
+Ctrl+l to scroll down so that command line is the top line (similar effect to `clear` but keeps previous output, it's just out of view)
 Ctrl+u to erase current command line
 Ctrl+s/Ctrl+q to pause and resume a process writing to the console
 Ctrl+d to signal end of file to a process reading from terminal
