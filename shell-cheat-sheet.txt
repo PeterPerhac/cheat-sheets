@@ -1,3 +1,7 @@
+!123
+    execute the command number 123 from the command history
+!!
+    reexecute last command
 xxd
     to view binary files in hex format (like Total Commander Viewer)
     use with -b option to show binary files in binary format (not hex)
