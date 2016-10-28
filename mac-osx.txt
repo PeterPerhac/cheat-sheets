@@ -14,6 +14,16 @@ F11
 
 To achieve side-by-side full screen view, press AND HOLD the green full screen button in top left corner, then choose which side of screen to use for window #1, then select window #2
 
+
+========
+TERMINAL
+========
+Ctrl+r to search command history
+Ctrl+u to erase current command line
+Ctrl+s/Ctrl+q to pause and resume a process writing to the console
+Ctrl+d to signal end of standard input to a process reading from it
+
+
 =======================
 TOP & KILLING processes
 =======================
