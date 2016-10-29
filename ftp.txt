@@ -1,0 +1,49 @@
+ftp user@host
+
+======
+remote commands
+======
+
+cd
+ls
+mkdir
+pwd
+    work as usual on the remote server
+
+
+=====
+local commands
+=====
+
+lcd
+    LOCAL cd
+lpwd
+    LOCAL pwd
+!ls
+    execute (!) the ls command (locally)
+
+
+========
+DOWNLOAD
+========
+    
+get
+    single file download
+mget
+    multiple get
+        mget *.jpg
+
+======
+UPLOAD
+======
+
+put
+    single file upload
+mput
+    multiple file upload
+
+
+
+bye exit quit
+    to say goodbye
+
