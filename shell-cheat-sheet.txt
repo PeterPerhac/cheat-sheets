@@ -7,6 +7,10 @@ xxd
     use with -b option to show binary files in binary format (not hex)
 nl
     number lines. This will prepend line numbers in the output.
+expand / unexpand
+    expand converts tabs to spaces. unexpand converts spaces to tabs.
+uniq
+    displays unique lines of a file
 top
     like the windows task manager in the linux world
     see a pid you don't like, still within the top command use:
