@@ -10,7 +10,7 @@ Ctrl+c to signal **SIGINT** (interrupt) to a process. This is intended for order
 Ctrl+d to signal end of file to a process reading from terminal.
 
 Ctrl+c tells the terminal to send a **SIGINT** to the current foreground process, which by default translates into terminating the application.
-Ctrl+d tells the terminal that it should register an **EOF** on standard input. The **EOF** signal indicates the end of standard input and there is no more text for the application processing the standard input to process. Usually an application will, on receiving **EOF**, finish execution and return control to the shell.
+Ctrl+d tells the terminal that it should register an **EOF** on standard input. The **EOF** signal indicates the end of standard input. That is, there will be no more text for the application processing it. Usually that application will, on receiving **EOF**, finish execution and return control to the shell.
 
 
 ## Signals
