@@ -1,6 +1,6 @@
 # FTP - from the command line
 
-**Connect** like so: ftp user@host
+**Connect** like so: _ftp user@host_
 
 ## Remote commands
 
