@@ -14,31 +14,31 @@ The above work as usual, but take effect on the remote server
 ## Local commands
 
  - lcd
-    local cd
+  * local cd
  - lpwd
-    local pwd
+  * local pwd
  - !ls
-    execute (!) the ls command (locally)
+  * execute (!) the ls command (locally)
 
 ## Download
     
  - get
-    single file download
+  * single file download
  - mget
-    multiple get
+  * multiple get
         mget *.jpg
 
 ## Upload
 
  - put
-    single file upload
+  * single file upload
  - mput
-    multiple file upload
+  * multiple file upload
 
 ## Quit
 
  - bye
  - exit
  - quit
-    to say goodbye
+  * to say goodbye
 
