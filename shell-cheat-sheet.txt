@@ -188,6 +188,11 @@ unzip -d ./output-dir/  <zip/jar/war/ear-file>
     extracts a zip file into a target directory
 unzip -l <zip/jar/war/ear-file>
     lists the contents of a zip-compressed file
+yes
+    will repeatedly output 'y' until killed
+    if invoked with an argument, will repeatedly output that argument until killed
+        yes 'Hello World'
+            keeps printing Hello World until pipe broken, command terinated
 zip
     zip <zipfile-name> space-separated-list-of-files-or-patterns
 zipcloak
