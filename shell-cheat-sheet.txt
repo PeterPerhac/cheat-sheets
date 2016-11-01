@@ -51,6 +51,12 @@ lsof -sTCP:LISTEN -iTCP:27017
 du -cmd 1 | sort -n
 	list current disk usage of files/folders in a directory, in megabytes, in ascending order
 	-c to display total, -m megabytes (or use -k for kilbytes), -d (depth) followed by space 1
+mkdir
+    makes a directory
+        mkdir -p ./some/series/of/folders/that/dont/exist/
+            -p option stands for Parent and will create and neccessary parent directories along the way
+        mkdir -m 644 somedir
+            -m option is used to set the file permission bits of the final created directory to the specified mode.
 find
 	recursively descends the directory tree for each path listed, evaluating an expression
     find . -type f
