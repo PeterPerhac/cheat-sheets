@@ -139,6 +139,11 @@ ps aux
 		a, u, x
 launchctl
 	interfaces with launchd to manage and inspect daemons, agents and XPC services.
+cat
+    reads from stdIn writes to stdOut
+    if filename argument provided, reads from file, writes to stdOut
+    `cat somefile` is effectively the same as `cat < somefile`
+        -n option causes cat to prepend line numbers to the output
 date
 	current date
 ifconfig
@@ -155,7 +160,7 @@ chown
 	change owner
 chmod
 	change file modes
-less, cat
+less
 	display to terminal
 nano, vi
 	edit files directly in terminal

@@ -25,4 +25,19 @@ Ctrl+d tells the terminal that it should register an **EOF** on standard input. 
 
 **SIGSTOP** is the pause signal. The only behavior is to pause the process; the signal cannot be caught or ignored. The shell uses pausing (and its counterpart, resuming via **SIGCONT**) to implement job control.
 
-# Other stuff comes here
+# File Syste Links
+
+_ln_: Creates a Hard Link
+The ln (link) utility (without the -s or --symbolic option) creates a hard link to an existing file using the following syntax
+
+    `ln existing-file new-link`
+
+In addition to hard links, Linux supports _symbolic links_, also called soft links or _symlinks_. A hard link is a pointer to a file (the directory entry points to the inode), whereas a symbolic link is an indirect pointer to a file (the directory entry contains the pathname of the pointed-to file -- a pointer to the hard link to the file).
+
+You cannot create a hard link to a directory, but you can create a symbolic link to a directory.
+
+advantage of a symbolic link is that it can point to a _nonexistent_ file. This ability is useful if you need a link to a file that is periodically removed and re-created. A hard link keeps pointing to a "removed" file, which the link keeps alive even after a new file is created.
+
+`ln --symbolic` (or `ln -s`) creates a symbolic link.
+
+in theory there is a tac command that is doing the same as cat but in reverse order... not on a mac, though
