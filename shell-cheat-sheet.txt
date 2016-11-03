@@ -162,12 +162,15 @@ chmod
 	change file modes
 less
 	display to terminal
+    use with -e to exit at EOF
+    or  with -X to leave less output behind in the console
 nano, vi
 	edit files directly in terminal
 atom
 	editor
 man <command>
 	displays manual for given command
+    like less, use with -X to leave man output in the console
 ls -lrt
 	list files, long listing, ordered by time (reversed)
 clear
