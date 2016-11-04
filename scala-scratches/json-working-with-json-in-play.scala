@@ -27,7 +27,31 @@ case class Place(name: String, location: Location, residents: Seq[Resident])
 
 implicit val residentFormat = Json.format[Resident]
 implicit val locationFormat = Json.format[Location]
-implicit val theThingFormat = Json.format[Place]
+implicit val placeFormat = Json.format[Place]
 
 val place = json.as[Place]
+
+//this should fail to read as age is non-optional and Peter has not sent his age
+val invalidJson: JsValue = Json.parse("""
+{
+  "name" : "Watership Up",
+  "location" : {
+    "lat" : 91.235685,
+    "long" : -1.309197
+  },
+  "residents" : [ {
+    "name" : "Peter",
+    "role" : "boss"
+  }, {
+    "name" : "Peterik",
+    "age" : 4,
+    "role" : "chlapcek"
+  } ]
+}
+""")
+
+val home = invalidJson.validate[Place] match {
+  case place:JsSuccess[Place] => place
+  case e:JsError => println(s"Ooops! Validation error. This does not pass! ${e.toString()}")
+}
 
