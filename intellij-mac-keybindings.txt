@@ -7,6 +7,11 @@ posfix completion
     expression.par<tab>
         --> (expression)
 
+Navigation within the editor
+====
+Cmd + Fn + (Left|Right) to navigate to top/bottom of current file in editor
+    Fn+La / Fn+Ra in Mac world is Home / End
+    hence, Cmd + Fn + La is same as Cmd + Home, which in windows world is Ctrl+Home which takes you to the top of the file
 
 Command
     Bckspace - delete line
