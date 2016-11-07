@@ -1,0 +1,9 @@
+ls -d */ | xargs -L1 -I{} mv {} ~/different-place/
+    list only directories in current location (1 level deep)
+    don't include . and .. in the listing
+    and move each directory to a different place
+find . -maxdepth 1 ! -path . ! -name "*.txt"
+    find anything that's not a .txt file in the current directory
+du -cmd 1
+    list sizes of files/directories in current location in MB
+

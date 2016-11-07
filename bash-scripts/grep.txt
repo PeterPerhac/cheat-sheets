@@ -1,0 +1,6 @@
+grep -ri metrics . --include="*.xml" --exclude="*target*" --exclude="*idea*"
+    look for the word 'metrics' in the current directory . and below
+    but don't look into target folders, nor idea folders
+    and only examine .xml files
+
+ 

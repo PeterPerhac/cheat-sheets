@@ -37,6 +37,8 @@ cd $(dirname "$0")
     starts a 'clean' super user shell
     `su -` invokes a login shell after switching the user. A login shell resets most environment variables, providing a clean base.
     `su` just switches the user, providing a normal shell with an environment nearly the same as with the old user, potentially a security risk if current shell uses dangerous aliases
+alias
+    lists all aliases active in current shell session
 command > out 2>&1
     sends standard output from some command to a file called out, also redirects standard error to standard out, so all ends up in 'out'
 find . -maxdepth 1 ! -path . ! -name "*.txt" | xargs rm -rf 
@@ -173,6 +175,10 @@ man <command>
     like less, use with -X to leave man output in the console
 ls -lrt
 	list files, long listing, ordered by time (reversed)
+    ls -d */
+        lists only directories in current work directory, note the '*/' is required for this to work
+        -d to treat directories as plain files (do not recurse into them, just list them)
+        */ to list only what ends with slash
 clear
 	clears the screen
 touch <file>
