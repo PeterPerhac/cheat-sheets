@@ -41,3 +41,22 @@ advantage of a symbolic link is that it can point to a _nonexistent_ file. This 
 `ln --symbolic` (or `ln -s`) creates a symbolic link.
 
 in theory there is a tac command that is doing the same as cat but in reverse order... not on a mac, though
+
+
+
+# Ubuntu specific
+
+To configure some specific parameters of a connected HID device:
+    `xinput list`
+		to show all input devices
+		(note the device ID for below commands)
+	`xinput list-props <id>`
+		to see all properties of given input device
+		(good idea to grep for one that we're interested in)
+		e.g.
+			`xinput list-props 15 | grep -i finger`
+		(note the prop id in brackets)
+	`xinput set-prop <deviceID> <propertyID> <newValue>`
+		e.g.
+			`xinput set-prop 15 297 30 40 100`
+
