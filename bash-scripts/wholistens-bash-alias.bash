@@ -8,5 +8,5 @@ whoListensOnPort() {
     fi
 }
 
-alias wholistens=whoListensOnPort
+alias port=whoListensOnPort
 

@@ -3,4 +3,7 @@ grep -ri metrics . --include="*.xml" --exclude="*target*" --exclude="*idea*"
     but don't look into target folders, nor idea folders
     and only examine .xml files
 
- 
+find $WORKSPACE -name target -prune -o -name "pom.xml" -print | xargs -I{} grep -l 'portal-metrics' {}
+    find all pom files referencing 'portal-metrics'
+    pruning out (not recursing into) any directory that is named 'target'
+
