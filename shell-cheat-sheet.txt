@@ -41,11 +41,6 @@ alias
     lists all aliases active in current shell session
 command > out 2>&1
     sends standard output from some command to a file called out, also redirects standard error to standard out, so all ends up in 'out'
-find . -maxdepth 1 ! -path . ! -name "*.txt" | xargs rm -rf 
-    deletes all EXCEPT the pattern *.txt
-find . -maxdepth 1 -not -path . -not -name "*.txt" | xargs rm -rf 
-    alternate syntax for the same as above, but using the -not predicate rather than exclamation mark
-    negative matching on paths or names or types performed by either -not predicate or !
 lsof -sTCP:LISTEN -iTCP:27017
 	which process listens on port 27017? for ports below 1000 use "sudo"
     similarly, lists all processess listening on the TCP interface:
@@ -67,15 +62,24 @@ cp
         if single src argument is a directory, dst must be a directory
         single file can be copied into another file (!this overwrites dst file!) or a dst directory
         for recursively copying directory structures -R or -r or --recursive option is required
-
 find
 	recursively descends the directory tree for each path listed, evaluating an expression
+    <space> or -a or -and -- specify AND operator for multiple conditions
+    -o or -or -- OR operator
+    ! or -not -- NOT operator
+    parsed left to right, unless brackets are used
+    default action performed is -print
+    if any other action is specified such as -prune you will need to also specify (explicitly) -print at the end
+        an example of pruning and printing:
+            find $WORKSPACE -name target -prune -o -name "pom.xml" -print
     find . -type f
         finds all files in current directory, equivalent of Ctrl+B in Total Commander
     find . -type f | xargs md5
         list MD5 hashes of all files under current directory
     find . -iname systemout
         finds anything (file or directory) with a name like systemout (case-insensitive)
+    find . -maxdepth 1 ! -path . ! -name "*.txt" | xargs rm -rf 
+        deletes all EXCEPT the pattern *.txt
 useradd / userdel
     add/remove a user from the system
     /etc/passwd
