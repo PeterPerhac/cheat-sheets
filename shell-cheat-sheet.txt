@@ -59,6 +59,15 @@ mkdir
             -p option stands for Parent and will create and neccessary parent directories along the way
         mkdir -m 644 somedir
             -m option is used to set the file permission bits of the final created directory to the specified mode.
+cp
+    copies files or directories
+    -p (preserve) option creates a destination file with the same owner, group, permissions, access date, modification date, and ACLs as the source file.
+    cp src1 src2 srcN dst
+        if more than one src argument, dst must be a directory
+        if single src argument is a directory, dst must be a directory
+        single file can be copied into another file (!this overwrites dst file!) or a dst directory
+        for recursively copying directory structures -R or -r or --recursive option is required
+
 find
 	recursively descends the directory tree for each path listed, evaluating an expression
     find . -type f
@@ -177,7 +186,7 @@ ls -lrt
 	list files, long listing, ordered by time (reversed)
     ls -d */
         lists only directories in current work directory, note the '*/' is required for this to work
-        -d to treat directories as plain files (do not recurse into them, just list them)
+        -d to treat directories as plain files; display directories without displaying their contents (do not recurse into them)
         */ to list only what ends with slash
 clear
 	clears the screen
