@@ -93,6 +93,11 @@ passwd
 cmd
     for fast-comapring two files, byte-by-byte, stops reading file on first mis-match and reports position of difference
     e.g. cmp raven.txt raven-huffman-decoded.txt 
+diff
+    show differences between two files
+    -i to ignore case
+    -b and -B to ignore whitespace/blank lines
+    –u to do a unified diff - easier to read - actually `git diff` produces same output as `diff -u`
 md5
     calculate MD5 hash / digest / checksum of a file passed as argument
 shasum
