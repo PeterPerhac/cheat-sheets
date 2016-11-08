@@ -97,6 +97,7 @@ diff
     show differences between two files
     -i to ignore case
     -b and -B to ignore whitespace/blank lines
+    -w ignore ALL whitespace
     –u to do a unified diff - easier to read - actually `git diff` produces same output as `diff -u`
 md5
     calculate MD5 hash / digest / checksum of a file passed as argument
