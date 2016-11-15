@@ -8,6 +8,7 @@ Ctrl+u to erase current command line
 Ctrl+s/Ctrl+q to pause and resume a process writing to the console
 Ctrl+c to signal **SIGINT** (interrupt) to a process. This is intended for orderly shutdown. 
 Ctrl+d to signal end of file to a process reading from terminal.
+Ctrl+z is used to suspend a process by sending it the signal SIGSTOP, which is like a sleep signal, that can be undone and the process can be resumed again.
 
 Ctrl+c tells the terminal to send a **SIGINT** to the current foreground process, which by default translates into terminating the application.
 Ctrl+d tells the terminal that it should register an **EOF** on standard input. The **EOF** signal indicates the end of standard input. That is, there will be no more text for the application processing it. Usually that application will, on receiving **EOF**, finish execution and return control to the shell.
