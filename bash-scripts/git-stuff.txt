@@ -1,4 +1,0 @@
-find $WORKSPACE -type d -name "app-config-*" -maxdepth 1 -print -exec git -C {} pull \;
-    this will git pull from all app-config* projects in your workspace
-    before executing the git pull, name of project folder will be printed
-
