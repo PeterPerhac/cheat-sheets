@@ -86,14 +86,14 @@ zr/zm
 BLOCK EDITING
 ====
 
-Ctrl-v % Shift-i // Esc
-    Ctrl-v to enter visual block edit mode
+Ctrl+v % Shift-i // Esc
+    Ctrl+v to enter visual block edit mode
     % motion to visually edit until next matching bracket
     Shift-i means insert at start of line
     // is to be inserted
     Esc to escape visual block editing mode
 
-Ctrl-v % $ Shift-a , Esc
+Ctrl+v % $ Shift-a , Esc
     in a similar manner will append comma to the end of each line in the current block
     trick is first need to move cursor to end of line $ and then "append" with Shift-a
     whatever is typed prior to pressing Esc will be appended to the end of each line in the block
