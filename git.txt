@@ -100,11 +100,24 @@ Technically, when you fork "origin" should be your fork and "upstream" should be
 
 (adapted from: https://gist.github.com/jagregory/710671#file-gistfile1-txt
 
+UNDO LAST COMMIT
+================
+
+$ git commit -m "Something terribly misguided"
+$ git reset HEAD~
+<< edit files as necessary >>
+$ git add <<files>>
+$ git commit -c ORIG_HEAD
+
 DANGER ZONE
 ===========
 
 git checkout -- .
     this will revert your local unstaged changes - effectively checks out file from your local index into working directory, any added files not be removed by this
+    -- dash-dash usually separates subcommand arguments (like the branch name in git checkout) from revisions or filenames.
+    git checkout would work file like this: `git checkout MyFile.java` however how could we check out a file called master?
+    `git checkout master` would not work. -- tells git to stop taking subcommand arguments and whatever follows are just arguments - i.e. the paths/files that git is to operate on
+
 
 git reset --hard HEAD
     reverts all working copy changes to the state of files in the index at HEAD
