@@ -101,3 +101,45 @@ bmiTell weight height
 
 Guards are indicated by pipes that follow a function's name and its parameters. Note that there's no = right after the function name and its parameters, before the first guard. Usually, they're indented a bit to the right and lined up.
 
+Similar to `where` bindings are the `let` bindings. Similar, but not quite the same - their scope is narrower:
+
+
+    cylinder :: (RealFloat a) => a -> a -> a
+    cylinder r h =
+        let sideArea = 2 * pi * r * h
+            topArea = pi * r ^2
+        in  sideArea + 2 * topArea
+
+
+Also, the `let` bindings are *expressions themselves*. `where` bindings are just syntactic constructs.
+The form is let <bindings> in <expression>. The names that you define in the let part are accessible to the expression after the in part.
+
+Let bindings can be used to introduce functions in a local scope:
+
+    [let square x = x * x in (square 5, square 3, square 2)]
+
+Let bindings are very useful for quickly dismantling a tuple into components and binding them to names.
+
+    (let (a,b,c) = (1,2,3) in a+b+c) * 100
+
+we can use let bindings in list comprehensions earily - predicates to the right of the let binding can access the names bound-to in the let binding.
+
+    calcBmis xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi >= 25.0]
+
+Since let bindings *are* expressions and are fairly local in their scope, they can't be used across guards.
+
+    case expression of  pattern -> result
+                        pattern -> result
+                        pattern -> result
+                        ...
+
+Whereas pattern matching on function parameters can only be done when defining functions, case expressions can be used pretty much anywhere.
+
+
+    describeList :: [a] -> String
+    describeList xs = "The list is " ++ case xs of [] -> "empty."
+                                                   [x] -> "a singleton list."
+                                                   xs -> "a longer list."
+
+
+
