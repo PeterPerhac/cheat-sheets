@@ -231,13 +231,25 @@ zip
 zipcloak
     use this to encrypt / password-protect a zip file
 zipinfo
-    lists the contents of a zip file along with various information about the compressed content
+    lists the contents of a zip file along with information about the compressed content
     can be an easier to remember option for `unzip -l`
 zipgrep
     search for text inside zipped files
     e.g.
         zipgrep -i interceptor my-app.jar
     this will do a case-insensitive grep for the pattern 'interceptor' inside the my-app.jar
+xz
+    zip up a file. xz will remove original file, and only leave compressed file behind
+    xz -k file
+        keeps the original file
+    xz -d file.xz
+        decompress the xz file
+    xz -0 file
+        fast-compress file - weak compression but a lot faster - good for huge text files.
+    xz -9 file
+        the most thorough compression - cpu intensive
+xzcat    xzcmp    xzdec    xzdiff   xzegrep  xzfgrep  xzgrep   xzless   xzmore
+    familiar utilities to operate on xz'ed files
 
 LINKS
 =====
