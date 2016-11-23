@@ -175,3 +175,10 @@ an interesting implementation of quicksort:
 
 
 using list comprehensions, generate lists of smaller and bigger numbers, stitch the whole whole thing together in the order that smaler numbers come before current number, and bigger numbers follow. Do this step recursively and you'll get the whole list in a sorted order.
+
+
+## Higher Order Functions
+
+    applyTwice :: (a -> a) -> a -> a
+
+`->` is naturally right-associative. However, in the exmple above the brackets are mandatory. Parentheses indicate that the first parameter is a function that takes something and returns that same thing.
