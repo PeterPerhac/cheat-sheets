@@ -156,8 +156,8 @@ once repositories are registered with the mr tool, you can run commands like:
 BASH scripts
 ============
 
-find $WORKSPACE -type d -maxdepth 1 -print -exec git -C {} status \; -exec echo "$(tput setaf 5)-------------------------------------$(tput sgr0)" \;
-    check status on all projects in the WORKSPACE
+find . -type d -name .git -exec dirname {} \; -execdir git status \; -exec echo "$(tput setaf 5)-------------------------------------$(tput sgr0)" \;
+    check status on all Git repositories found under current working directory
     this will also output a magenta dashed line inbetween each status report
 
 find $WORKSPACE -type d -name "app-config-*" -maxdepth 1 -print -exec git -C {} pull -r \;
