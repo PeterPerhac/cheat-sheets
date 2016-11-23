@@ -7,6 +7,8 @@ GHCi Glasgow Haskell Compiler (interactive environment) special commands:
  - :t display the type of an expression
  - :i information about a type
  - :? help
+ - :! execute command your shell (outside of GHCi)
+    - use it to clear the screen for example, like so `:! clear`
 
 ## Type classes
 
