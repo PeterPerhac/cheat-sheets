@@ -57,7 +57,7 @@ Explicit type annotations with double colon `::`. Type annotations are a way of 
     - members of Num are able to act like numbers. This means some functions like multiplication `*` is availanle to all kinds of numbers - Int, Integer, Float, Double. **Integral** type class of whole numbers, and **Floating** for bananas.
 
 ```haskell
-`fromIntegral :: (Num b, Integral a) => a -> b` takes an integral number and turns it into a more general number.
+fromIntegral :: (Num b, Integral a) => a -> b` takes an integral number and turns it into a more general number.
 ```
 
 All tuples are also part of Bounded if the components of the tuple are also Bounded.
@@ -257,18 +257,76 @@ Syntax overview:
 (\x -> 10 + x) 5 -- 15
 ```
 
-
 People who are not well acquainted with how currying and partial application works often use lambdas where they don't need to. For instance, the expressions `map (+3) [1,6,3,2]` and `map (\x -> x + 3) [1,6,3,2]` are equivalent since both `(+3)` and `(\x -> x + 3)` are functions that take a number and add 3 to it. Needless to say, making a lambda in this case is stupid since using partial application is much more readable.
 
 
-We can pattern-match in lambdas, but only one pattern for a parameter (i.e. can't define several patterns for one parameter, like making a [] and a (x:xs) pattern for the same parameter and then having values fall through)
+We can pattern-match in lambdas, but only one pattern for a parameter (i.e. can't define several patterns for one parameter, like making a `[]` and a `(x:xs)` pattern for the same parameter and then having values fall through)
 
 ```haskell
 map (\(a,b) -> a + b) [(1,2),(3,5),(6,3),(2,6),(2,5)]
 ```
 
+`++` function is much more expensive than `:` so we usually use **right** folds when we're building up **new lists** from a list.
 
-`++` function is much more expensive than `:` so we usually use *right* folds when we're building up *new lists* from a list.
+Folds can be used to implement any function where you traverse a list once, element by element, and then return something based on that. Whenever you want to traverse a list to return something, chances are you want a fold.
 
+The `foldl1` and `foldr1` functions work much like `foldl` and `foldr`, only you don't need to provide them with an explicit starting value. They assume the first (or last) element of the list to be the starting value and then start the fold with the element next to it.
+
+
+`scanl` and `scanr` are like `foldl` and `foldr`, only they report all the intermediate accumulator states in the form of a list. There are also `scanl1` and `scanr1`, which are analogous to `foldl1` and `foldr1`.
+
+Scans are used to **monitor the progression of a function** that can be implemented as a `fold`. Let's answer us this question: *How many elements does it take for the sum of the roots of all natural numbers to exceed 1000?* Well, we can write the calculation as a fold, but the question is actually about the computation, not about the result of the computation.
+
+
+```haskell
+sqrtSums :: Int
+sqrtSums = length (takeWhile (<1000) (scanl1 (+) (map sqrt [1..]))) + 1
+
+ghci> sqrtSums
+131
+```
+We use `takeWhile` here instead of `filter` because `filter` doesn't work on infinite lists. Even though we know the list is ascending, `filter` doesn't, so we use `takeWhile` to cut the scanlist off at the first occurence of a sum greater than 1000.
+
+###Function application with $
+
+The `$` function has the lowest precedence.
+Function application with a space is **left**-associative (so `f a b c` is the same as `((f a) b) c)`), Function application with `$` is **right**-associative.
+
+`sqrt 3 + 4 + 9` adds together 9, 4 and the square root of 3. If we want get the square root of 3 + 4 + 9, we'd have to write `sqrt (3 + 4 + 9)` or if we use `$` we can write it as `sqrt $ 3 + 4 + 9` because `$` has the lowest precedence of any operator. That's why you can imagine a `$` being sort of the equivalent of writing an opening parentheses and then writing a closing one on the far right side of the expression.
+
+But apart from getting rid of parentheses, `$` means that function application can be treated just like another function. That way, we can, for instance, map function application over a list of functions.
+
+```haskell
+map ($ 3) [(4+), (10*), (^2), sqrt]  -- [7.0,30.0,9.0,1.7320508075688772]
+```
+
+### Function Composition
+
+Composing two functions produces a new function that, when called with a parameter, say, `x` is the equivalent of calling `g` with the parameter `x` and then calling `f` with that result. (`f` **must** take as its parameter a value that has the same type as `g`'s return value.)
+
+In Haskell this is done with the dot function `.`
+
+```haskell
+map (\xs -> negate (sum (tail xs))) [[1..5],[3..6],[1..7]]
+map (negate . sum . tail) [[1..5],[3..6],[1..7]]
+```
+
+Note that the above expressions yield the same result, the second one is easier to read and uses function composition with `.`
+
+Common use of function composition is defining functions in the so-called *point free style*. We can easily turn this function definition into a point free one like so:
+
+```haskell
+sum' xs = foldl (+) 0 xs
+sum' = foldl (+) 0
+```
+
+but in order to turn the following into a point free function definition, function composition is required:
+
+```haskell
+fn x = ceiling (negate (tan (cos (max 50 x))))
+fn = ceiling . negate . tan . cos . max 50
+```
+
+However, many times, writing a function in point free style can be less readable if a function is too complex. The prefered style is to use `let` bindings to give labels to intermediary results or split the problem into sub-problems and then put it together so that the function makes sense to someone reading it instead of just making a huge composition chain.
 
 
