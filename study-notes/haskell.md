@@ -176,9 +176,52 @@ an interesting implementation of quicksort:
 
 using list comprehensions, generate lists of smaller and bigger numbers, stitch the whole whole thing together in the order that smaler numbers come before current number, and bigger numbers follow. Do this step recursively and you'll get the whole list in a sorted order.
 
+### Syntax summary
+
+
+        1 : [2, 3] -- [1, 2, 3]
+        'C' : "at" -- "Cat" (Remember strings are lists of characters)
+        True : [] -- [True]
+        1 : 2 : 3 : [] == [1, 2, 3] -- True
+
+        elem 3 [1, 4, 73, 12] -- False
+        'H' `elem` "Highgarden" -- True 
+        [1, 2] ++ [3, 4] -- [1, 2, 3, 4]
+        "Hello " ++ "World" -- "Hello World" 
+        head [1, 2, 3] -- 1
+        tail [1, 2, 3] -- [2, 3]
+        last [1, 2, 3] -- 3
+        init [1, 2, 3] -- [1, 2]
+        "Casterly Rock" !! 3 -- 't'
+
+        null [] -- True
+        null [1, 2, 3] -- False
+        length "Dorne" -- 5
+
+        (1, 2)
+        ("Hello", True, 2)
+        fst (6, "Six") -- 6
+        snd (6, "Six") -- "Six" 
+
 
 ## Higher Order Functions
 
     applyTwice :: (a -> a) -> a -> a
 
 `->` is naturally right-associative. However, in the exmple above the brackets are mandatory. Parentheses indicate that the first parameter is a function that takes something and returns that same thing.
+
+`length` returns an `Int` instead of a `Num` for historical reasons. If we wanted to return a more general Num, we could have used `fromIntegral`.
+
+
+### Lambdas
+
+Lambdas are expressions, and we can just pass them around. The expression `(\xs -> length xs > 15)` returns a function that tells us whether the length of the list passed to it is greater than 15.
+
+Syntax overview:
+
+        (\x -> x + x)
+        (\x y -> x + y) 
+        (\x -> 10 + x) 5 -- 15
+
+
+
