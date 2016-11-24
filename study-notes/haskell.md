@@ -151,10 +151,10 @@ There's a `replicate` function that will repeat n-times any value x and return a
 Use guards instead of patterns when testing for a boolean condition.
 
 
-    take' :: (Num i, Ord i) => i -> [a] -> [a]  
-    take' n _  
-        | n <= 0   = []  
-    take' _ []     = []  
+    take' :: (Num i, Ord i) => i -> [a] -> [a]
+    take' n _
+        | n <= 0   = []
+    take' _ []     = []
     take' n (x:xs) = x : take' (n-1) xs
 
 
@@ -166,11 +166,11 @@ When `take'` is applied to an `n` and a something that fits the `x:xs` pattern (
 an interesting implementation of quicksort:
 
 
-    quicksort :: (Ord a) => [a] -> [a]  
-    quicksort [] = []  
-    quicksort (x:xs) =   
-        let smallerSorted = quicksort [a | a <- xs, a <= x]  
-            biggerSorted = quicksort [a | a <- xs, a > x]  
+    quicksort :: (Ord a) => [a] -> [a]
+    quicksort [] = []
+    quicksort (x:xs) =
+        let smallerSorted = quicksort [a | a <- xs, a <= x]
+            biggerSorted = quicksort [a | a <- xs, a > x]
         in  smallerSorted ++ [x] ++ biggerSorted
 
 
@@ -179,29 +179,29 @@ using list comprehensions, generate lists of smaller and bigger numbers, stitch 
 ### Syntax summary
 
 
-        1 : [2, 3] -- [1, 2, 3]
-        'C' : "at" -- "Cat" (Remember strings are lists of characters)
-        True : [] -- [True]
-        1 : 2 : 3 : [] == [1, 2, 3] -- True
+    1 : [2, 3] -- [1, 2, 3]
+    'C' : "at" -- "Cat" (Remember strings are lists of characters)
+    True : [] -- [True]
+    1 : 2 : 3 : [] == [1, 2, 3] -- True
 
-        elem 3 [1, 4, 73, 12] -- False
-        'H' `elem` "Highgarden" -- True 
-        [1, 2] ++ [3, 4] -- [1, 2, 3, 4]
-        "Hello " ++ "World" -- "Hello World" 
-        head [1, 2, 3] -- 1
-        tail [1, 2, 3] -- [2, 3]
-        last [1, 2, 3] -- 3
-        init [1, 2, 3] -- [1, 2]
-        "Casterly Rock" !! 3 -- 't'
+    elem 3 [1, 4, 73, 12] -- False
+    'H' `elem` "Highgarden" -- True
+    [1, 2] ++ [3, 4] -- [1, 2, 3, 4]
+    "Hello " ++ "World" -- "Hello World"
+    head [1, 2, 3] -- 1
+    tail [1, 2, 3] -- [2, 3]
+    last [1, 2, 3] -- 3
+    init [1, 2, 3] -- [1, 2]
+    "Casterly Rock" !! 3 -- 't'
 
-        null [] -- True
-        null [1, 2, 3] -- False
-        length "Dorne" -- 5
+    null [] -- True
+    null [1, 2, 3] -- False
+    length "Dorne" -- 5
 
-        (1, 2)
-        ("Hello", True, 2)
-        fst (6, "Six") -- 6
-        snd (6, "Six") -- "Six" 
+    (1, 2)
+    ("Hello", True, 2)
+    fst (6, "Six") -- 6
+    snd (6, "Six") -- "Six"
 
 
 ## Higher Order Functions
@@ -219,9 +219,20 @@ Lambdas are expressions, and we can just pass them around. The expression `(\xs 
 
 Syntax overview:
 
-        (\x -> x + x)
-        (\x y -> x + y) 
-        (\x -> 10 + x) 5 -- 15
+    (\x -> x + x)
+    (\x y -> x + y)
+    (\x -> 10 + x) 5 -- 15
+
+
+People who are not well acquainted with how currying and partial application works often use lambdas where they don't need to. For instance, the expressions `map (+3) [1,6,3,2]` and `map (\x -> x + 3) [1,6,3,2]` are equivalent since both `(+3)` and `(\x -> x + 3)` are functions that take a number and add 3 to it. Needless to say, making a lambda in this case is stupid since using partial application is much more readable.
+
+
+We can pattern-match in lambdas, but only one pattern for a parameter (i.e. can't define several patterns for one parameter, like making a [] and a (x:xs) pattern for the same parameter and then having values fall through)
+
+    map (\(a,b) -> a + b) [(1,2),(3,5),(6,3),(2,6),(2,5)]
+
+
+`++` function is much more expensive than `:` so we usually use *right* folds when we're building up *new lists* from a list.
 
 
 
