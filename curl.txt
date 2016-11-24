@@ -1,0 +1,14 @@
+curl
+    to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP,  IMAPS,  LDAP,  LDAPS, POP3,  POP3S,  RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, TELNET and TFTP).
+    offers proxy support, user authentication, FTP upload, HTTP post, SSL connections, cookies, file transfer resume, Metalink, and more.
+    -X specify method, e.g. -XGET -XPOST -XPATCH
+    -L follow redirects
+    -c cookie jar - file to write all cookies after a completed operation. Curl writes all cookies previously read from a specified file as well as all cookies received from remote server(s).
+    -o result will be saved in the filename provided in the command line
+        curl -o perhac http://www.perhac.com
+    -O similar to the -o option, but no need to provide file name, as file name will be taken from the end of the URL
+    -u to provide basic auth: curl -u username:password URL
+    -v verbose
+    -x to specify a proxy server host:port
+
+    
