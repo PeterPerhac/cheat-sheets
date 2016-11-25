@@ -330,3 +330,49 @@ fn = ceiling . negate . tan . cos . max 50
 However, many times, writing a function in point free style can be less readable if a function is too complex. The prefered style is to use `let` bindings to give labels to intermediary results or split the problem into sub-problems and then put it together so that the function makes sense to someone reading it instead of just making a huge composition chain.
 
 
+## Modules
+
+The `Prelude` module is loaded by default.
+
+The syntax for importing modules in a Haskell script is `import module name`. This must be done before defining any functions, so imports are usually done at the top of the file.
+
+`Data.List` module, which has a bunch of useful functions for working with lists.
+
+To load and unload modules in the interactive GHCi session:
+
+    ghci> :m + Data.List Data.Map Data.Set
+    ghci> :m - Data.Set
+
+
+If you just need a couple of functions from a module, you can selectively import just those functions. To import only the `nub` and `sort` functions from `Data.List` do this:
+
+    import Data.List (nub, sort)
+
+`nub` is used to remove duplicate elements from a list. Only first occurence of each element is kept.
+
+We can *not* import certain functions from a module by *hiding* them:
+
+    import Data.List hiding (nub)
+
+To avoid name clashes of imported modules, we can do qualified imports (and alias them so it's not too tedious to fully qualify each function):
+
+    import qualified Data.Map as M
+
+
+*Hoogle* is a Haskell search engine that allows you to search Haskell standard library by name, module name or even type signature.
+
+
+- `intersperse '.' "MONKEY"`                            .....   "M.O.N.K.E.Y"
+- `intercalate ", " ["Apples", "Bananas", "Pears"]`     .....   "Apples, Bananas, Pears"
+- `transpose [[1,2,3],[4,5,6],[7,8,9]]`                 .....   [[1,4,7],[2,5,8],[3,6,9]]
+- `concat ["foo","bar","car"]                           .....   "foobarcar"
+- `concatMap (replicate 4) [1..3]`                      .....   [1,1,1,1,2,2,2,2,3,3,3,3]
+- `concat $ (replicate 4) [1..3]`                       .....   [1,2,3,1,2,3,1,2,3,1,2,3]
+- ``
+
+`foldl'` and `foldl1'` are stricter versions of their respective lazy incarnations. If you ever get stack overflow errors when doing lazy folds, try switching to their strict versions.
+
+`and` takes a list of boolean values and returns `True` only if all the values in the list are `True`. Similarly, there's `or` function.
+`any` and `all` take a predicate to test a list in a similar fashion as `and` and `or` - these two functions are *preferable* to mapping over a list and then doing `and` or `or`.
+
+continue at `iterate`
