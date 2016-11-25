@@ -340,24 +340,30 @@ The syntax for importing modules in a Haskell script is `import module name`. Th
 
 To load and unload modules in the interactive GHCi session:
 
-    ghci> :m + Data.List Data.Map Data.Set
-    ghci> :m - Data.Set
-
+```haskell
+ghci> :m + Data.List Data.Map Data.Set
+ghci> :m - Data.Set
+```
 
 If you just need a couple of functions from a module, you can selectively import just those functions. To import only the `nub` and `sort` functions from `Data.List` do this:
 
-    import Data.List (nub, sort)
+```haskell
+import Data.List (nub, sort)
+```
 
 `nub` is used to remove duplicate elements from a list. Only first occurence of each element is kept.
 
 We can *not* import certain functions from a module by *hiding* them:
 
-    import Data.List hiding (nub)
+```haskell
+import Data.List hiding (nub)
+```
 
 To avoid name clashes of imported modules, we can do qualified imports (and alias them so it's not too tedious to fully qualify each function):
 
-    import qualified Data.Map as M
-
+```haskell
+import qualified Data.Map as M
+```
 
 *Hoogle* is a Haskell search engine that allows you to search Haskell standard library by name, module name or even type signature.
 
@@ -365,10 +371,9 @@ To avoid name clashes of imported modules, we can do qualified imports (and alia
 - `intersperse '.' "MONKEY"`                            .....   "M.O.N.K.E.Y"
 - `intercalate ", " ["Apples", "Bananas", "Pears"]`     .....   "Apples, Bananas, Pears"
 - `transpose [[1,2,3],[4,5,6],[7,8,9]]`                 .....   [[1,4,7],[2,5,8],[3,6,9]]
-- `concat ["foo","bar","car"]                           .....   "foobarcar"
+- `concat ["foo","bar","car"]`                          .....   "foobarcar"
 - `concatMap (replicate 4) [1..3]`                      .....   [1,1,1,1,2,2,2,2,3,3,3,3]
 - `concat $ (replicate 4) [1..3]`                       .....   [1,2,3,1,2,3,1,2,3,1,2,3]
-- ``
 
 `foldl'` and `foldl1'` are stricter versions of their respective lazy incarnations. If you ever get stack overflow errors when doing lazy folds, try switching to their strict versions.
 
