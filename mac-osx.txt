@@ -15,6 +15,9 @@ F11
 Ctrl + Command + Space to pick an Emoji
 
 
+Ctrl + Space to change input source
+
+Cmd + Alt + D to toggle auto-hiding of the Dock
 
 To achieve side-by-side full screen view, press AND HOLD the green full screen button in top left corner, then choose which side of screen to use for window #1, then select window #2
 
