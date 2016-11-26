@@ -58,6 +58,8 @@ can jump to any line number by typing the number followed by capital G
 can easily place marks in file, like so : ma mb mc md etc...
 can then navigate back to these marks like so: `a `b `c `d etc... (note, it's a backtick)
 
+Double backtick `` will jump between last visited marked location and your current location. Double single-quote will behave similarly. The difference is that the backtick goes to the same location on the line, whereas the apostrophe goes to the start of the line.
+
 
 end of line by pressing $
 start of line by pressing ^ or 0
