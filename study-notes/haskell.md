@@ -374,10 +374,34 @@ import qualified Data.Map as M
 - `concat ["foo","bar","car"]`                          .....   "foobarcar"
 - `concatMap (replicate 4) [1..3]`                      .....   [1,1,1,1,2,2,2,2,3,3,3,3]
 - `concat $ (replicate 4) [1..3]`                       .....   [1,2,3,1,2,3,1,2,3,1,2,3]
+- `take 10 $ iterate (*2) 1`                            .....   [1,2,4,8,16,32,64,128,256,512]
+- `splitAt 3 "heyman"`                                  .....   ("hey","man")
+- `takeWhile (>3) [6,5,4,3,2,1,2,3,4]`                  .....   [6,5,4]
+- `dropWhile (/='P') "Hello, my name is Peter"`         .....   "Peter"
+- `group "Peek a boo"`                                  .....   ["P","ee","k"," ","a"," ","b","oo"]
+-  
 
 `foldl'` and `foldl1'` are stricter versions of their respective lazy incarnations. If you ever get stack overflow errors when doing lazy folds, try switching to their strict versions.
 
 `and` takes a list of boolean values and returns `True` only if all the values in the list are `True`. Similarly, there's `or` function.
 `any` and `all` take a predicate to test a list in a similar fashion as `and` and `or` - these two functions are *preferable* to mapping over a list and then doing `and` or `or`.
 
-continue at `iterate`
+Note that `iterate` will iterate to form an infinite list, so you must limit this somehow by, for example, doing a `take` from it.
+
+`span` is a kind of `takeWhile` that returns a tuple where `fst` is what `takeWhile` would have returned and `snd` is what would have been dropped.
+
+```haskell
+let (good, bad) = span (<=3) [1,2,3,4,5] in "Matching:" ++ (show good) ++ ", discarded:" ++ (show bad)
+```
+
+Doing `break p` is the equivalent of doing `span (not . p)`
+
+```haskell
+let (good, bad) = break (>3) [1,2,3,4,5] in "Matching:" ++ (show good) ++ ", discarded:" ++ (show bad)
+```
+
+`sort` will sort a List of `Ord`s
+
+`group` takes a list and groups *adjacent* elements into sublists if they are equal.
+
+
