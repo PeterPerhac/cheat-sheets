@@ -379,7 +379,6 @@ import qualified Data.Map as M
 - `takeWhile (>3) [6,5,4,3,2,1,2,3,4]`                  .....   [6,5,4]
 - `dropWhile (/='P') "Hello, my name is Peter"`         .....   "Peter"
 - `group "Peek a boo"`                                  .....   ["P","ee","k"," ","a"," ","b","oo"]
--  
 
 `foldl'` and `foldl1'` are stricter versions of their respective lazy incarnations. If you ever get stack overflow errors when doing lazy folds, try switching to their strict versions.
 
