@@ -130,7 +130,7 @@ cylinder r h =
 
 
 Also, the `let` bindings are *expressions themselves*. `where` bindings are just syntactic constructs.
-The form is let <bindings> in <expression>. The names that you define in the let part are accessible to the expression after the in part.
+The form is `let <bindings> in <expression>`. The names that you define in the let part are accessible to the expression after the in part.
 
 Let bindings can be used to introduce functions in a local scope:
 
@@ -144,7 +144,7 @@ Let bindings are very useful for quickly dismantling a tuple into components and
 (let (a,b,c) = (1,2,3) in a+b+c) * 100
 ```
 
-we can use let bindings in list comprehensions earily - predicates to the right of the let binding can access the names bound-to in the let binding.
+We can use let bindings in list comprehensions earily - predicates to the right of the let binding can access the names bound-to in the let binding.
 
 ```haskell
 calcBmis xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi >= 25.0]
