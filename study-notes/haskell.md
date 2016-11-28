@@ -169,6 +169,34 @@ describeList xs = "The list is " ++ case xs of [] -> "empty."
                                                xs -> "a longer list."
 ```
 
+### Syntax summary
+
+```haskell
+1 : [2, 3] -- [1, 2, 3]
+'C' : "at" -- "Cat" (Remember strings are lists of characters)
+True : [] -- [True]
+1 : 2 : 3 : [] == [1, 2, 3] -- True
+
+elem 3 [1, 4, 73, 12] -- False
+'H' `elem` "Highgarden" -- True
+[1, 2] ++ [3, 4] -- [1, 2, 3, 4]
+"Hello " ++ "World" -- "Hello World"
+head [1, 2, 3] -- 1
+tail [1, 2, 3] -- [2, 3]
+last [1, 2, 3] -- 3
+init [1, 2, 3] -- [1, 2]
+"Casterly Rock" !! 3 -- 't'
+
+null [] -- True
+null [1, 2, 3] -- False
+length "Dorne" -- 5
+
+(1, 2)
+("Hello", True, 2)
+fst (6, "Six") -- 6
+snd (6, "Six") -- "Six"
+```
+
 
 ## Recursion
 
@@ -205,34 +233,6 @@ quicksort (x:xs) =
 
 
 using list comprehensions, generate lists of smaller and bigger numbers, stitch the whole whole thing together in the order that smaler numbers come before current number, and bigger numbers follow. Do this step recursively and you'll get the whole list in a sorted order.
-
-### Syntax summary
-
-```haskell
-1 : [2, 3] -- [1, 2, 3]
-'C' : "at" -- "Cat" (Remember strings are lists of characters)
-True : [] -- [True]
-1 : 2 : 3 : [] == [1, 2, 3] -- True
-
-elem 3 [1, 4, 73, 12] -- False
-'H' `elem` "Highgarden" -- True
-[1, 2] ++ [3, 4] -- [1, 2, 3, 4]
-"Hello " ++ "World" -- "Hello World"
-head [1, 2, 3] -- 1
-tail [1, 2, 3] -- [2, 3]
-last [1, 2, 3] -- 3
-init [1, 2, 3] -- [1, 2]
-"Casterly Rock" !! 3 -- 't'
-
-null [] -- True
-null [1, 2, 3] -- False
-length "Dorne" -- 5
-
-(1, 2)
-("Hello", True, 2)
-fst (6, "Six") -- 6
-snd (6, "Six") -- "Six"
-```
 
 ## Higher Order Functions
 
