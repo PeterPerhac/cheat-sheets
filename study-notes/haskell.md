@@ -337,6 +337,7 @@ fn = ceiling . negate . tan . cos . max 50
 
 However, many times, writing a function in point free style can be less readable if a function is too complex. The prefered style is to use `let` bindings to give labels to intermediary results or split the problem into sub-problems and then put it together so that the function makes sense to someone reading it instead of just making a huge composition chain.
 
+Note, there is the identity funciton `id` defined in Prelude 
 
 ## Modules
 
@@ -413,4 +414,66 @@ let (good, bad) = break (>3) [1,2,3,4,5] in "Matching:" ++ (show good) ++ ", dis
 
 `group` takes a list and groups *adjacent* elements into sublists if they are equal.
 
+### Maps
+
+effectively lists of associations (key-value tuples)
+
+It's usually better to use folds for standard list recursion pattern instead of explicitly writing the recursion because they're easier to read and identify. Everyone knows it's a fold when they see the foldl or foldr call, but it takes some more thinking to read explicit recursion.
+
+```haskell
+import qualified Data.Map as Map  
+Map.fromList [("betty","555-2938"),("bonnie","452-2928"),("lucille","205-2928")]
+```
+
+That's an essential constraint in the Data.Map module. It needs the keys to be orderable so it can arrange them in a tree.
+
+`null` checks if a map is empty.
+
+`keys` and `elems` return lists of keys and values respectively. `keys` is the equivalent of `map fst . Map.toList` and `elems` is the equivalent of `map snd . Map.toList`.
+
+`Data.Map`s don't allow duplicate keys, and while we can happily have tuples (associations) in a list that have same `fst` components, when converting these association lists to Maps, we'll lose some data. To avoid losing data, we could use this handy function:
+
+```haskell
+listToMap = Map.fromListWith (\n1 n2 -> n1 ++ ", " ++ n2) 
+```
+
+This will, on encountering an existing key, invoke the anonymous funcion to create a new value to store under that key.
+
+### Sets
+
+Similarly, like Maps, do a qualified import:
+
+```haskell
+import qualified Data.Set as Set
+let set1 = Set.fromList "Some text is list of chars"
+```
+
+We can use standard set operations such as `intersection`, `difference`, `union`, `member`.
+
+### Creating modules
+
+At the beginning of a module, we specify the module name. If we have a file called Geometry.hs, then we should name our module Geometry. Then, we specify the functions that it exports and after that, we can start writing the functions.
+
+```haskell
+module Geometry  
+( sphereVolume  
+, sphereArea  
+) where  
+  
+sphereVolume :: Float -> Float  
+sphereVolume radius = (4.0 / 3.0) * pi * (radius ^ 3)  
+    
+sphereArea :: Float -> Float  
+sphereArea radius = 4 * pi * (radius ^ 2)
+```
+
+Modules can also be given a hierarchical structure. Each module can have a number of sub-modules and they can have sub-modules of their own. 
+
+
+## Making our own Types and Typeclasses
+
+[Making our own Types and Typeclasses - Learn you a Haskell] (http://learnyouahaskell.com/making-our-own-types-and-typeclasses)
+
+
+## Algebraic Data Types
 
