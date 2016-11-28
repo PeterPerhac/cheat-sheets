@@ -10,7 +10,9 @@ GHCi Glasgow Haskell Compiler (interactive environment) special commands:
  - :! execute command your shell (outside of GHCi)
     - use it to clear the screen for example, like so `:! clear`
 
-## Type classes
+## Types and type classes
+
+[Types and type classes - Learn you a Haskell] (http://learnyouahaskell.com/types-and-typeclasses)
 
 If a type is a part of a typeclass, that means that it supports and implements the behavior the typeclass describes.
 
@@ -62,7 +64,9 @@ fromIntegral :: (Num b, Integral a) => a -> b` takes an integral number and turn
 
 All tuples are also part of Bounded if the components of the tuple are also Bounded.
 
-##Pattern matching
+## Syntax in Functions
+
+[Syntax in Functions - Learn you a Haskell] (http://learnyouahaskell.com/syntax-in-functions)
 
 To do pattern matching in ghci you would have to fit the whole on a single line like so:
 
@@ -200,6 +204,8 @@ snd (6, "Six") -- "Six"
 
 ## Recursion
 
+[Recursion - Learn you a Haskell] (http://learnyouahaskell.com/recursion)
+
 There's a `replicate` function that will repeat n-times any value x and return a list of xs.
 
 Use guards instead of patterns when testing for a boolean condition.
@@ -235,6 +241,8 @@ quicksort (x:xs) =
 using list comprehensions, generate lists of smaller and bigger numbers, stitch the whole whole thing together in the order that smaler numbers come before current number, and bigger numbers follow. Do this step recursively and you'll get the whole list in a sorted order.
 
 ## Higher Order Functions
+
+[Higher order functions - Learn you a Haskell] (http://learnyouahaskell.com/higher-order-functions)
 
 ```haskell
 applyTwice :: (a -> a) -> a -> a
@@ -331,6 +339,8 @@ However, many times, writing a function in point free style can be less readable
 
 
 ## Modules
+
+[Modules - Learn you a Haskell] (http://learnyouahaskell.com/modules)
 
 The `Prelude` module is loaded by default.
 
