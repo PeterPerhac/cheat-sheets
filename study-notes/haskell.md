@@ -477,3 +477,100 @@ Modules can also be given a hierarchical structure. Each module can have a numbe
 
 ## Algebraic Data Types
 
+We can use the `data` keyword to create a new data type.
+
+```haskell
+data Bool = False | True
+data Int = -2147483648 | -2147483647 | ... | -1 | 0 | 1 | 2 | ... | 2147483647
+```
+
+The parts after the `=` are **value constructors**.
+
+```haskell
+data Shape = Circle Float Float Float | Rectangle Float Float Float Float
+```
+
+In the above example, a Shape can be either a Circle or a Rectangle. Circle's value constructor has three fields that take floats.
+
+When we write a value constructor, we can optionally add some types after it and those types define the values it will contain. Value constructors are actually functions that ultimately return a value of a data type.
+
+```haskell
+ghci> :t Circle
+Circle :: Float -> Float -> Float -> Shape
+```
+
+From the above we can see that in order to create a `Circle` shape, we need to apply `Circle` to three float arguments. Before we do this, let's define a function to calculate the surface of shapes:
+
+```haskell
+surface :: Shape -> Float
+surface (Circle _ _ r) = pi * r ^ 2
+surface (Rectangle x1 y1 x2 y2) = (abs $ x2 - x1) * (abs $ y2 - y1)
+ghci> surface $ Circle 10 20 10  -- note here how a Shape is created - in this case a Circle value
+314.15927
+ghci> surface $ Rectangle 0 0 100 100  -- and a different kind of Shape
+10000.0
+```
+
+We couldn't write a type declaration of `Circle -> Float` because `Circle` is not a type, `Shape` is.
+Shapes still don't print nicely in the repl, so we need to make `Shape` type part of the `Show` typeclass, like so:
+
+```haskell
+data Shape = Circle Float Float Float | Rectangle Float Float Float Float deriving (Show)
+```
+
+If we add `deriving (Show)` at the end of a data declaration, Haskell automagically makes that type part of the Show typeclass.
+
+We can improve on the shapes example by introducing Point data type and adding some useful methods and wrapping these types and functions in a module:
+
+```haskell
+module Shapes
+( Point(..)
+, Shape(..)
+, surface
+, nudge
+, baseCircle
+, baseRect
+) where
+
+data Point = Point Float Float deriving (Show)
+data Shape = Circle Point Float | Rectangle Point Point deriving (Show)
+
+surface :: Shape -> Float
+surface (Circle _ r) = pi * r ^ 2
+surface (Rectangle (Point x1 y1) (Point x2 y2)) = (abs $ x2 - x1) * (abs $ y2 - y1)
+
+nudge :: Shape -> Float -> Float -> Shape
+nudge (Circle (Point x y) r) a b = Circle (Point (x+a) (y+b)) r
+nudge (Rectangle (Point x1 y1) (Point x2 y2)) a b = Rectangle (Point (x1+a) (y1+b)) (Point (x2+a) (y2+b))
+
+baseCircle :: Float -> Shape
+baseCircle r = Circle (Point 0 0) r
+
+baseRect :: Float -> Float -> Shape
+baseRect width height = Rectangle (Point 0 0) (Point width height)
+```
+
+Note that in the module definition we exported *all* value constructors of Point and Shape by writing `(..)`. We could have also listed them out explicitly, like ,for example, `Shape (Rectangle, Circle)`
+
+There's the *record syntax* for more complicated data types:
+
+```haskell
+data Person = Person { firstName :: String
+                     , lastName :: String
+                     , age :: Int
+                     , height :: Float
+                     , phoneNumber :: String
+                     , flavor :: String
+                     } deriving (Show)
+```
+
+The resulting data type is exactly the same as `data Person = Person String String Int Float String String deriving (Show)`. By using record syntax to create this data type, Haskell automatically made these functions: `firstName`, `lastName`, `age`, `height`, `phoneNumber` and `flavor`. *Also* the format of String produced by `show` will automatically be improved.
+
+### Type parameters
+
+```haskell
+data Maybe a = Nothing | Just a
+```
+
+Here we can see that a data type is parameterised with `a` which is (in the above case) not constrained in any way, so effectively any type would be good as an argument.
+
