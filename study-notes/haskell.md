@@ -9,6 +9,8 @@ GHCi Glasgow Haskell Compiler (interactive environment) special commands:
  - :? help
  - :! execute command your shell (outside of GHCi)
     - use it to clear the screen for example, like so `:! clear`
+ - :{ to go into multi line entry mode
+ - :} to exit multi line entry mode and let GHCi parse user input
 
 ## Types and type classes
 
@@ -628,4 +630,5 @@ type AssocList k v = [(k,v)]
 
 `Maybe` is a **type constructor**. When we apply an extra type to `Maybe`, like `Maybe String`, then we have a **concrete type**. Values can only have types that are *concrete types*.
 
+### Recursive data structures
 
