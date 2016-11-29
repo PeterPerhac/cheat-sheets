@@ -599,7 +599,7 @@ data Day =  Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
             deriving (Eq, Ord, Show, Read, Bounded, Enum)
 ```
 
-Monday is less than Tuesday, each `Day` value can be converted to/from its String representation thanks to Show and Read, and since it's also deriving from Enum, We can get predecessors and successors of days and we can make list ranges from them! (and thanks to Bounded, some other fancy stuff) check it:
+Monday is less than Tuesday, each `Day` value can be converted to/from its String representation thanks to `Show` and `Read`, and since it's also deriving from Enum, we can get predecessors and successors of days and we can make list ranges from them! (and thanks to `Bounded`, other fancy stuff too) yo, check it:
 
 ```haskell
 ghci> [Thursday .. Sunday]
@@ -626,6 +626,6 @@ Type synonyms can also be parameterized. If we want a type that represents an as
 type AssocList k v = [(k,v)]
 ```
 
-Every idiot knows `Maybe` is a **type constructor**. When I apply an extra type to `Maybe`, like `Maybe String`, then I have a *concrete type*. Values can only have types that are concrete types. So in conclusion, live fast, love hard and don't let anybody else use your comb!
+`Maybe` is a **type constructor**. When we apply an extra type to `Maybe`, like `Maybe String`, then we have a **concrete type**. Values can only have types that are *concrete types*.
 
 
