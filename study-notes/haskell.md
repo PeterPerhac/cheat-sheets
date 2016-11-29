@@ -573,4 +573,59 @@ data Maybe a = Nothing | Just a
 ```
 
 Here we can see that a data type is parameterised with `a` which is (in the above case) not constrained in any way, so effectively any type would be good as an argument.
+In the case of parameterised types, we would refer to `Maybe` as a type constructor. No value can have a type of `Maybe`, because that's not a type per se, it's a **type constructor**. It is used to construct an actual type like `Maybe String` or `Maybe Circle` which could have **values** of `Nothing` or `Just String` (or `Just Circle` depending on which data type was constructed).
+
+```haskell
+ghci> :t Just "Haha"
+Just "Haha" :: Maybe [Char]
+```
+
+It's a very strong convention in Haskell to **never add typeclass constraints in data declarations** (though it *is* technically possible, e.g. `data (Ord k) => Map k v = ...`) Don't put type constraints into data declarations even if it seems to make sense, because you'll have to put them into the function type declarations either way.
+
+When we derive the `Eq` instance for a type and then try to compare two values of that type with `==` or `/=,` Haskell will see if the **value constructors** match and then it will check if all the data **contained inside** matches by testing *each pair* of fields with `==.` There's only one catch though, the **types of all the fields also have to be part of the Eq typeclass**.
+
+
+```haskell
+data Bool = False | True deriving (Ord)
+```
+Because the `False` value constructor is specified **first** and the `True` value constructor is specified after it, we can consider `True` as **greater** than `False`.
+
+In the `Maybe a` data type, the `Nothing` value constructor is specified **before** the `Just` value constructor, so a value of `Nothing` is always **smaller** than a value of `Just something`.
+
+Here's an exmaple with a whole lot of type classes derived:
+
+```haskell
+data Day =  Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
+            deriving (Eq, Ord, Show, Read, Bounded, Enum)
+```
+
+Monday is less than Tuesday, each `Day` value can be converted to/from its String representation thanks to Show and Read, and since it's also deriving from Enum, We can get predecessors and successors of days and we can make list ranges from them! (and thanks to Bounded, some other fancy stuff) check it:
+
+```haskell
+ghci> [Thursday .. Sunday]
+[Thursday,Friday,Saturday,Sunday]
+ghci> [minBound .. maxBound] :: [Day]
+[Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]
+ghci> [Monday .. ]
+[Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]
+ghci> reverse [Friday, Thursday .. ]
+[Monday,Tuesday,Wednesday,Thursday,Friday]
+```
+
+### Type synonyms
+
+The `[Char]` and `String` types are equivalent and interchangeable. That's implemented with **type synonyms**.
+
+```haskell
+type String = [Char]
+```
+
+Type synonyms can also be parameterized. If we want a type that represents an association list type but still want it to be general so it can use any type as the keys and values, we can do this:
+
+```haskell
+type AssocList k v = [(k,v)]
+```
+
+Every idiot knows `Maybe` is a **type constructor**. When I apply an extra type to `Maybe`, like `Maybe String`, then I have a *concrete type*. Values can only have types that are concrete types. So in conclusion, live fast, love hard and don't let anybody else use your comb!
+
 
