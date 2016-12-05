@@ -16,3 +16,34 @@ A **pure function** is **modular** and **composable** because it separates the l
 ### Algebraic Data Types
 
 An ADT is just a data type defined by one or more data constructors, each of which may contain zero or more arguments. We say that the data type is the sum or union of its data constructors, and each data constructor is the product of its arguments, hence the name algebraic data type.
+
+## Strictness and Laziness
+
+### Strict and non-strict functions
+
+A function is *non-strict* if it may choose not to evaluate one or more of its arguments.
+In contrast, a *strict* function **always** evaluates its arguments.
+
+Any function definition in Scala will be strict, unless we tell it otherwise.
+
+A value of type `() => A` is a function that accepts zero arguments and returns an `A`. In general, the unevaluated form of an expression is called a **thunk**, and we can force the thunk to evaluate the expression and get a result.
+
+In fact, the type `() => A` is a syntactic alias for the type `Function0[A]`.
+
+scala provides nicer syntax for creating and accepting these parameterless functions - thunks: just prefix the arrow symbol `=>` to the type of the parameter to be taken non-strictly, **by name**.
+
+```haskell
+def maybetwice(b: boolean, i: => int) = if (b) i+i else 0
+```
+
+in the above funciton, if `b` is false, i will never be evaluated.
+
+```haskell
+scala> val x = maybetwice(true, { println("hi"); 1+41 })
+hi
+hi
+x: int = 84
+```
+
+Note that since `maybetwice` refers to paramter `i` twice, the `println` is also evaluated twice. To avoid evaluating the expression twice, we may chose to cache its computation using a local `lazy val`. Adding the `lazy` keyword to a `val` declaration will cause Scala to **delay** evaluation of the right-hand side until it’s first referenced. It will also **cache** the result so that subsequent references to it don’t trigger repeated evaluation.
+
