@@ -13,3 +13,6 @@ A **pure function** is **modular** and **composable** because it separates the l
 **Monomorphic** functions operate on only one type of data.
 **Polymorphic** functions work for *any* type they're given.
 
+### Algebraic Data Types
+
+An ADT is just a data type defined by one or more data constructors, each of which may contain zero or more arguments. We say that the data type is the sum or union of its data constructors, and each data constructor is the product of its arguments, hence the name algebraic data type.
