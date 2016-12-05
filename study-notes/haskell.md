@@ -632,3 +632,10 @@ type AssocList k v = [(k,v)]
 
 ### Recursive data structures
 
+```haskell
+infixr 5 :-:  
+data List a = Empty | a :-: (List a) deriving (Show, Read, Eq, Ord)  
+```
+
+New syntactic construct for **fixity** declarations. We may want to assing fixity to functions defined as **operators**. A fixity states how tightly the operator binds and whether it's left- or right-associative. For instance, `*`'s fixity is `infixl 7 *` and `+`'s fixity is `infixl 6 +`. That means that they're both left-associative but `*` binds **tighter** than `+`, because it has a greater fixity.
+
