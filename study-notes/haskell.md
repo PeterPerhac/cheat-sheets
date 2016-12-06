@@ -633,9 +633,41 @@ type AssocList k v = [(k,v)]
 ### Recursive data structures
 
 ```haskell
-infixr 5 :-:  
-data List a = Empty | a :-: (List a) deriving (Show, Read, Eq, Ord)  
+infixr 5 :-:
+data List a = Empty | a :-: (List a) deriving (Show, Read, Eq, Ord)
 ```
 
 New syntactic construct for **fixity** declarations. We may want to assing fixity to functions defined as **operators**. A fixity states how tightly the operator binds and whether it's left- or right-associative. For instance, `*`'s fixity is `infixl 7 *` and `+`'s fixity is `infixl 6 +`. That means that they're both left-associative but `*` binds **tighter** than `+`, because it has a greater fixity.
 
+### Functors
+
+The `Functor` typeclass is defined as:
+
+```haskell
+class Functor f where
+    fmap :: (a -> b) -> f a -> f b
+```
+
+What this effectively means is that a type that is a functor will need to provide an `fmap` function that allows the functor of type `a` to be mapped to a functor of type `b`. Note that functor `f` **requires** a type argument. Individual functor instances will be defined in terms of the functor's abstract type but leaving the type argument out of the picture. This means that functor `f` is a type constructor that takes one type parameter (like `Maybe`) not a concrete type (like `Just String`).
+
+The List (`[]`) type **is** a functor. Its `map` function is of type:
+```haskell
+map :: (a -> b) -> [a] -> [b]
+```
+
+which conforms to the prescribed form of the `Functor`'s `fmap` function. Indeed, the **instance** of `Functor []` is simply just linking the prescribed `fmap` function to the `map` function provided by `[]`, and voila! List is now a member of the `Functor` typeclass:
+
+```haskell
+instance Functor [] where
+    fmap = map
+```
+
+Any parameterised type could in theory try to be a `Functor`. Usually **container types** (boxes, like `[]` or `Maybe` or `Either`) will also be in the `Functor` typeclass:
+
+```haskell
+instance Functor Maybe where
+    fmap f (Just x) = Just (f x)
+    fmap f Nothing = Nothing
+```
+
+Functors must obey certain laws. If we use `fmap (+1)` over the list `[1,2,3,4]`, we expect the result to be `[2,3,4,5]` and not its reverse, `[5,4,3,2]`. If we use `fmap (\a -> a)` (the identity function) over some list, we expect to get back the same list as a result.
