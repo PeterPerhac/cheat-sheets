@@ -4,11 +4,13 @@ In Play, the component responsible for interpreting the body of an HTTP request 
 
 In Scala, there is a body parser that not only parses the request body into a JSON blob but also validates it according to a reader definition and returns a 400 (Bad Request) response in the case of a failure.
 
+```scala
 val create = Action(parse.json[CreateItem]) { implicit request =>
     shop.create(request.body.name, request.body.price) match {
         case Some(item) => Ok(Json.toJson(item))
-            case None => InternalServerError
+        case None => InternalServerError
     }
 }
+```
 
 
