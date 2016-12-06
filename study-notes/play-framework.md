@@ -13,4 +13,25 @@ val create = Action(parse.json[CreateItem]) { implicit request =>
 }
 ```
 
+```
+lazy val root = project.in(file(".")).enablePlugins(PlayScala)
+```
+
+The last line of `build.sbt` imports the default settings of Play projects defined by the Play sbt plugin from the `project/plugins.sbt` file. As the development of a Play application involves several **file generation tasks** (templates, routes, assets etc.), the sbt plugin helps managing these.
+
+`conf/routes` file configures the Router (like a Spring DispatcherServlet that figures out how which controller to invoke based on @RequestMapping annotations),
+
+Apart from comments (starting with #), each line of the `routes` file defines a route associating an HTTP **verb** and a URL **pattern** to a controller **action** call.
+
+Path parameters are defined with a colon `/items/:id` and bound to identifiers (`id` in this case). This path definition will match the `/items/42` path, but the `/items/`, `/items/42/0`, or even `/items/42/` paths don't match. Each path parameter (defined with a colon) is bound to only one **path segment**. We can specify path parameters spanning several path segments using the star like so:
+
+```
+GET     /assets/*file        controllers.Assets.at(path = "/public", file)
+```
+
+Query string parameters (extracted from the URL query string) are routed into controller actions automatically. Query string parameters may also assume default values like so:
+
+```
+GET   /items        controllers.Items.list(page: Int ?= 1)
+```
 

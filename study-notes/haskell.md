@@ -16,7 +16,7 @@ GHCi Glasgow Haskell Compiler (interactive environment) special commands:
 
 [Types and type classes - Learn you a Haskell] (http://learnyouahaskell.com/types-and-typeclasses)
 
-If a type is a part of a typeclass, that means that it supports and implements the behavior the typeclass describes.
+Typeclasses can be used to achieve _ad hoc polymorphism_. If a type is a member of a typeclass, it supports and implements the behavior the typeclass prescribes.
 
 Everything before the `=>` sybmol is called a _class constraint_.
 
