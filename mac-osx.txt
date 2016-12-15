@@ -1,3 +1,5 @@
+when terminal starts asking for ssh key password (perhaps following an OS upgrade) just run the `ssh-add` command and enter the password once and for all.
+
 in terminal type `open .` to open the current location (directory) in finder
 
 Command+Shift+Y
