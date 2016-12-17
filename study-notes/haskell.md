@@ -671,3 +671,50 @@ instance Functor Maybe where
 ```
 
 Functors must obey certain laws. If we use `fmap (+1)` over the list `[1,2,3,4]`, we expect the result to be `[2,3,4,5]` and not its reverse, `[5,4,3,2]`. If we use `fmap (\a -> a)` (the identity function) over some list, we expect to get back the same list as a result.
+
+## Input and Output
+
+[Input and Output - Learn you a Haskell] (http://learnyouahaskell.com/input-and-output)
+
+Hello world application written in Haskell would look like this:
+
+```haskell
+main = putStrLn "hello, world"
+```
+
+if the above was in a file called helloworld.hs you could compile it using the ghc compiler, using the command:
+
+```bash
+$ ghc --make helloworld
+```
+
+The empty tuple is a value of `()` and it also has a type of `()`.
+
+An I/O action will be performed when we give it a name of main and then run our program.
+
+Having your whole program be just one I/O action seems kind of limiting. That's why we can use `do` syntax to glue together several I/O actions into one. Take a look at the following example:
+
+```haskell
+main = do
+    putStrLn "Hello, what's your name?"
+    name <- getLine
+    putStrLn ("Hey " ++ name ++ ", you rock!")
+```
+
+`getLine` is an I/O action that contains a result type of `String`. The only way to open the IO "box" and get the data inside it is to use the `<-` construct. And if we're taking data out of an I/O action, we can only take it out when we're inside another I/O action.
+
+Notice that we didn't bind the last `putStrLn` to anything. That's because in a `do` block, the last action cannot be bound to a name.
+
+I/O actions will only be performed when they are given a name of `main` or when they're inside a bigger I/O action that we composed with a `do` block. We can also use a `do` block to glue together a few I/O actions and then we can use that I/O action in another `do` block and so on. Either way, they'll be performed only if they eventually fall into `main`.
+
+In list comprehensions, the `in` part of a `let` binding isn't needed. You can use `let` bindings in `do` blocks pretty much like you use them in list comprehensions.
+
+Use `<-` when you want to bind results of **I/O actions** to names and use `let` bindings to bind **pure expressions** to names.
+
+You can use the `runhaskell` command like so: `runhaskell helloworld.hs` and your program will be executed on the fly.
+
+The `return` in Haskell is really **nothing like** the `return` in most other languages! In Haskell `return` makes an I/O action out of a **pure value**.
+
+`print` function is basically like `putStrLn . show` - it runs show on a value of any type in the `Show` typeclass, then `putStrLn` the resulting `String` into the standard output.
+
+`when` takes a boolean value and an I/O action if that boolean value is True, it returns the same I/O action that we supplied to it. However, if it's False, it returns the `return ()` action: an I/O action that doesn't do anything.
