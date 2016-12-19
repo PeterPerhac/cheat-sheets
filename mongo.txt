@@ -1,0 +1,11 @@
+#to export a collection into a JSON formatted file
+mongoexport --db test --collection traffic --out traffic.json
+
+
+#to group documents by the "reg" field, and order them by count descending and reg ascending
+db.getCollection('readings').aggregate([
+        { $group: { _id: "$reg", count: { $sum: 1 } } },
+        { $sort: { count: -1, _id: 1 } }
+])
+
+

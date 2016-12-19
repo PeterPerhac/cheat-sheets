@@ -63,4 +63,8 @@ implicit val readsCategory: Reads[Category] = (
 The `lazyRead` combinator is exactly the same as `read`, but uses a by-name parameter that is not evaluated until needed, thus preventing the infinite recursion in the case of recursive `Reads`.
 
 
+# Side notes, edit later
+
+## Futures
+`Future.apply(None)` creates an asynchronous computation and executes it; i.e. extra lambda object is created and extra task is scheduled (however trivial). `Future.successful(None)` just produces an already-completed `Future`, hence it is more efficient.
 
