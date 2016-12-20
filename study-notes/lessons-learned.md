@@ -21,4 +21,4 @@ But the `val` must also be marked as `implicit` in order to get the sweet sweet 
 ```
 
 
-
+stupid single quotes in messages file caused argument interpolation to not work at all. single quotes are used to escape interpolation. just a single single quote will prevent interpolation to happen.
