@@ -718,3 +718,16 @@ The `return` in Haskell is really **nothing like** the `return` in most other la
 `print` function is basically like `putStrLn . show` - it runs show on a value of any type in the `Show` typeclass, then `putStrLn` the resulting `String` into the standard output.
 
 `when` takes a boolean value and an I/O action if that boolean value is True, it returns the same I/O action that we supplied to it. However, if it's False, it returns the `return ()` action: an I/O action that doesn't do anything.
+
+`sequence :: [IO a] -> IO [a]` takes a list of I/O actions and returns an I/O action that will perform those actions one after the other.
+
+There's a `mapM` and `mapM_` function that makes sequencing IO actions a little more convenient:
+
+```haskell
+sequence $ map print [1,2,3,4,5]
+-- same as
+mapM print [1,2,3,4,5]
+```
+
+`mapM_` returns a Monad m of unit; `m ()` and so effectively the evaluated results of the sequenced IO actions are thrown away
+
