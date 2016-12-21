@@ -97,6 +97,8 @@ diff
     -b and -B to ignore whitespace/blank lines
     -w ignore ALL whitespace
     –u to do a unified diff - easier to read - actually `git diff` produces same output as `diff -u`
+base64
+    encode/decode text/files using base 64. `base64 -D` to decode, then paste whatever into the terminal and pres Ctrl+d to signify end of file (input).
 md5
     calculate MD5 hash / digest / checksum of a file passed as argument
 shasum
