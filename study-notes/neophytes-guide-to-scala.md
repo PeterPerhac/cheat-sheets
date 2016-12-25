@@ -24,6 +24,7 @@ Scala’s `Future[T]`, residing in the scala.concurrent package, is a container 
 
 When you are writing the function you pass to `map`, you’re in the future, or rather in a possible future. That mapping function gets executed as soon as your `Future` instance has completed successfully. If it has not completed successfully, the mapping function will not execute.
 
+`Future[T]` is **success-biased,** allowing you to use `map`, `flatMap`, `filter` etc. under the assumption that it will complete *successfully*. Sometimes, you may want to be able to work in this nice functional way for the timeline in which things go wrong. By calling the `failed` method on an instance of `Future[T]`, you get a **failure projection** of it, which is a `Future[Throwable]`. Now you can `map` that `Future[Throwable]`, for example, and your mapping function will only be executed if the original `Future[T]` has completed with a failure.
 
 ====
 VIM register backup
