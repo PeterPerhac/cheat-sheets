@@ -12,3 +12,7 @@ curl
     -x to specify a proxy server host:port
 
     
+Commands I used for whichever reason:
+    curl -XPOST --data-urlencode "path=/xyz/pqr/test/"  http://localhost:9000/logThis
+
+
