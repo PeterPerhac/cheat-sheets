@@ -68,3 +68,10 @@ The `lazyRead` combinator is exactly the same as `read`, but uses a by-name para
 ## Futures
 `Future.apply(None)` creates an asynchronous computation and executes it; i.e. extra lambda object is created and extra task is scheduled (however trivial). `Future.successful(None)` just produces an already-completed `Future`, hence it is more efficient.
 
+## SBT:
+ - `test` runs all tests
+ - `test-only` <testClass> runs only that one test class
+ - `test-quick` runs only failed tests
+ - `~test-quick` keeps running failed tests continually on every change to source file(s)
+
+

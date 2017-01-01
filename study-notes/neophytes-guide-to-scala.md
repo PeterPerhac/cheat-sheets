@@ -45,6 +45,73 @@ You can also complete a `Promise` with the `failure` method. A completed `Promis
 
 If you already have a `Try`, you can also complete a `Promise` by calling its `complete` method. If the `Try` is a `Success`, the associated `Future` will be completed successfully, with the value inside the `Success`. If it’s a `Failure`, the `Future` will completed with that failure.
 
+## Type Classes
+
+A type class `C` defines some behaviour in the form of operations that must be supported by a type `T` for it to be a member of type class `C`. Whether the type `T` is a member of the type class `C` is not inherent in the type. Rather, any developer can declare that a type is a member of a type class simply by providing implementations of the operations the type must support. Now, once `T` is made a member of the type class `C`, functions that have constrained one or more of their parameters to be members of `C` can be called with arguments of type `T`.
+
+As such, **type classes allow ad-hoc and retroactive polymorphism.** Code that relies on type classes is open to extension without the need to create adapter objects.
+
+To create a type class in Scala, first create a trait that will define the operations that must be supported by a type `T` for it to be a member of type class `C`.
+
+```scala
+object Math {
+  trait NumberLike[T] {
+    def plus(x: T, y: T): T
+    def divide(x: T, y: Int): T
+    def minus(x: T, y: T): T
+  }
+  object NumberLike {
+    implicit object NumberLikeDouble extends NumberLike[Double] {
+      def plus(x: Double, y: Double): Double = x + y
+      def divide(x: Double, y: Int): Double = x / y
+      def minus(x: Double, y: Double): Double = x - y
+    }
+    implicit object NumberLikeInt extends NumberLike[Int] {
+      def plus(x: Int, y: Int): Int = x + y
+      def divide(x: Int, y: Int): Int = x / y
+      def minus(x: Int, y: Int): Int = x - y
+    }
+  }
+}
+```
+
+Members of type classes are usually singleton objects. The implicit keyword before each of the type class implementations is one of the crucial elements for making type classes possible in Scala, making type class members implicitly available under certain conditions.
+
+As a library designer, putting your default type class implementations in the companion object of your type class trait means that users of your library can easily override these implementations with their own.
+
+We can customize the error message raised by compiler when T isn't a member of the typeclass by annotating our type class **trait** with the `@implicitNotFound` annotation
+
+```scala
+object Math {
+    import annotation.implicitNotFound
+    @implicitNotFound("No member of type class NumberLike in scope for ${T}")
+    trait NumberLike[T] {
+        def plus(x: T, y: T): T
+        def divide(x: T, y: Int): T
+        def minus(x: T, y: T): T
+    }
+}
+```
+
+Below is an example of using a type class - note `mean` is implemented using a separate implicit parameter list as evidence of type class membership. The other methods use context bound syntax to achieve the same without the need to declare a second parameter list. Note that the last method actually requires access to the implicit evidence object, so it uses the `implicitly` function.
+
+```scala
+object Statistics {
+  import Math.NumberLike
+  def mean[T](xs: Vector[T])(implicit ev: NumberLike[T]): T =
+    ev.divide(xs.reduce(ev.plus(_, _)), xs.size)
+  def median[T : NumberLike](xs: Vector[T]): T = xs(xs.size / 2)
+  def quartiles[T: NumberLike](xs: Vector[T]): (T, T, T) =
+    (xs(xs.size / 4), median(xs), xs(xs.size / 4 * 3))
+  def iqr[T: NumberLike](xs: Vector[T]): T = quartiles(xs) match {
+    case (lowerQuartile, _, upperQuartile) =>
+      implicitly[NumberLike[T]].minus(upperQuartile, lowerQuartile)
+  }
+}
+```
+
+A context bound `T : NumberLike` means that an implicit value of type `NumberLike[T]` must be available, and so is really equivalent to having a second implicit parameter list with a `NumberLike[T]` in it. If your type class requires more than one type parameter, you cannot use the context bound syntax.
+
 ====
 VIM register backup
 
