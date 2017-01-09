@@ -227,6 +227,8 @@ SEARCHING
 :set ignorecase - case insensitive
 :set smartcase - use case if any caps used 
 
+:noh
+    to clear highlighted search results (no highlighting - "noh")
 
 ====
 OTHER SET-tings
