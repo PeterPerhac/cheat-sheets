@@ -433,6 +433,8 @@ visincr.vba - visual-mode increment numbers vimball
 
     this will create a sequence (starting from number in first line of selection) that is 0-padded to 2 digits
 
+    :I will create a number range that isn't padded
+    :I 2 will create a number range in steps of two
 
 
 =============================
