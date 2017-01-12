@@ -386,6 +386,24 @@ or use numeric sort
     :sort n
 
 
+:find some-file
+    open a file by seraching for it
+:read some-file
+    include verbatim copy of a file in the edited file
+C-x C-f
+    in insert mode - fill in a name of a file/directory
+C-x C-l
+    in insert mode - insert an entire line that is somewhere in the current file
+
+\html
+    new snippet thing that is based on remapping the key sequence \html to a command that reads a snippet into current file
+
+creating snippets
+    create a keymapping like this and a file to load (snippet):
+        
+        nnoremap \html :-1read ~/.vim_runtime/snippets/index.html<CR>5jWvitc
+
+
 
 ===================
 REGULAR EXPRESSIONS
