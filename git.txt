@@ -100,6 +100,20 @@ Technically, when you fork "origin" should be your fork and "upstream" should be
 
 (adapted from: https://gist.github.com/jagregory/710671#file-gistfile1-txt
 
+
+BRANCH MANAGEMENT
+=================
+
+git branch --list
+    --list all branches
+git branch -d someBranchToDelete
+    --delete a branch by name
+git branch newBranch
+    --create a new branch but don't switch to it
+git checkout -b newBranch
+    --create a new branch and also check it out
+
+
 UNDO LAST COMMIT
 ================
 
