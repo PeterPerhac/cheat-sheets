@@ -32,13 +32,13 @@ In fact, the type `() => A` is a syntactic alias for the type `Function0[A]`.
 
 scala provides nicer syntax for creating and accepting these parameterless functions - thunks: just prefix the arrow symbol `=>` to the type of the parameter to be taken non-strictly, **by name**.
 
-```haskell
+```scala
 def maybetwice(b: boolean, i: => int) = if (b) i+i else 0
 ```
 
 in the above funciton, if `b` is false, i will never be evaluated.
 
-```haskell
+```scala
 scala> val x = maybetwice(true, { println("hi"); 1+41 })
 hi
 hi

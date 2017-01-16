@@ -12,7 +12,7 @@ There's an overloaded version of `mkString`, used like so:
 List(1, 2, 3).mkString("(", "; ", ")") = "(1; 2; 3)"
 ```
 
-Also, this is an interesting method for sorting stuff: `sortWith`. It takes two parameters and returns:
+Also, `sortWith` is an interesting method for sorting stuff: It takes two parameters and returns:
         - TRUE if the two parameters are in *correct order* already
         - FALSE if they are not
 
