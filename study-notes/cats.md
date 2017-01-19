@@ -83,3 +83,38 @@ Applicative[Option].pure(1) should be(Some(1))
 
 `Monad` extends the `Applicative` type class with a new function `flatten`, which takes a value in a nested context (eg. `F[F[A]]` where `F` is the context) and *joins* the contexts together so that we have a single context (ie. `F[A]`).
 
+
+## Foldable
+
+Foldable type class instances can be defined for data structures that can be folded to a summary value.
+
+Define in terms of these two *basic* methods:
+ * `foldLeft` - eager left-associative
+ * `foldRight` - lazy right-associative; lazy in order to be stack-safe
+
+`fold` - also called `combineAll`, combines every value in the `Foldable` using the given `Monoid` instance.
+
+```scala
+Foldable[List].fold(List("a", "b", "c")) should be("abc")
+Foldable[List].fold(List(1, 2, 3)) should be(6)
+```
+
+`foldMap` is similar to `fold` but maps every `A` value into `B` and then combines them using the given `Monoid[B]` instance:
+
+```scala
+Foldable[List].foldMap(List("a", "b", "c"))(_.length) should be(3)
+Foldable[List].foldMap(List(1, 2, 3))(_.toString) should be("123")
+```
+
+Other methods on the `Foldable`: `foldK`, `find`, `exists`, `forall`, `toList`, `isEmpty`, `filter_`, `dropWhile_`, `takeWhile_`
+`filter_` will convert `F[A]` to `List[A]` only including the elements that match a predicate. (similarly for other methods ending with underscore)
+
+Composing `Foldable`s is easy and offers interesting results:
+
+```scala
+val FoldableListOption = Foldable[List].compose[Option]
+FoldableListOption.fold(List(Option(1), Option(2), Option(3), Option(4))) should be( 10)
+FoldableListOption.fold(List(Option("1"), Option("2"), None, Option("3"))) should be( "123")
+```
+
+
