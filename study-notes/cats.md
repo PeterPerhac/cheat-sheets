@@ -83,6 +83,27 @@ Applicative[Option].pure(1) should be(Some(1))
 
 `Monad` extends the `Applicative` type class with a new function `flatten`, which takes a value in a nested context (eg. `F[F[A]]` where `F` is the context) and *joins* the contexts together so that we have a single context (ie. `F[A]`).
 
+### Monad instances
+
+If `Applicative` is already present and `flatten` is well-behaved, extending the `Applicative` to a `Monad` is trivial. To provide evidence that a type belongs in the `Monad` type class, cats' implementation requires us to provide an implementation of `pure` (which can be reused from `Applicative`) and `flatMap`.
+
+We can use `flatten` to define `flatMap`: `flatMap` is just `map` followed by `flatten`. Conversely, `flatten` is just `flatMap` using the identity function `x => x` (i.e. `flatMap(_)(x => x))`.
+
+Here's a mind bender:
+
+```scala
+Monad[List].ifM(List(true, false, true))(List(1, 2), List(3, 4)) should be(List(1, 2, 3, 4, 1, 2))
+```
+
+To understand what's going on in the example above, it's worth looking at the method signature of `ifM`: first parameter list defines a parameter `fa`, which is some `F[A]`. The second parameter list defines exactly _two_ parameters: `ifTrue` and `ifFalse` so the above example works like this: `map` the first true to `List(1,2)`, then `map` false to `List(3,4) ` and `map` the last true to `List(1,2)` again, then `flatten` the result.
+
+`ifM` provides the ability to choose later operations in a sequence, based on the results of earlier ones. `ifM` lifts an **if** statement into the monadic context.
+
+Cats provides a monad transformer for `Option` called `OptionT`:
+
+```scala
+optionTMonad[List].pure(42) should be(OptionT(List(Some(42))))
+```
 
 ## Foldable
 
@@ -113,8 +134,70 @@ Composing `Foldable`s is easy and offers interesting results:
 
 ```scala
 val FoldableListOption = Foldable[List].compose[Option]
-FoldableListOption.fold(List(Option(1), Option(2), Option(3), Option(4))) should be( 10)
-FoldableListOption.fold(List(Option("1"), Option("2"), None, Option("3"))) should be( "123")
+FoldableListOption.fold(List(Option(1), Option(2), Option(3), Option(4))) should be(10)
+FoldableListOption.fold(List(Option("1"), Option("2"), None, Option("3"))) should be("123")
 ```
 
+## Traverse
+
+`Traverse` trait extends `Foldable` and `Functor` and adds `traverse` operation.
+
+```scala
+trait Traverse[F[_]] {
+      def traverse[G[_]: Applicative, A, B](fa: F[A])(f: A => G[B]): G[F[B]]
+}
+```
+
+`traverse` says given a collection (or other container) of data, and a function that takes a piece of data and returns an effectful value, it will traverse the collection, applying the function and aggregating the effectful values as it goes.
+
+```scala
+import cats.Semigroup
+import cats.data.{NonEmptyList, OneAnd, Validated, ValidatedNel, Xor}
+import cats.implicits._
+
+def parseIntXor(s: String): Xor[NumberFormatException, Int] =
+  Xor.catchOnly[NumberFormatException](s.toInt)
+
+List("1", "2", "3").traverseU(parseIntXor) should be(Xor.Right(List(1,2,3)))
+List("1", "abc", "3").traverseU(parseIntXor).isLeft should be(true)
+```
+
+`traverseU` is for all intents and purposes the same as `traverse`, but with some type-level trickery to allow it to infer the `Applicative[Xor[A, ?]]` and `Applicative[Validated[A, ?]]` instances - *scalac* has issues inferring the instances for data types that do not trivially satisfy the `F[_]` shape required by `Applicative`.
+
+Once `Xor` (or `Either`) hits its first bad parse, it will **not** attempt to parse any others down the line (similar behavior would be found with using `Option` as the effect). Contrast this with `Validated` where even if one bad parse is hit, it will **continue** trying to parse the others, accumulating any and all errors as it goes.
+
+We can write an `Applicative` instance for `Future` that runs each `Future` concurrently. Then when we traverse a `List[A]` with an `A => Future[B]`, we can imagine the traversal as a scatter-gather. Each `A` creates a concurrent computation that will produce a `B` (the scatter), and as the `Future`s complete they will be gathered back into a `List`.
+
+Having a collection of data, each of which is already in an effect (e.g. List[Option[A]]), we can use `traverse` with the identity function to make an `Option[List[A]]`. `Traverse` provides a convenience method `sequence` that does exactly this.
+
+```scala
+import cats.implicits._
+
+List(Option(1), Option(2), Option(3)).traverse(identity) should be(Some(List(1,2,3)))
+List(Option(1), None, Option(3)).traverse(identity) should be(None) //note it's none, _not_ Some(List(1,3))
+
+//or simpler:
+List(Option(1), Option(2), Option(3)).sequence
+List(Option(1), None, Option(3)).sequence
+```
+
+Sometimes our effectful functions return a `Unit` value in cases where there is no interesting value to return (e.g. writing to some sort of store). Traversing solely for the sake of the effect (ignoring any values that may be produced, `Unit` or otherwise) is **common**, so `Foldable` (superclass of `Traverse`) provides `traverse_` and `sequence_` methods that do the same thing as `traverse` and `sequence` but _ignores_ any value produced along the way, returning `Unit`.
+
+
+## Identity
+
+The **identity monad** can be seen as the ambient monad that _encodes the effect of having no effect_. It is ambient in the sense that plain pure values are values of `Id`. It is encoded as:
+
+```scala
+type Id[A] = A
+```
+
+That is to say that the type `Id[A]` is just a synonym for `A`. We can freely treat values of type `A` as values of type `Id[A]`, and vice-versa.
+
+We can freely compare values of `Id[T]` with unadorned values of type `T`.
+
+```scala
+val anId: Id[Int] = 42
+anId should be(42)
+```
 
