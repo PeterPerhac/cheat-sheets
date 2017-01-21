@@ -67,8 +67,7 @@ Applicative[List] compose Applicative[Option]).pure(1) should be(List(Some(1)))
 // note it's _not_ Some(List(1))
 ```
 
-
-## APPLICATIVE FUNCTORS & MONADS
+### Applicative Functors & Monads
 
 `Applicative` is a generalization of `Monad`, allowing expression of effectful computations in a pure functional way.
 
@@ -95,14 +94,34 @@ Here's a mind bender:
 Monad[List].ifM(List(true, false, true))(List(1, 2), List(3, 4)) should be(List(1, 2, 3, 4, 1, 2))
 ```
 
-To understand what's going on in the example above, it's worth looking at the method signature of `ifM`: first parameter list defines a parameter `fa`, which is some `F[A]`. The second parameter list defines exactly _two_ parameters: `ifTrue` and `ifFalse` so the above example works like this: `map` the first true to `List(1,2)`, then `map` false to `List(3,4) ` and `map` the last true to `List(1,2)` again, then `flatten` the result.
+To understand what's going on in the example above, it's worth looking at the method signature of `ifM`: first parameter list defines `fa`, which is some `F[A]`. The second parameter list defines exactly _two_ parameters: `ifTrue` and `ifFalse` so the above example works like this: `map` the first true to `List(1,2)`, then `map` false to `List(3,4)` and `map` the last true to `List(1,2)` again, then `flatten` the result.
 
-`ifM` provides the ability to choose later operations in a sequence, based on the results of earlier ones. `ifM` lifts an **if** statement into the monadic context.
+**`ifM` provides the ability to choose later operations in a sequence, based on the results of earlier ones.** `ifM` lifts an **if** statement into the monadic context.
 
 Cats provides a monad transformer for `Option` called `OptionT`:
 
 ```scala
 optionTMonad[List].pure(42) should be(OptionT(List(Some(42))))
+```
+
+## CoflatMap
+
+the `CoflatMap` type class is the _dual_ of `FlatMap`.
+
+```scala
+trait CoflatMap[F[_]] extends Functor[F]
+```
+
+It applies a value in a context to a function that takes a value in a context and returns a normal value.
+
+```scala
+def coflatMap[A, B](fa: F[A])(f: F[A] => B): F[B]
+```
+
+Whereas `flatten` removes a layer of `F`, `coflatten` adds a layer of `F`:
+
+```scala
+def coflatten[A](fa: F[A]): F[F[A]] = coflatMap(fa)(fa => fa)
 ```
 
 ## Foldable
@@ -144,7 +163,7 @@ FoldableListOption.fold(List(Option("1"), Option("2"), None, Option("3"))) shoul
 
 ```scala
 trait Traverse[F[_]] {
-      def traverse[G[_]: Applicative, A, B](fa: F[A])(f: A => G[B]): G[F[B]]
+  def traverse[G[_]: Applicative, A, B](fa: F[A])(f: A => G[B]): G[F[B]]
 }
 ```
 
@@ -192,9 +211,7 @@ The **identity monad** can be seen as the ambient monad that _encodes the effect
 type Id[A] = A
 ```
 
-That is to say that the type `Id[A]` is just a synonym for `A`. We can freely treat values of type `A` as values of type `Id[A]`, and vice-versa.
-
-We can freely compare values of `Id[T]` with unadorned values of type `T`.
+The type `Id[A]` is just an alias for `A` and allows us to treat a type as if it was a parameterised type (type with a single "hole", like `Functor`). We can freely treat values of type `A` as values of type `Id[A]`, and vice-versa. Values of `Id[T]` can be compared with unadorned values of type `T`:
 
 ```scala
 val anId: Id[Int] = 42
