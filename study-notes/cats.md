@@ -52,6 +52,23 @@ The `ap` function is similar to `map` in that we are transforming **a value in a
 
 The difference between `ap` and `map` is that for `ap` the function that takes care of the transformation is of type `F[A => B]`, whereas for `map` it is `A => B`
 
+`ap` maps a **unary** function in context over a value in context. `ap2`, `ap3` .. `ap22` map a binary/ternary/etc function over `n` values in a context, e.g.:
+
+```scala
+val binary = (a: Int, b: Int) ⇒  a + b
+Apply[Option].ap2(Some(binary))(Some(1), Some(2)) should be(Some(3))
+Apply[Option].map2(Some(1), Some(2))(binary) should be(Some(3))
+```
+
+As you can see above, there are also higher arity methods `map` and `tupled` which work as expected.
+
+We can build `Apply`s of higher arity (n=2,3 .. 22) using the `|@|` operator (it will produce a `CarthesianBuilderN`). In order to use it, first `import cats.implicits._.` All instances created by `|@|` have `map`, `ap`, and `tupled` methods of the appropriate arity.
+
+```scala
+val option2 = Option(1) |@| Option(2)
+option2 ap Some(binaryPlus) should be(Some(3))
+```
+
 ## Applicative
 
 `Applicative` extends `Apply` by adding a single method, `pure`:
@@ -101,7 +118,7 @@ To understand what's going on in the example above, it's worth looking at the me
 Cats provides a monad transformer for `Option` called `OptionT`:
 
 ```scala
-optionTMonad[List].pure(42) should be(OptionT(List(Some(42))))
+OptionT[List,Int].pure(42) shouldBe OptionT(List(Some(42)))
 ```
 
 ## CoflatMap
