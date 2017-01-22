@@ -1,0 +1,15 @@
+based on this article: https://sanctum.geek.nz/arabesque/better-bash-history/
+
+#allow more than the default 500 entries in the .bash_history file
+HISTFILESIZE=1000000
+HISTSIZE=1000000
+
+#control how your history file grows by ignoring repeated commands and not storing commands starting with a space
+HISTCONTROL=ignoreboth
+#the above is shorthand for ignorespace and ignoredups
+
+HISTTIMEFORMAT='%F %T '
+
+#By default, Bash only records a session to the .bash_history file on disk when the session terminates. Fix this like so:
+PROMPT_COMMAND='history -a'
+
