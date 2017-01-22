@@ -24,7 +24,7 @@ there aren't type class instances for `Some` or `None`, but for `Option`.
 
 Having an `empty` defined allows us to combine all the elements of some *potentially empty* collection of `T` for which a `Monoid[T]` is defined and return a `T`, rather than an `Option[T]` as we have a sensible default to fall back to.
 
-Cats implementations of Monoid provide a combineAll method too:
+Cats implementations of `Monoid` provide a `combineAll` method too:
 
 ```scala
 Monoid[String].combineAll(List("a", "b", "c")) should be("abc")
@@ -86,9 +86,7 @@ Applicative[List] compose Applicative[Option]).pure(1) should be(List(Some(1)))
 
 ### Applicative Functors & Monads
 
-`Applicative` is a generalization of `Monad`, allowing expression of effectful computations in a pure functional way.
-
-`Applicative` is generally preferred to `Monad` when the structure of a computation is fixed a priori. That makes it possible to perform certain kinds of static analysis on applicative values.
+`Applicative` is a generalization of `Monad`, allowing expression of effectful computations in a pure functional way. `Applicative` is generally preferred to `Monad` when the *structure* of a computation is fixed a priori. That makes it possible to perform certain kinds of static analysis on applicative values.
 
 ```scala
 Monad[Option].pure(1) should be(Some(1))
