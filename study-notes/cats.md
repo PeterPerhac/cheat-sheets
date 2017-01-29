@@ -233,3 +233,13 @@ val anId: Id[Int] = 42
 anId should be(42)
 ```
 
+## Xor
+
+We can communicate an error by making it explicit in the data type we return. In general, `Validated` is used to **accumulate** errors, while `Xor` is used to **short-circuit** a computation upon the *first* error.
+
+`scala.util.Either` lacks `flatMap` and `map` methods. In order to `map` over an `Either[A, B]` value, we have to state which side we want to `map` over. For example, if we want to map `Either[A, B]` to `Either[A, C]` we would need to `map` over the *right* side. This can be accomplished by using the `Either#right` method, which returns a `RightProjection` instance. `RightProjection` does have `flatMap` and `map` on it, which acts on the *right* side and *ignores the left* - this property is referred to as **right-bias**.
+
+**Xor is right-biased.** (also, `Either` is right-biased starting from Scala **2.12**)
+
+Type parameters of `Xor` are **covariant**, so when the compiler sees an `Xor[E1, A1]` and an `Xor[E2, A2]`, it will happily try to **unify** the `E1` and `E2` in a `flatMap` call and use the closest common supertype - `Object`, leaving us with practically no type information to use for pattern matching on the error in left side of `Xor`.
+
