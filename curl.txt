@@ -2,8 +2,10 @@ curl
     to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP,  IMAPS,  LDAP,  LDAPS, POP3,  POP3S,  RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, TELNET and TFTP).
     offers proxy support, user authentication, FTP upload, HTTP post, SSL connections, cookies, file transfer resume, Metalink, and more.
     -X specify method, e.g. -XGET -XPOST -XPATCH
+    -H add header to reaquest; colon-separated name:value pair
     -L follow redirects
     -c cookie jar - file to write all cookies after a completed operation. Curl writes all cookies previously read from a specified file as well as all cookies received from remote server(s).
+    -d data
     -o result will be saved in the filename provided in the command line
         curl -o perhac http://www.perhac.com
     -O similar to the -o option, but no need to provide file name, as file name will be taken from the end of the URL
@@ -13,6 +15,9 @@ curl
 
     
 Commands I used for whichever reason:
-    curl -XPOST --data-urlencode "path=/xyz/pqr/test/"  http://localhost:9000/logThis
 
+    curl -XPOST --data-urlencode "path=/xyz/pqr/test/"  http://localhost:9000/logThis
+    curl -v -XPOST http://localhost:9896/vatreg/new
+    curl -v -XPATCH -H "Accept: application/json" -H "Content-Type:application/json" -d '{"trading-name":"Some Trading Name"}' http://localhost:9896/vatreg/1/trading-details
+    curl -v -XPATCH -H "Accept: application/json" -H "Content-Type:application/json" -d '{"start-date":"2017-02-14","necessity":"voluntary"}' http://localhost:9896/vatreg/1/vat-choice
 
