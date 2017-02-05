@@ -123,9 +123,7 @@ This is for un-nesting an `F[Option[T]]` into an `OptionT[F, T]` which is easier
 
 ```scala
 val fos: Future[Option[String]] = Future.successful(Some("foo"))
-
 val fs: Future[String] = Future.successful("foo")
-
 val os: Option[String] = Some("foo")
 
 val ot: OptionT[Future, String] = for {
@@ -133,7 +131,6 @@ val ot: OptionT[Future, String] = for {
     s2 <- OptionT.liftF(firstnameF)
     s3 <- OptionT.fromOption[Future](lastnameO)
 } yield s"$s1 $s2 $s3"
-
 //ot.value will convert OptionT back to Future[Option[String]]
 ```
 
