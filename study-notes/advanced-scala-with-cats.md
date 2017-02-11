@@ -44,5 +44,24 @@ The monad behaviour is formally captured in two operations:
  - an operation **pure** with type `A => F[A]`
  - an operation **flatMap** with type `(F[A], A => F[B]) => F[B]`
 
+In some languages and libraries, notably _Haskell_ and _Scalaz_, `flatMap` is referred to as `bind`. This is purely a _difference in terminology_.
+
+### cats instances and syntax
+
+Cats provides instances for all the monads in the standard library (`Option`, `List`, `Vector` and so on) via `cats.instances`
+
+The syntax for monads comes from three places:
+ - `cats.syntax.flatMap` provides syntax for `flatMap`
+ - `cats.syntax.functor` provides syntax for `map`
+ - `cats.syntax.applicative` provides syntax for `pure`
+
+
+```scala
+import cats.syntax.applicative._
+import cats.instances.option._
+import cats.instances.list._
+1.pure[Option] // Option[Int] = Some(1)
+1.pure[List] // List[Int] = List(1)
+```
 
 
