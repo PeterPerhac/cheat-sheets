@@ -64,4 +64,43 @@ import cats.instances.list._
 1.pure[List] // List[Int] = List(1)
 ```
 
+### Identity monad
 
+In order to allow to use non-monadic, plain values (without context) in places where a monad is expected, we can use the **identity** monad `Id`. This will allow us to abstract over monadic and non-monadic code.
+
+```scala
+import cats.Id
+sumSquare(3 : Id[Int], 4 : Id[Int])
+```
+
+`Id[A]` is a type alias for `A`
+
+Cats provides instances of various type classes for `Id`, including `Functor` and `Monad`. These let us call `map`, `flatMap` and so on on plain values.
+
+The main use for `Id` is to write generic methods that operate on _monadic_ and _non-monadic_ data types. For example, we can run code asynchronously in production using `Future` and synchronously in test using `Id`.
+
+Scala cannot **unify different shapes of type constructor** when searching for implicits. We need to cast to `Id[A]` in the call to function that expects a monadic input;
+
+```scala
+doSomethingWithMonads(Option(3), Option(4))
+doSomethingWithMonads(3 : Id[Int], 4 : Id[Int])
+```
+
+### Swapping Control Flow
+
+If  we want to run a sequence of steps **until one succeeds**. We can model this using `Xor` (or `Either`) by flipping the `left` and `right` cases. The `swap` method provides this:
+
+```scala
+val a = 123.right[String]
+// a: cats.data.Xor[String,Int] = Right(123)
+val b = a.swap
+// b: cats.data.Xor[Int,String] = Left(123)
+```
+
+### Eval monad
+
+`cats.Eval` is a monad that allows us to abstract over different models of evaluation. We typically hear of two such models: **eager** and **lazy**. `Eval` throws in a further distinc on of **memoized** and **unmemoized** to create three models of evaluation:
+
+ - _now_ — evaluated once immediately (equivalent to `val`)
+ - _later_ — evaluated once when the value is first needed (equivalent to `lazy val`)
+ - _always_ — evaluated every time the value is needed (equivalent to `def`)
