@@ -86,8 +86,7 @@ doSomethingWithMonads(Option(3), Option(4))
 doSomethingWithMonads(3 : Id[Int], 4 : Id[Int])
 ```
 
-### Swapping Control Flow
-
+**Swapping control flow**
 If  we want to run a sequence of steps **until one succeeds**. We can model this using `Xor` (or `Either`) by flipping the `left` and `right` cases. The `swap` method provides this:
 
 ```scala
@@ -97,10 +96,33 @@ val b = a.swap
 // b: cats.data.Xor[Int,String] = Left(123)
 ```
 
-### Eval monad
+## Eval monad
 
 `cats.Eval` is a monad that allows us to abstract over different models of evaluation. We typically hear of two such models: **eager** and **lazy**. `Eval` throws in a further distinc on of **memoized** and **unmemoized** to create three models of evaluation:
 
  - _now_ — evaluated once immediately (equivalent to `val`)
  - _later_ — evaluated once when the value is first needed (equivalent to `lazy val`)
  - _always_ — evaluated every time the value is needed (equivalent to `def`)
+
+While the semantics of the originating `Eval` instances are maintained, mapping functions are always called lazily on-demand (`def` semantics).
+
+### Eval and stack-safety
+
+`map` and `flatMap` methods are trampolined, meaning we can nest calls to `map` and `flatMap` arbitrarily without consuming stack frames.
+
+Using `Eval.defer` for making recursive or trampolining calls will make the operation stack-safe. Like `map`/`flatMap` the `defer` method is also trampolined.
+
+```scala
+def factorial(n: BigInt): Eval[BigInt] = if (n == 1) Eval.now(n) 
+    else Eval.defer(factorial(n - 1).map(_ * n))
+println(factorial(50000).value)
+```
+
+note the evaluation of the _recursive call_ is deferred.
+
+## Writer monad
+
+Useful for carrying a **log** along with a computation.
+
+One common use for `Writers` is recording sequences of steps in muli-threaded computations, where standard imperative logging techniques can result in interleaved messages from different contexts. With `Writer` the log for the computation is tied to the result, so we can run concurrent computations without mixing logs.
+
