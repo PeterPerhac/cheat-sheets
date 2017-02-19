@@ -37,6 +37,7 @@ openssl
 passwd
 printenv
 ps
+say
 shasum
 su
 tail

@@ -2,6 +2,8 @@
     execute the command number 123 from the command history
 !!
     reexecute last command
+say 'some text'
+    the computer will say it. Mac will at least.
 nl
     number lines. This will prepend line numbers in the output.
 expand / unexpand
