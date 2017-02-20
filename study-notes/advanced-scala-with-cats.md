@@ -126,3 +126,22 @@ Useful for carrying a **log** along with a computation.
 
 One common use for `Writers` is recording sequences of steps in muli-threaded computations, where standard imperative logging techniques can result in interleaved messages from different contexts. With `Writer` the log for the computation is tied to the result, so we can run concurrent computations without mixing logs.
 
+The log in a `Writer` is preserved when we `map` or `flatMap` over it. `flatMap` actually appends the logs from the source `Writer` and the result of the user’s sequencing function. For this reason it’s good practice to use a log type that has an efficient _append_ and _concatenate_ operations, such as a `Vector`.
+
+If we have a **log** and _no result_, we can create a `Writer[Unit]` using the `tell` syntax from `cats.syntax.writer`
+
+In addition to transforming the result with `map` and `flatMap`, we can transform the log in a `Writer` with the `mapWritten` method.
+
+We can tranform both log and result simultaneously using `bimap` or `mapBoth`: `bimap` takes two function parameters, one for the log and one for the result. `mapBoth` takes a single function that accepts two parameters.
+
+We can clear the log with the `reset` method and swap log and result with the `swap` method.
+
+## Reader monad
+
+`cats.data.Reader` is a monad that allows us to compose operations that depend on some input. Instances of `Reader` wrap up functions of one argument, providing us with useful methods for composing them.
+One common use for `Reader`s is injecting configuration. If we have a number of operations that all depend on some external configuration, we can chain them together using a Reader. The Reader produces one large operation that accepts the configuration as a parameter and runs our program in the order we specified it.
+
+
+`flatMap` can be viewed as sequencing computations, giving the order in which operations must happen. `Option` represents a computation that can fail without an error message; `Either` represents computations that can fail with a message; `List` represents multiple possible results; and `Future` represents a computation that may produce a value at some point in the future.
+
+
