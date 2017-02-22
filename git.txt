@@ -9,6 +9,29 @@ DIFF
     check all changes between working copy and HEAD revision in repo
     includes 1) and 2)
 
+
+    ===================
+            HEAD     
+    ===================
+^     ^
+|     |
+|     git diff --cached
+|     |
+|     |
+|   ===================
+|          INDEX     
+|   ===================
+|     ^
+|     |
+|     git diff
+|     |
+|     |
+|   ===================
+--      WORKING COPY    
+    ===================
+git diff HEAD
+
+
 STATUS
 ======
 
