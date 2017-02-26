@@ -1,3 +1,9 @@
+lame
+    for converting between wav and mp3
+    install via `brew install lame`
+        lame -h loop.wav loop.mp3 
+        lame -h loop.mp3 loop.wav --decode
+
 !123
     execute the command number 123 from the command history
 !!
