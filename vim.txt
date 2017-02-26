@@ -26,7 +26,7 @@ C change to EOL
 copy all lines matching a pattern into register (a)
 qaq:g/pattern/y A
 
-	here, first three commands q,a,q will clera the a register
+	here, first three commands q,a,q will clear the a register
 	last command :g/pattern/y A is effectively global YANK of lines matching into register a (captial A for _appending_ into a)
 
 =====
@@ -274,6 +274,13 @@ ciw
 =====
 REPLACING (SUBSTITUTING)
 =====
+
+simple replace of a word with a yanked word:
+yiw
+viwp
+    this will yank inside a word
+    followed by visually selecting inside another word and pasting over it
+
 :%s/searchFor/replaceWith/g
 	:% across all lines
 	/g across the matched line, replace all matched occurrences, rather than just fist
