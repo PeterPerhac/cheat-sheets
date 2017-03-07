@@ -7,6 +7,13 @@ posfix completion
     expression.par<tab>
         --> (expression)
 
+
+Bookmarks
+=========
+Alt+F3 to set a bookmark with a mnemonic
+Ctrl+<mnemonic> to jump to bookmark
+
+
 Navigation within the editor
 ====
 Cmd + Fn + (Left|Right) to navigate to top/bottom of current file in editor

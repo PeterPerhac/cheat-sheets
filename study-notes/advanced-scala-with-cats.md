@@ -19,7 +19,7 @@ println(lifted(Option(1)))
 // Some(___1___)
 ```
 
-`Options` and `Lists` have their own built-in `map` operations.**If there is a built-in method it will always be called in preference to an extension method.** 
+`Options` and `Lists` have their own built-in `map` operations.**If there is a built-in method it will always be called in preference to an extension method.**
 
 
 ```scala
@@ -113,7 +113,7 @@ While the semantics of the originating `Eval` instances are maintained, mapping 
 Using `Eval.defer` for making recursive or trampolining calls will make the operation stack-safe. Like `map`/`flatMap` the `defer` method is also trampolined.
 
 ```scala
-def factorial(n: BigInt): Eval[BigInt] = if (n == 1) Eval.now(n) 
+def factorial(n: BigInt): Eval[BigInt] = if (n == 1) Eval.now(n)
     else Eval.defer(factorial(n - 1).map(_ * n))
 println(factorial(50000).value)
 ```
@@ -143,5 +143,100 @@ One common use for `Reader`s is injecting configuration. If we have a number of 
 
 
 `flatMap` can be viewed as sequencing computations, giving the order in which operations must happen. `Option` represents a computation that can fail without an error message; `Either` represents computations that can fail with a message; `List` represents multiple possible results; and `Future` represents a computation that may produce a value at some point in the future.
+
+
+
+## Monad transformers
+
+ - OptionT
+ - XorT
+ - ReaderT
+ - WriterT
+ - StateT
+ - IdT
+
+Monad transformers follow the same convention: first type parameter specifies the monad that is wrapped around the monad _implied by the transformer_. The remaining type parameters are the types we’ve used to form the corresponding monads.
+
+`cats.data.Kleisli` and `ReaderT` are, in fact, the same thing: `ReaderT` is actually a type alias for `Kleisli`.
+
+
+
+## Cartesians and Applicatives
+
+Whereas `Semigroup`s allow us to join **values**, `Cartesian`s allow us to join **contexts**.
+
+```scala
+import cats.Cartesian
+import cats.instances.option._ 
+Cartesian[Option].product(Some(123), Some("abc")) 
+// res0: Option[(Int, String)] = Some((123,abc))
+```
+
+It's important to note that if _either_ parameter evaluates to `None`, the entire result is `None`
+
+The idiomatic way of writing builder syntax is to combine `|@|` and `tupled` in a single expression:
+
+```scala
+( Option(1) |@| Option(2) |@| Option(3)).tupled
+// res11: Option[(Int, Int, Int)] = Some((1,2,3))
+```
+
+Because `Xor` is a `Monad`, we know that the semantics of `product` are the same as those for `flatMap`. In fact, it is impossible for us to design a monadic data type that implements error accumulating semantics without breaking the consistency rules between these two methods.
+Fortunately, Cats provides another data type called `Validated` that has an instance of `Cartesian` but **no** instace of `Monad`. The implementation of product is therefore free to accumulate errors.
+
+
+### Validated
+
+Neat way of creating instances of Validated using the cats-provided syntax:
+
+```scala
+import cats.syntax.validated._
+123.valid[String]
+// cats.data.Validated[String,Int] = Valid(123)
+"error".invalid[Int]
+// cats.data.Validated[String,Int] = Invalid(error)
+```
+
+Also there are various methods for conveniently creating instances of `Validated` from various other data types: `Exception`, `Try`, `Either`, `Option`
+
+```scala
+Validated.catchOnly[NumberFormatException]("foo".toInt)
+Validated.catchNonFatal(sys.error("Badness"))
+Validated.fromTry(scala.util.Try("foo".toInt))
+Validated.fromEither[String, Int](Left("Badness"))
+Validated.fromOption[String, Int](None, "Badness")
+```
+
+We can combine instances of `Validated` using `product`, `map2..22`, cartesian builder syntax, etc. All of these techniques require an appropriate `Cartesian` to be in scope. We need to fix the error type to create a type constructor with the correct number of parameters for `Cartesian`:
+
+```scala
+type ErrorsOr[A] = Validated[String, A]
+```
+
+`Validated` accumulates errors using a `Semigroup`, so we need one of those in scope to summon the `Cartesian`. If we don’t have one we get an annoyingly unhelpful compilation error:
+
+```scala
+Validated.fromOption[String, Int](None, "Badness")
+Cartesian[ErrorsOr]
+// error: could not find implicit value for parameter instance: cats.Cartesian[ErrorsOr]
+//        Cartesian[ErrorsOr]
+//                 ^
+```
+
+We must import a `Semigroup[String]` to make it work.
+
+
+`String` isn’t an ideal type for accumulating errors. We commonly use `List`s or `Vector`s instead.
+
+The `cats.data` package also provides the `NonEmptyList` and `NonEmptyVector` types that prevent us failing without _at least one_ error.
+
+
+We can’t `flatMap` because `Validated` isn’t a `Monad`. However, we can convert back and forth between `Validated` and `Either` using the `toEither` and `toValidated` methods.
+
+As with `Either`, we can use the `ensure` method to fail with a specified error if a predicate does not hold:
+
+```scala
+ 123.valid[String].ensure("Negative!")(_ > 0)
+```
 
 
