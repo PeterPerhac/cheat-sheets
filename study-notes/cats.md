@@ -134,6 +134,14 @@ val ot: OptionT[Future, String] = for {
 //ot.value will convert OptionT back to Future[Option[String]]
 ```
 
+This can also be summarised like so:
+
+```scala
+OptionT(F[Option[T]]) // from F[O[T]]
+OptionT.liftF(F[T]) // from F[T]
+OptionT.fromOption[Future](Option[T]) // from O[T]
+```
+
 ## CoflatMap
 
 the `CoflatMap` type class is the _dual_ of `FlatMap`.

@@ -239,4 +239,19 @@ As with `Either`, we can use the `ensure` method to fail with a specified error 
  123.valid[String].ensure("Negative!")(_ > 0)
 ```
 
+## Foldable and Traverse
+
+ - `Foldable` abstracts the familiar `foldLeft` and `foldRight` operations
+ - `Traverse` is a higher-level abstraction that uses `Applicatives` for easier iteration (than folding)
+
+
+Folds are performed with an _accumulator_ and a _binary function_.
+Using a commutative binary operation such as (+) for folding we can use either `foldLeft` or `foldRight` and the result will be the same.
+Using a non-commutative binary operation such as (-) will lead to potentially different results.
+
+
+from Herding Cats:
+Just like other monadic values, a **function** can also be considered a _value with a context_. The context for functions is that that value is not present yet and that we have to _apply_ that function to something in order to get its result value.
+
+
 
