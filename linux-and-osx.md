@@ -27,6 +27,20 @@ Ctrl+d tells the terminal that it should register an **EOF** on standard input. 
 
 **SIGSTOP** is the pause signal. The only behavior is to pause the process; the signal cannot be caught or ignored. The shell uses pausing (and its counterpart, resuming via **SIGCONT**) to implement job control.
 
+**SIGCONT** continue executing if stopped. Useful for resuming stopped jobs. Starting a background job like so:
+  ```
+  > jekyll serve &
+  > jobs
+  [1]+  Running                 jekyll serve &
+  > fg %1
+  <C-z>
+  [1]+  Stopped                 jekyll serve
+  > kill -CONT %1
+  > jobs
+  [1]+  Running                 jekyll serve &
+  ```
+
+
 # File Syste Links
 
 _ln_: Creates a Hard Link
