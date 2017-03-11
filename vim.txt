@@ -448,6 +448,10 @@ Ex mode: switch to Ex mode by typing Q
 Commands entered in the Ex mode do not cause the screen to re-draw. One must type "visual" in the ex mode to exit to normal mode, this causes vim to re-draw (one gets "visual" feedback of) the changes on screen.
 
 
+changing colors:
+:highlight Normal ctermfg=yellow ctermbg=darkblue
+    note that the first colon is required. so you would see ::highlight in the command line
+    also, no need to change ctermfg, color scheme might adapt to change of ctermbg setting
 
 =======
 PLUGINS
