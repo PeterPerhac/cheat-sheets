@@ -104,6 +104,25 @@ git rebase --continue
 # -f may or may not be required for the final push back to the forked remote
 git push -f origin master
 
+RENAMING BRANCHES
+=================
+
+Rename local branch you are currently on:
+
+    git branch -m new-name
+
+Rename any other local branch:
+
+    git branch -m old-name new-name
+
+Delete the old-name remote branch and push the new-name local branch.
+
+    git push origin :old-name new-name
+
+To reset the upstream branch for the new-name local branch, switch to the branch and then:
+
+    git push origin -u new-name
+
 
 MOVE TO FORK
 ============
