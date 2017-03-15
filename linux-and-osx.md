@@ -41,6 +41,11 @@ Ctrl+d tells the terminal that it should register an **EOF** on standard input. 
   ```
 
 
+Install `htop` utility as a much better alternative to `top` command:
+
+    brew install htop
+
+
 # File Syste Links
 
 _ln_: Creates a Hard Link
