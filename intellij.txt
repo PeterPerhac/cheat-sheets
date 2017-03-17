@@ -7,6 +7,7 @@ posfix completion
     expression.par<tab>
         --> (expression)
 
+If IntelliJ isn't finding the source code for libraries in your SBT project, try doing `sbt update-classifiers` followed by File->Synchronize
 
 Bookmarks
 =========
