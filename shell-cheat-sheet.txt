@@ -1,3 +1,9 @@
+time
+    to apply a stopwatch to the execution of a command
+        e.g. time sbt package
+    output will be something like this:
+        real: Elapsed real (wall clock) time used by the process, in seconds.
+        user: Total number of CPU-seconds that the process used directly (in user mode).
 lame
     for converting between wav and mp3
     install via `brew install lame`
