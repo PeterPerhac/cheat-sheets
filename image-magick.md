@@ -10,3 +10,5 @@ convert keeps source files
 * convert single PNG to JPG
     - `convert some.png another.jpg`
 
+convert -quality 70 picture.jpg picture-optimised.jpg
+

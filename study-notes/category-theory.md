@@ -23,4 +23,14 @@ if there is an arrow f connecting object a and b and an arrow g from object b to
     
 for _every_ object there is an identity arrow.
 
+a function that is invertible is called isomorphism
+
+morphism `f` from object `a` to object `b` is an **isomorphism** if there exists a morphism `g` for which these properties hold:
+
+   g∘f = ida
+   f∘g = idb
+
+f after g is the same as identity of a
+g after f is the same as identity of b
+
 
