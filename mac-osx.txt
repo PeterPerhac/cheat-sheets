@@ -23,6 +23,7 @@ Cmd + Alt + D to toggle auto-hiding of the Dock
 
 To achieve side-by-side full screen view, press AND HOLD the green full screen button in top left corner, then choose which side of screen to use for window #1, then select window #2
 
+Cmd+Shift+G to "Go to Location" in open/save dialogues to paste locations. Must right-click and paste. Cmd+V to paste doesn't seem to work.
 
 =======================
 TOP & KILLING processes
