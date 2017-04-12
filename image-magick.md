@@ -11,4 +11,5 @@ convert keeps source files
     - `convert some.png another.jpg`
 
 convert -quality 70 picture.jpg picture-optimised.jpg
+convert cute-kittens.jpg -crop +0-20 +repage cute-kittens-cropped.jpg
 
