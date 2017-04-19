@@ -12,6 +12,13 @@ Host *
    UseKeychain yes
 ```
 
+Preview stops working
+open htop
+F6 sort by command
+find Preview.app
+mark it with Space
+F9 and Enter to send it the kill signal (mark as many Preview as are running)
+
 ## IntelliJ
 
 IntelliJ / SBT tip: if IntelliJ isn't finding the source code for libraries in your sbt project, try doing `sbt update-classifiers` followed by File -> Synchronize in IntelliJ

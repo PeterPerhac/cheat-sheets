@@ -1,0 +1,6 @@
+
+// uncheck all radio buttons / checkboxes on a page
+$('input[checked]').prop('checked', false)
+
+
+
