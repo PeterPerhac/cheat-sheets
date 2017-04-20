@@ -137,6 +137,7 @@ val ot: OptionT[Future, String] = for {
 This can also be summarised like so:
 
 ```scala
+OptionT.pure[F,T](T) // form T
 OptionT(F[Option[T]]) // from F[O[T]]
 OptionT.liftF(F[T]) // from F[T]
 OptionT.fromOption[Future](Option[T]) // from O[T]

@@ -53,6 +53,7 @@ NAVIGATING
 (,) to go to previous/next sentence
 {,} to go to previous/next paragraph
 [[,]] to go to previous/next section (this could mean the whole file)
+Ctrl+d Ctrl+u to go half a screen up or down
 
 backwards by pressing Ctrl+o
 forwards by Tabbing
