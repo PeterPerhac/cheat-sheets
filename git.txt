@@ -159,11 +159,21 @@ git checkout -b newBranch
 UNDO LAST COMMIT
 ================
 
-$ git commit -m "Something terribly misguided"
-$ git reset HEAD~
+git commit -m "Something terribly misguided"
+git reset HEAD~
 << edit files as necessary >>
-$ git add <<files>>
-$ git commit -c ORIG_HEAD
+git add <<files>>
+git commit -c ORIG_HEAD
+
+
+SQUASH COMMITS - UNPUSHED
+=========================
+
+git rebase -i origin/master
+
+    mark first as pick, rest as squash
+    edit commit messages
+    done
 
 DANGER ZONE
 ===========
