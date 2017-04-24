@@ -28,5 +28,9 @@ trait Something { self : ExplicitType =>
 }
 ```
 
-Self type of a trait is the **assumed** type of `this`, the receiver, to be used within the trait. **Any concrete class that mixes in the trait must ensure that its type conforms to the trait's self type.** The most common use of self types is for dividing a large class into several traits.
+a self type is an assumed type for this whenever this is mentioned within the class.
+a self type specifies the requirements on any concrete class the trait is mixed into. 
+
+Any concrete class that mixes in the trait must ensure that its type conforms to the trait's self type. The most common use of self types is for dividing a large class into several traits.
+
 
