@@ -62,4 +62,41 @@ foo.collect {case x if p(x) => f(x) }
 ```
 
 
+## multiple `package` declarations
+
+Sometimes I come across stuff like this:
+
+```scala
+package cats
+package syntax
+//...
+```
+
+this can be de-sugared into:
+
+```scala
+package cats.syntax
+import cats._
+//...
+```
+
+or more generally:
+
+```scala
+package a
+package b
+package c
+package d
+```
+
+is the same as:
+
+```scala
+package a.b.c.d
+
+import a.b.c._
+import a.b._
+import a._
+```
+
 
