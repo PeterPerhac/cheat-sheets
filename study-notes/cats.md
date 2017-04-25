@@ -267,3 +267,16 @@ We can communicate an error by making it explicit in the data type we return. In
 
 Type parameters of `Xor` are **covariant**, so when the compiler sees an `Xor[E1, A1]` and an `Xor[E2, A2]`, it will happily try to **unify** the `E1` and `E2` in a `flatMap` call and use the closest common supertype - `Object`, leaving us with practically no type information to use for pattern matching on the error in left side of `Xor`.
 
+
+#Functors
+
+functor | argument arrangement
+--- | ---
+covariant | `A => B`
+contravariant | `B => A`
+exponential | `(A => B, B => A)`
+applicative | `F[A => B]`
+monad | `A => F[B]`
+comonad | `F[A] => B`
+
+
