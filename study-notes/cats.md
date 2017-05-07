@@ -119,6 +119,18 @@ Cats provides a monad transformer for `Option` called `OptionT`:
 OptionT[List,Int].pure(42) shouldBe OptionT(List(Some(42)))
 ```
 
+There's also additional syntax provided for creating instances of OptionT from plain values:
+
+If you have only an A and you wish to lift it into an OptionT[F,A] assuming you have an Applicative instance for F you can use some which is an alias for pure. There also exists a none method which can be used to create an OptionT[F,A], where the Option wrapped A type is actually a None:
+
+```scala
+val greet:       OptionT[Future,String] = OptionT.pure("Hi!")
+val greetAlt:    OptionT[Future,String] = OptionT.some("Hi!")
+val failedGreet: OptionT[Future,String] = OptionT.none
+```
+
+The `.none` syntax is nice in that it creates the None of required type.
+
 This is for un-nesting an `F[Option[T]]` into an `OptionT[F, T]` which is easier to use in for-comprehensions. Calling `.value` on an `OptionT` will return the nested monadic structure.
 
 ```scala
