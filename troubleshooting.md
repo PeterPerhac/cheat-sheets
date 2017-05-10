@@ -35,4 +35,7 @@ set scalacOptions in ThisBuild ++= Seq("-unchecked", "-deprecation")
 compile
 ```
 
+coverage dropped for no apparent reason. string arguments for Logger not evaluated. this is because the log levels have changed in logback.xml and now the logger no longer evaluates the strings, they are => call by name
+
+
 
