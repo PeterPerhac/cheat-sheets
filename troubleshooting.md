@@ -35,6 +35,9 @@ set scalacOptions in ThisBuild ++= Seq("-unchecked", "-deprecation")
 compile
 ```
 
+When "should is not member of String" messages start appearing in _intellij_, one way to get around it is to edit the scalatest dependency version and re-import the sbt project. This fixes intellij's confusion.
+
+
 coverage dropped for no apparent reason. string arguments for Logger not evaluated. this is because the log levels have changed in logback.xml and now the logger no longer evaluates the strings, they are => call by name
 
 
