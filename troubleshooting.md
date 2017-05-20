@@ -41,4 +41,6 @@ When "should is not member of String" messages start appearing in _intellij_, on
 coverage dropped for no apparent reason. string arguments for Logger not evaluated. this is because the log levels have changed in logback.xml and now the logger no longer evaluates the strings, they are => call by name
 
 
+when more memory is needed for running `scala` command, just use the `-J-Xmx2g` switch.
+this configures the `JAVA_OPTS` environment variable
 
