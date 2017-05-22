@@ -369,6 +369,8 @@ BUFFERS
 	list all open buffers
 :bd
     buffer delete (effectively close the current file)
+:e#
+    re-open last closed buffer
 
 
 =====
