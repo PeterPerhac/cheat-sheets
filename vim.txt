@@ -457,6 +457,23 @@ changing colors:
     also, no need to change ctermfg, color scheme might adapt to change of ctermbg setting
 
 =======
+SPELL-CHECKING
+=======
+
+turn it ON
+  :setlocal spell
+  :setlocal spell spelllang=en_us
+
+turn it OFF
+  :set nospell
+
+next and previous spellcheck highlight
+  ]s and [s
+
+add word under cursor as good word to spellfile
+  zg
+
+=======
 PLUGINS
 =======
 
