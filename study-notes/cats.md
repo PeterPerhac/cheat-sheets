@@ -30,6 +30,8 @@ Cats implementations of `Monoid` provide a `combineAll` method too:
 Monoid[String].combineAll(List("a", "b", "c")) should be("abc")
 ```
 
+There are some data types for which we cannot define an empty element. Cats has a `NonEmptyList` data type that has an implementation of `Semigroup` but no implementa on of `Monoid`.
+
 ## Functor
 
 A `Functor` is a ubiquitous type class involving types that have one "hole", i.e. types which have the shape `F[_]`, such as `Option`, `List` and `Future`. The `Functor` category involves a single operation, named `map`:

@@ -12,6 +12,8 @@ Host *
    UseKeychain yes
 ```
 
+### preview problems
+
 Preview stops working
 open htop
 F6 sort by command
