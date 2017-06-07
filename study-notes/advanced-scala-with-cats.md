@@ -29,6 +29,11 @@ import cats.syntax.functor._
 
 Allows us to call `map` on functions, as it brings implicit definitions into scope to make functors out of functions.
 
+### Contravariant functors
+
+We can think of `map` as “appending” a transformation to a chain.  The **contravariant** functor, provides an operation called `contramap` that represents “prepending” a transformation to a chain.
+
+`contramap` starts to make sense when we have a data types that represent tranformations.
 
 ## Monads
 
