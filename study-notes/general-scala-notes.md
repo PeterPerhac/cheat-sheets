@@ -100,3 +100,8 @@ import a._
 ```
 
 
+scala.concurrent.Await has **two** methods: `Await.result` and `Await.ready`
+Note that awaiting on the **result** of a _failed_ Future is not a very good idea. As this will result in the Throwable captured by the Failed Future being thrown (which crashes the program, likely)
+
+Use `Await.ready` which returns not the future value of type T but the Awaitable[T] which will be the Failed or Successful Future itself.
+
