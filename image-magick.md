@@ -20,3 +20,14 @@ mogrify  -resize 128x  profile*.jpg
 convert   -delay 0  -loop 0  profile*.jpg  peter.gif
 ```
 
+
+## Make a PNG with transparent background
+
+as an example we'll take a PNG that has a white background and set the white pixels to be transparent in the converted image:
+
+```
+convert source.png -fuzz nn% -transparent white target.png
+```
+
+The larger the fuzz percentage %, the more variation from white is allowed to become transparent.
+
