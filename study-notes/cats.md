@@ -157,6 +157,32 @@ OptionT.liftF(F[T]) // from F[T]
 OptionT.fromOption[Future](Option[T]) // from O[T]
 ```
 
+###mapping and flatMapping the Monad Transformer
+
+mapping a MonadTransformer `MT[F,A]` produces `MT[F,B]` provided we have a mapping function of the shape `A => B`
+
+if the mapping function, however, is of another shape we will need to use different mathods on the MT to do the mapping:
+
+- `A => MT[F, B]` requires a `flatMap`
+- `A => F[B]` requires a `semiflatMap`
+- `A => M[B]` requires a `subflatMap` (where M is the monad of the MT transformer)
+
+
+```scala
+val mapFu : String => String = ???
+val flatmapFu : String => OptionT[Future, String] = ???
+val semiflatMapFu : String => Future[String] = ???
+val subflatMapFu : String => Option[String] = ???
+
+val otInt = OptionT[Future, Int].some(42)
+
+otInt.map(mapFu) //OptionT[Future, String]
+otInt.flatMap(flatmapFu) //OptionT[Future, String]
+otInt.semiflatMap(semiflatMapFu) //OptionT[Future, String]
+otInt.subflatMap(subflatMapFu) //OptionT[Future, String]
+
+```
+
 ## CoflatMap
 
 the `CoflatMap` type class is the _dual_ of `FlatMap`.
