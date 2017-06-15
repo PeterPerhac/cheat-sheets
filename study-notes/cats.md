@@ -168,11 +168,11 @@ if the mapping function is of another shape, we will need to use different metho
 - `A => M[B]` requires a `subflatMap`
 
 ```scala
-val mapFu : String => String = ???
-val flatMapFu : String => OptionT[Future, String] = ???
-val flatMapFFu : String => Future[Option[String]] = ???
-val semiflatMapFu : String => Future[String] = ???
-val subflatMapFu : String => Option[String] = ???
+val mapFu : Int => String = ???
+val flatMapFu : Int => OptionT[Future, String] = ???
+val flatMapFFu : Int => Future[Option[String]] = ???
+val semiflatMapFu : Int => Future[String] = ???
+val subflatMapFu : Int => Option[String] = ???
 
 val otInt = OptionT[Future, Int].some(42)
 
