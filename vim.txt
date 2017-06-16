@@ -278,9 +278,9 @@ REPLACING (SUBSTITUTING)
 
 simple replace of a word with a yanked word:
 yiw
-viwp
     this will yank inside a word
-    followed by visually selecting inside another word and pasting over it
+viwp
+    visually select inside another word and paste over it
 
 :%s/searchFor/replaceWith/g
 	:% across all lines
@@ -361,7 +361,7 @@ BUFFERS
 =====
 
 :new
-:edit
+:edit (or :e)
     reload current buffer from underlying file (if edited outside vim)
 :edit <file>
     opens a file in vim
@@ -372,6 +372,34 @@ BUFFERS
 :e#
     re-open last closed buffer
 
+:bnext :bprev
+  to cycle buffers
+
+=====
+WINDOWS / PANES
+=====
+:split or :sp to create a horizontal split
+:vsplit or :vsp to create a vertical split
+  both work like the :e command and may take filepath as argument, if none is specified, current buffer is duplicated
+
+a number of rows/columns for the new window can be prefixed to the command:
+:20sp
+:30vsp
+
+a pane can be closed with the :close command
+
+C-w arrow
+  to move between open panes
+alternatively C-w (h,j,k,l)
+(or, if remapped could be just C-hjkl)
+
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+
+C-w =
+  is a neat shortcut for getting all panes evenly sized.
 
 =====
 VARIOUS
