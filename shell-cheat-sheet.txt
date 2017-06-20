@@ -16,6 +16,8 @@ lame
     reexecute last command
 say 'some text'
     the computer will say it. Mac will at least.
+    say -v ?
+      to list all availanle voices
 nl
     number lines. This will prepend line numbers in the output.
 expand / unexpand
