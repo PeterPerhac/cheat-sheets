@@ -13,7 +13,6 @@ remove all lines _not_ matching a pattern
 
 Dealing with huge files, it's better to use d_ to send all matched lines to blackhole register, which will be faster.
 
-
 x,X (del/backspace) without entering insert mode
 
 
@@ -140,6 +139,30 @@ vitit
     select the inside (/innerHtml) of the parent tag
 vititit
     you can guess...
+
+full reference from vim help:
+|v_aw|	   N  aw	"a word"
+|v_iw|	   N  iw	"inner word"
+|v_aW|	   N  aW	"a |WORD|"
+|v_iW|	   N  iW	"inner |WORD|"
+|v_as|	   N  as	"a sentence"
+|v_is|	   N  is	"inner sentence"
+|v_ap|	   N  ap	"a paragraph"
+|v_ip|	   N  ip	"inner paragraph"
+|v_ab|	   N  ab	"a block" (from "[(" to "])")
+|v_ib|	   N  ib	"inner block" (from "[(" to "])")
+|v_aB|	   N  aB	"a Block" (from "[{" to "]}")
+|v_iB|	   N  iB	"inner Block" (from "[{" to "]}")
+|v_a>|	   N  a>	"a <> block"
+|v_i>|	   N  i>	"inner <> block"
+|v_at|	   N  at	"a tag block" (from <aaa> to </aaa>)
+|v_it|	   N  it	"inner tag block" (from <aaa> to </aaa>)
+|v_a'|	   N  a'	"a single quoted string"
+|v_i'|	   N  i'	"inner single quoted string"
+|v_aquote| N  a"	"a double quoted string"
+|v_iquote| N  i"	"inner double quoted string"
+|v_a`|	   N  a`	"a backward quoted string"
+|v_i`|	   N  i`	"inner backward quoted string"
 
 
 =====
@@ -334,7 +357,6 @@ ZZ	Write current file, if modified, and exit. (same as :x)
 ZQ	Quit current file and exit (same as ":q!").
 
 
-
 =====
 JOINING/SPLITTING LINES
 =====
@@ -354,7 +376,6 @@ join all lines by pressing:
         V - visual line select
         G - last line
         J - join
-
 
 =====
 BUFFERS
@@ -451,7 +472,6 @@ creating snippets
         nnoremap \html :-1read ~/.vim_runtime/snippets/index.html<CR>5jWvitc
 
 
-
 ===================
 REGULAR EXPRESSIONS
 ===================
@@ -466,7 +486,6 @@ quantifiers:
     ? is not recognized, use \= instead
     the OPEN curly bracket in quantifiers needs to be escaped, otherwise this works as usual: \{5} \{,3} \{2,} \{2,3}
     round brackets also require escaping, however! note BOTH \( AND \) need to be escaped, not just the open one.
-
 
 
 ====
@@ -492,6 +511,11 @@ changing colors:
 :highlight Normal ctermfg=yellow ctermbg=darkblue
     note that the first colon is required. so you would see ::highlight in the command line
     also, no need to change ctermfg, color scheme might adapt to change of ctermbg setting
+
+abbreviations:
+  list them like so
+    :ab
+  in normal mode, enter abbreviation as a separate word, followed by space, and the abbreviation will expand. For example try typing `xdate`
 
 =======
 SPELL-CHECKING
