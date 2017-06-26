@@ -418,6 +418,9 @@ C-w arrow
 alternatively C-w (h,j,k,l)
 (or, if remapped could be just C-hjkl)
 
+C-w-x to swap contents of adjecent windows
+C-w-r to rotate windows
+
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>

@@ -46,3 +46,7 @@ coverage dropped for no apparent reason. string arguments for Logger not evaluat
 when more memory is needed for running `scala` command, just use the `-J-Xmx2g` switch.
 this configures the `JAVA_OPTS` environment variable
 
+### Tab completion when running tests
+
+Tab completion is provided for test names based on the results of the last test:compile. This means that a new sources aren’t available for tab completion until they are compiled and deleted sources won’t be removed from tab completion until a recompile. A new test source can still be manually written out and run using testOnly.
+
