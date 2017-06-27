@@ -1,3 +1,7 @@
+Ctrl+F
+  find a file - keep pressing to cycle through files / MRU / open buffers
+  fiterable by just typing
+
 . (full stop) repeats last command
 ; (semicolon) repeats last motion (t/f, T/F)
 , (comma) reverse last motion (t -> T, f -> F)
