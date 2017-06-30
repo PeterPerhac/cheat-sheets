@@ -8,4 +8,4 @@ def normaliseTotal(s:Int):HMS = {
   val m = (s - h*3600) / 60
   HMS(h, m, s - h*3600 - m*60)
 }
-normaliseTotal(total)
+println(normaliseTotal(total))

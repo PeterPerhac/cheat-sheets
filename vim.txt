@@ -534,7 +534,7 @@ SPELL-CHECKING
 
 turn it ON
   :setlocal spell
-  :setlocal spell spelllang=en_us
+  :setlocal spell spelllang=en_gb
 
 turn it OFF
   :set nospell
@@ -544,6 +544,9 @@ next and previous spellcheck highlight
 
 add word under cursor as good word to spellfile
   zg
+
+suggest corrections to misspelled words:
+  z=
 
 =======
 PLUGINS

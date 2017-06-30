@@ -1,110 +1,94 @@
-Introduction
-Welcome To The Course
-00:01:50
-About The Author
-00:00:45
-How To Access Your Working Files
-00:01:15
-Using Val And Var
-Overview Of Val And Var
-00:01:08
-Common Usages Of Val
-00:05:45
-Common Usages Of Var
-00:05:28
-Using Var Vs. Mutable Datatypes
-00:07:18
-Using Var In Loop Contexts
-00:05:53
-Functions As Objects
-Storing Defs Inside Of Vars
-00:04:01
-Storing Functions In Lists And Maps
-00:05:26
-Abstract Function Bodies When Possible
-00:06:21
-Functions Should Be Testable
-00:04:45
-Immutable Vs. Mutable
-Using Mutable Data Structures
-00:05:14
-Using Immutable Data Structures
-00:04:48
-Pattern Matching
-Do Not Pattern Match For All Statements
-00:03:09
-Cover All Outcomes Of A Pattern Match
-00:05:07
-Prefer Value Matches Over Guards When Possible
-00:05:16
-Prefer To Map/Filter Over An Option Rather Than Pattern Matching
-00:06:38
-Prefer Pattern Matching To Type Casting
-00:04:41
-Lazy Val
-Cost Of A Lazy Val
-00:05:51
-Common Usages Of Lazy Val
-00:05:12
-Using A Factory And Lazy Val Pattern
-00:03:19
-Oop
-Useless Traits
-00:04:19
-Using Case Classes Effectively
-00:02:47
-Instance Methods Invoking Static Methods
-00:03:32
-No Classes Inside Of Package Objects
-00:03:27
-Prefer Mixing Over Deep Inheritance
-00:07:48
-Syntax
-Do Not Use The Return Keyword
-00:05:29
-Do Not Use Exceptions For Validation And Flow Of Control
-00:08:56
-Do Not Use Null
-00:04:07
-Do Not Use Option.Get
+Table of Contents
+Chapter 1 : Exploring the Actor World
+The Course Overview
+00:03:22
+Understanding the Actor Model
+00:03:20
+Concepts and Terminology
+00:04:06
+Let's Create Hello World
+00:03:24
+Chapter 2 : Playing with Actors
+Actor System and Hierarchical Structure
+00:04:35
+Actor Components and Lifecycle
 00:03:36
-Explicit Return Types
+Creating an Actor with Props
+00:04:12
+Talking to an Actor
+00:04:57
+Supervision and Monitoring
+00:06:00
+Chapter 3 : Working with Akka Basic Tools
+ActorRef Versus Actor Path Versus Actor Selection
+00:05:04
+Sending Messages via Router
+00:05:48
+Replacing Actor Behavior via become/unbecome
+00:04:48
+Replacing Actor Behavior via FSM
+00:04:48
+Chpater 4 : Akka Persistence
+Introduction to Akka Persistence
 00:04:27
-Concurrency
-Prefer The Actor Model Over Manual Runnable/Thread
+Creating Persistent Actors
+00:04:27
+Playing with a Persistent Actor
+00:04:22
+Persistence FSM
+00:06:19
+Persistence Query
+00:04:24
+Chapter 5 : Working with Akka Cluster
+Playing with Remote Actors
+00:05:27
+Building a Cluster
+00:06:10
+Adding Load Balancer to a Cluster Node
+00:03:09
+Creating a Singleton Actor in the Cluster
+00:05:45
+Cluster Sharding
+00:05:49
+Chapter 6 : Testing Actors
+How to Test an Actor?
 00:05:44
-Always Prefer A Single Producer
-00:05:22
-Thread Safety Of Public Apis
-00:04:31
-Blocking I/O On A Separate Thread Pool
-00:09:46
-Futures Are Not The End Answer
+Testing a Parent-child Relationship
+00:03:27
+Testing FSM
+00:04:25
+Multi Node Testing
+00:06:32
+Chapter 7 : Working with Akka Streams
+Introduction to Akka Streams
+00:05:37
+Reactive Tweets
+00:04:54
+Testing Streams
+00:06:02
+Working with Graphs
 00:04:56
-Prefer An Ask Over Exposing Internal Actor Workings
-00:05:39
-Actors Should Only Accept Data
-00:06:36
-Advanced Language Features
-Avoid Postfix Notation
-00:05:41
-Avoid Implicit
-00:09:44
-Avoid Complex Structural Typing
-00:06:17
-Avoid Dynamic Typing
-00:07:11
-General Programming
-Proper Naming Of Variables And Functions
-00:04:07
-Long Line Splitting
-00:07:48
-Return Types For Methods
-00:03:04
-Catch Exceptions When Possible
-00:03:15
-Self-Documenting Code
-00:04:43
-Conclusion
-Wrap Up And Thank You
-00:01:04
+Working with Stream IO
+00:04:17
+Chapter 8 : Working with Akka HTTP
+Introduction to Akka HTTP
+00:04:04
+Working with Client-side API
+00:05:59
+Working with Server-side API
+00:05:02
+Let's Implement a REST API
+00:05:05
+Let's Test Our REST API
+00:03:32
+Chapter 9 : Working with Common Patterns in Akka
+Balancing Workload Across Nodes
+00:05:35
+Throttling Messages
+00:04:26
+Shutdown Patterns
+00:03:26
+Ordered Termination
+00:03:45
+Scheduling Periodic Messages
+00:02:57
