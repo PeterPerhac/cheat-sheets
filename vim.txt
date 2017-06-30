@@ -1,3 +1,10 @@
+CGN
+===
+For making multiple edits easier, almost like IntelliJ's Ctrl+G `cgn` could be used.
+gn is a motion for going to the "next" match (just like pressing n in normal mode)
+`cgn` will trigger a change the next match. It doesn't matter where the cursor is at the time of invoking `cgn`. Vim goes to next match and changes it.
+very useful with the dot for repeating the change, and also for complex regular expressions.
+
 Ctrl+F
   find a file - keep pressing to cycle through files / MRU / open buffers
   fiterable by just typing
@@ -607,6 +614,54 @@ in Insert mode or in the command line, you can press Ctrl+r % to insert the full
 
 '0
   upon opening vim, go to where you left off last time
+
+================
+Highlight Groups
+================
+
+8:SpecialKey
+~:EndOfBuffer
+@:NonText
+d:Directory
+e:ErrorMsg
+i:IncSearch
+l:Search
+m:MoreMsg
+M:ModeMsg
+n:LineNr
+N:CursorLineNr
+r:Question
+s:StatusLine
+S:StatusLineNC
+c:VertSplit
+t:Title
+v:Visual
+V:VisualNOS
+w:WarningMsg
+W:WildMenu
+f:Folded
+F:FoldColumn
+A:DiffAdd
+C:DiffChange
+D:DiffDelete
+T:DiffText
+>:SignColumn
+-:Conceal
+B:SpellBad
+P:SpellCap
+R:SpellRare
+L:SpellLocal
++:Pmenu
+=:PmenuSel
+x:PmenuSbar
+X:PmenuThumb
+*:TabLine
+#:TabLineSel
+_:TabLineFill
+!:CursorColumn
+.:CursorLine
+o:ColorColumn
+q:QuickFixLine
 
 
 =====
