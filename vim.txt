@@ -7,7 +7,7 @@ very useful with the dot for repeating the change, and also for complex regular 
 
 Ctrl+F
   find a file - keep pressing to cycle through files / MRU / open buffers
-  fiterable by just typing
+!!! this list is fiterable by just typing !!!
 
 . (full stop) repeats last command
 ; (semicolon) repeats last motion (t/f, T/F)
@@ -22,9 +22,16 @@ remove all blank lines
 remove all lines _not_ matching a pattern
 	:g!/somepattern/d
 
+
+omitting pattern in between slashes will cause vim to use the most recently used search pattern:
+    /foo
+      will search for "foo"
+    :g//d_
+      will delete all lines where "foo" was found
+
 Dealing with huge files, it's better to use d_ to send all matched lines to blackhole register, which will be faster.
 
-x,X (del/backspace) without entering insert mode
+x,X (delete/backspace) without entering insert mode
 
 
 ~ toggle case (a -> A, A -> a)
@@ -592,6 +599,8 @@ q:
 q/
   does the same but opens overview of / searches
 guess what q? does
+
+when struggling in the command line, and wishing to switch to a command _window_, just press Ctrl+f
 
 Ctrl-c to exit
 
