@@ -444,9 +444,6 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
-C-w =
-  is a neat shortcut for getting all panes evenly sized.
-
 :res +10
 :res -10
   resize current horizontal split by 10 lines
@@ -455,6 +452,18 @@ C-w =
   resize current vertical split by 5 columns
 
   absolute sizings can be used too, just omit the + or -
+
+
+Ctrl-w = = Resize the windows equally
+Ctrl-w > = Incrementally increase the window to the right
+  Takes a parameter, e.g. Ctrl-w 20 >
+Ctrl-w < = Incrementally increase the window to the left
+  Takes a parameter, e.g. Ctrl-w 20 <
+Ctrl-w - = Incrementally decrease the window's height
+  Takes a parameter, e.g. Ctrl-w 10 -
+Ctrl-w + = Incrementally increase the window's height
+  Takes a parameter, e.g. Ctrl-w 10 +
+
 
 =====
 VARIOUS
@@ -556,7 +565,7 @@ turn it OFF
 next and previous spellcheck highlight
   ]s and [s
 
-add word under cursor as good word to spellfile
+add word under cursor as "good" word to spellfile
   zg
 
 suggest corrections to misspelled words:

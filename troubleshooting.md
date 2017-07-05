@@ -25,6 +25,8 @@ F9 and Enter to send it the kill signal (mark as many Preview as are running)
 
 IntelliJ / SBT tip: if IntelliJ isn't finding the source code for libraries in your sbt project, try doing `sbt update-classifiers` followed by File -> Synchronize in IntelliJ
 
+"Cannot resolve symbol" compilation error - IntelliJ unable to resolve things like "Option".
+Invalidate caches, shut down IntelliJ, delete .idea folder, start IntelliJ and re-import project
 
 ## Scala / SBT
 deprecation / feature warnings - this is how to find out what they are:
