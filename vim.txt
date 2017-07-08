@@ -54,7 +54,7 @@ u
 	to undo
 Ctrl+r
 	to un-undo
-	
+
 g- / g+
         previous / next state of the buffer "as was on screen" (navigates the undo tree), unlike a linear history with undo/redo
         this also is good for just navigating to most recently edited location (first go backwards, then forwards g-g+)
@@ -272,7 +272,7 @@ SEARCHING
 :set hlsearch - to enable search highlighting
 :set incsearch - show match as search proceeds
 :set ignorecase - case insensitive
-:set smartcase - use case if any caps used 
+:set smartcase - use case if any caps used
 
 :noh
     to clear highlighted search results (no highlighting - "noh")
@@ -369,10 +369,10 @@ counterpart of :write (:w) is :read (:r) - this will read the contents of a file
 :up and :x will not update timestamp if there are no changes to write. Update will only write if there's any changes to update in the underlying file
 
 mental checklist
-- do I want to write the file? (w) 
-- do I want to quit the file? (q) 
-- do I want to quit ALL the files? (a) 
-- do I want to write/abandon any changes? (!) 
+- do I want to write the file? (w)
+- do I want to quit the file? (q)
+- do I want to quit ALL the files? (a)
+- do I want to write/abandon any changes? (!)
 
 
 ZZ	Write current file, if modified, and exit. (same as :x)
@@ -502,7 +502,7 @@ C-x C-l
 
 creating snippets
     create a keymapping like this and a file to load (snippet):
-        
+
         nnoremap \html :-1read ~/.vim_runtime/snippets/index.html<CR>5jWvitc
 
 
@@ -626,10 +626,8 @@ C-g
 
 
 to see what is the current value of a setting press <tab> after the equals of a set command:
-
 :set shell=<Tab>
   tells you what shell is configured to be used by Vim when using the :sh command
-
 
 in Insert mode or in the command line, you can press Ctrl+r % to insert the full path of the file currently edited.
 
