@@ -8,6 +8,17 @@ very useful with the dot for repeating the change, and also for complex regular 
 Ctrl+F
   find a file - keep pressing to cycle through files / MRU / open buffers
 !!! this list is fiterable by just typing !!!
+  This is only available with the CtrlP plugin, and here are other shortcuts that work once the CtrlP plugin is activated:
+   - Press <F5> to purge the cache for the current directory (refresh).
+   - Press <c-f> and <c-b> to cycle between modes.
+   - Press <c-d> to switch to filename search instead of full path.
+   - Press <c-r> to switch to regexp mode.
+   - Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+   - Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+   - Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+   - Use <c-y> to create a new file and its parent directories.
+   - Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+
 
 . (full stop) repeats last command
 ; (semicolon) repeats last motion (t/f, T/F)
@@ -67,10 +78,13 @@ like this: :earlier 20s to move to the state of buffer from 20 seconds ago
 =====
 NAVIGATING
 =====
-(,) to go to previous/next sentence
-{,} to go to previous/next paragraph
-[[,]] to go to previous/next section (this could mean the whole file)
-Ctrl+d Ctrl+u to go half a screen up or down
+(,) jump to previous/next sentence
+{,} jump to previous/next paragraph
+[[,]] jump to previous/next section (this could mean the whole file)
+[{       jump to start of current code block
+]}       jump to end of current code block
+
+Ctrl+d Ctrl+u jump half a screen up or down
 
 backwards by pressing Ctrl+o
 forwards by Tabbing
@@ -80,10 +94,13 @@ Ctrl+g shows you the current position within currently opened file - file path a
 
 gi goes to insertion mode in the same place where user was last editing.
 gv goes to visual mode, selecting the same selection as was in last visual mode.
+gd goes to declaration - of a currently selected variable
+g; jump back to last edited position
+
 
 can jump to any line number by typing the number followed by capital G
     e.g. 1233G
-        to go to line 1233
+        jump to line 1233
 
 can easily place marks in file, like so : ma mb mc md etc...
 can then navigate back to these marks like so: `a `b `c `d etc... (note, it's a backtick)
