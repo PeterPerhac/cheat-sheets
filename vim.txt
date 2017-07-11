@@ -5,7 +5,7 @@ gn is a motion for going to the "next" match (just like pressing n in normal mod
 `cgn` will trigger a change the next match. It doesn't matter where the cursor is at the time of invoking `cgn`. Vim goes to next match and changes it.
 very useful with the dot for repeating the change, and also for complex regular expressions.
 
-Ctrl+F
+<C-f>
   find a file - keep pressing to cycle through files / MRU / open buffers
 !!! this list is fiterable by just typing !!!
   This is only available with the CtrlP plugin, and here are other shortcuts that work once the CtrlP plugin is activated:
@@ -63,7 +63,7 @@ UNDO/REDO
 
 u
 	to undo
-Ctrl+r
+<C-r>
 	to un-undo
 
 g- / g+
@@ -84,13 +84,13 @@ NAVIGATING
 [{       jump to start of current code block
 ]}       jump to end of current code block
 
-Ctrl+d Ctrl+u jump half a screen up or down
+<C-d> <C-u> jump half a screen up or down
 
-backwards by pressing Ctrl+o
+backwards by pressing <C-o>
 forwards by Tabbing
-Ctrl+o counterpart is Ctrl+i
+<C-o> counterpart is <C-i>
 
-Ctrl+g shows you the current position within currently opened file - file path and line/column and percentage information.
+<C-g> shows you the current position within currently opened file - file path and line/column and percentage information.
 
 gi goes to insertion mode in the same place where user was last editing.
 gv goes to visual mode, selecting the same selection as was in last visual mode.
@@ -113,8 +113,8 @@ start of line by pressing ^ or 0
     ^ - soft bol - follows indentation
     0 - hard bol - takes you to column 0
 
-Shift+i (I) - insert at (soft) bol - prepend to line
-Shift+a (A) - append to line
+<S-i> (I) - insert at (soft) bol - prepend to line
+<S-a> (A) - append to line
 
 ====
 FOLDING
@@ -135,14 +135,14 @@ zr/zm
 BLOCK EDITING
 ====
 
-Ctrl+v % Shift-i // Esc
-    Ctrl+v to enter visual block edit mode
+<C-v> % Shift-i // Esc
+    <C-v> to enter visual block edit mode
     % motion to visually edit until next matching bracket
     Shift-i means insert at start of line
     // is to be inserted
     Esc to escape visual block editing mode
 
-Ctrl+v % $ Shift-a , Esc
+<C-v> % $ Shift-a , Esc
     in a similar manner will append comma to the end of each line in the current block
     trick is first need to move cursor to end of line $ and then "append" with Shift-a
     whatever is typed prior to pressing Esc will be appended to the end of each line in the block
@@ -494,7 +494,7 @@ sort all lines in the buffer like so:
     :sort
 sort in reverse order like so:
     :sort!
-Sort a range of lines by selecting them (Shift+V to visual line selection mode). This will automatically insert '<, '> into the command line (on pressing `:`).  This translates as "range from start of visual selection to end of visual selection" and you do not need to clear the command line before typing the sort command.
+Sort a range of lines by selecting them (Shift+v to visual line selection mode). This will automatically insert '<, '> into the command line (on pressing `:`).  This translates as "range from start of visual selection to end of visual selection" and you do not need to clear the command line before typing the sort command.
 You can also manually specify the range. One way can be to drop a mark at the start (e.g. `ma` drops the a-mark) - then move to the last line of the text-to-be-sorted, then sort the range from the placed mark to the current line like so:
     :'a,.sort
     range from reference to mark a ('a) to (,) current line (.)
@@ -543,15 +543,15 @@ quantifiers:
 MISC
 ====
 
-Ctrl+a
+<C-a>
 	increment number under (or after) cursor
-Ctrl+x
+<C-x>
 	decrement number under (or after) cursor
 
     both can be preceded by a number, so can increment by 100 by pressing 100<C-a>
     also, cursor does not need to be on the number. Vim will look for nearest number to increment/decrement to the right of the cursor (on the same line)
 
-Ctrl+n or Ctrl+p
+<C-n> or <C-p>
 	while typing this will show a list of suggestions for word completion
 
 gx
@@ -629,7 +629,7 @@ q/
   does the same but opens overview of / searches
 guess what q? does
 
-when struggling in the command line, and wishing to switch to a command _window_, just press Ctrl+f
+when struggling in the command line, and wishing to switch to a command _window_, just press <C-f>
 
 Ctrl-c to exit
 
@@ -646,7 +646,7 @@ to see what is the current value of a setting press <tab> after the equals of a 
 :set shell=<Tab>
   tells you what shell is configured to be used by Vim when using the :sh command
 
-in Insert mode or in the command line, you can press Ctrl+r % to insert the full path of the file currently edited.
+in Insert mode or in the command line, you can press <C-r> % to insert the full path of the file currently edited.
 
 '0
   upon opening vim, go to where you left off last time
