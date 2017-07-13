@@ -7,12 +7,12 @@ very useful with the dot for repeating the change, and also for complex regular 
 
 <C-f>
   find a file - keep pressing to cycle through files / MRU / open buffers
-!!! this list is fiterable by just typing !!!
+!!! this list is filterable by just typing !!!
   This is only available with the CtrlP plugin, and here are other shortcuts that work once the CtrlP plugin is activated:
    - Press <F5> to purge the cache for the current directory (refresh).
    - Press <c-f> and <c-b> to cycle between modes.
    - Press <c-d> to switch to filename search instead of full path.
-   - Press <c-r> to switch to regexp mode.
+   - Press <c-r> to switch to regex mode.
    - Use <c-j>, <c-k> or the arrow keys to navigate the result list.
    - Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
    - Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
@@ -85,6 +85,9 @@ NAVIGATING
 ]}       jump to end of current code block
 
 <C-d> <C-u> jump half a screen up or down
+H M L letters will position the cursor to somewhere in the HIGH, MIDDLE, LOWER portion of the open window.
+
+<C-y> or <C-e> to scroll the view pane (while still keeping cursor in the same place)
 
 backwards by pressing <C-o>
 forwards by Tabbing
@@ -453,8 +456,9 @@ C-w arrow
 alternatively C-w (h,j,k,l)
 (or, if remapped could be just C-hjkl)
 
-C-w-x to swap contents of adjecent windows
+C-w-x to swap contents of adjacent windows
 C-w-r to rotate windows
+C-w-(H,J,K,L) to move windows around - from vertical split to horizontal split & back
 
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
@@ -595,7 +599,10 @@ suggest corrections to misspelled words:
 PLUGINS
 =======
 
-visincr.vba - visual-mode increment numbers vimball
+visincr.vba
+-----------
+
+visual-mode increment numbers vimball
     make column selection, then type
 
     :II
@@ -605,6 +612,42 @@ visincr.vba - visual-mode increment numbers vimball
     :I will create a number range that isn't padded
     :I 2 will create a number range in steps of two
 
+
+expandregion plugin
+-------------------
+    also for the visual mode - works similarly to IntelliJ's Alt+Up/Down
+    press v and then + or _ to expand or shrink visual selection
+
+
+commentary plugin
+-----------------
+
+{Visual}gc      toggle EOL commenting of the highlighted lines.
+
+#gcc            same, but works from Normal mode
+  3gcc              comment/uncomment 3 lines
+
+gc{motion}      same as gcc but with a motion
+
+
+surround plugin
+---------------
+
+
+  Old text                  Command     New text
+  ---                       ---         ---
+  "Hello *world!"           ds"         Hello world!
+  (123+4*56)/2              ds)         123+456/2
+  <div>Yo!*</div>           dst         Yo!
+
+  "Hello *world!"           cs"'        'Hello world!'
+  "Hello *world!"           cs"<q>      <q>Hello world!</q>
+  (123+4*56)/2              cs)]        [123+456]/2
+  (123+4*56)/2              cs)[        [ 123+456 ]/2
+  <div>Yo!*</div>           cst<p>      <p>Yo!</p>
+
+  Hello w*orld!             ysiw)       Hello (world)!    # you surround
+  Hello w*orld!             yss)        {Hello world!}    # you surround special - whole line
 
 =============================
 CONFIGURATION AND KEY MAPPING
