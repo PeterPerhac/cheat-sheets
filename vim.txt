@@ -98,6 +98,7 @@ forwards by Tabbing
 gi goes to insertion mode in the same place where user was last editing.
 gv goes to visual mode, selecting the same selection as was in last visual mode.
 gd goes to declaration - of a currently selected variable
+gf goes to file - opens file path under cursor in the current window (use <C-w>f to open file in a new window)
 g; jump back to last edited position
 
 
@@ -510,7 +511,7 @@ or use numeric sort
 
 
 :find some-file
-    open a file by seraching for it
+    open a file by searching for it
 :read some-file
     include verbatim copy of a file in the edited file
 C-x C-f
@@ -522,7 +523,7 @@ C-x C-l
     new snippet thing that is based on remapping the key sequence \html to a command that reads a snippet into current file
 
 creating snippets
-    create a keymapping like this and a file to load (snippet):
+    create a key mapping like this and a file to load (snippet):
 
         nnoremap \html :-1read ~/.vim_runtime/snippets/index.html<CR>5jWvitc
 
