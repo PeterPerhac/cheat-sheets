@@ -1,6 +1,13 @@
 #to export a collection into a JSON formatted file
 mongoexport --db test --collection traffic --out traffic.json
 
+#import data from json into a collection with this shell script:
+cd "$(dirname "$0")"
+echo 'This will clear out your current collection. Kill me while you can (or just press Enter)'
+read
+mongo --eval 'db.urls.remove({})' databaseName
+mongoimport --db databaseName --collection collectionName --file data.json
+echo 'Done.'
 
 #to group documents by the "reg" field, and order them by count descending and reg ascending
 db.getCollection('readings').aggregate([
