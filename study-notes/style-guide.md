@@ -71,3 +71,52 @@ for (x <- board.rows; y <- board.files)
   yield (x, y)
 ```
 
+## Classes
+
+Class/Object/Trait constructors should be declared _all on one line_, unless the line becomes “too long” (about 100 characters). In that case, put each constructor argument on its own line, indented **four** spaces and two spaces for extensions; this provides visual separation between constructor arguments and extensions:
+
+```scala
+class Person(
+    name: String,
+    age: Int,
+    birthdate: Date,
+    astrologicalSign: String,
+    shoeSize: Int,
+    favoriteColor: java.awt.Color)
+  extends Entity
+  with Logging
+  with Identifiable
+  with Serializable {
+}
+```
+
+## Methods
+
+Methods should be declared according to the following pattern:
+
+```scala
+def foo(bar: Baz): Bin = expr
+```
+
+_don't use procedure syntax_ (no return type, no equals, just braces after parameter list)
+
+Methods which contain a single `match` expression should be declared in the following way:
+
+```scala
+// right!
+def sum(ls: List[Int]): Int = ls match {
+  case hd :: tail => hd + sum(tail)
+  case Nil => 0
+}
+
+// wrong!
+def sum(ls: List[Int]): Int = {
+  ls match {
+    case hd :: tail => hd + sum(tail)
+    case Nil => 0
+  }
+}
+```
+
+Multiple Parameter Lists
+
