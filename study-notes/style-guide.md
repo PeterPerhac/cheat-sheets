@@ -120,3 +120,23 @@ def sum(ls: List[Int]): Int = {
 
 Multiple Parameter Lists
 
+Align the open-brackets of the parameter lists, one **list** per line (i.e. if you can’t put them _all_ on one line, put one on its own line)
+
+Function values, method 1 and 4 are preferred:
+
+```scala
+val f1 = ((a: Int, b: Int) => a + b)
+val f2 = (a: Int, b: Int) => a + b
+val f3 = (_: Int) + (_: Int)
+val f4: (Int, Int) => Int = (_ + _)
+```
+
+Parameters should be on the same line as the opening brace, as should the “arrow” (=>):
+
+```scala
+val f1 = { (a: Int, b: Int) =>
+  val sum = a + b
+  sum
+}
+```
+
