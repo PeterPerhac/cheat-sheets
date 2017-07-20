@@ -81,8 +81,8 @@ NAVIGATING
 (,) jump to previous/next sentence
 {,} jump to previous/next paragraph
 [[,]] jump to previous/next section (this could mean the whole file)
-[{       jump to start of current code block
-]}       jump to end of current code block
+[{       jump to start of current code block (i.e. navigate to parent opening bracket)
+]}       jump to end of current code block (i.e. navigate to closing bracket of parent block)
 
 <C-d> <C-u> jump half a screen up or down
 H M L letters will position the cursor to somewhere in the HIGH, MIDDLE, LOWER portion of the open window.
