@@ -97,7 +97,7 @@ forwards by Tabbing
 
 gi goes to insertion mode in the same place where user was last editing.
 gv goes to visual mode, selecting the same selection as was in last visual mode.
-gd goes to declaration - of a currently selected variable
+gd goes to declaration of current term - i.e. highlights all occurrences of word under cursor and move cursor to first occurrence in the file
 gf goes to file - opens file path under cursor in the current window (use <C-w>f to open file in a new window)
 g; jump back to last edited position
 
@@ -518,6 +518,8 @@ C-x C-f
     in insert mode - fill in a name of a file/directory
 C-x C-l
     in insert mode - insert an entire line that is somewhere in the current file
+C-x C-o
+    in insert mode - omnicomplete (for example with ENSIME, this will do what Ctrl+<space> does in IDEs)
 
 \html
     new snippet thing that is based on remapping the key sequence \html to a command that reads a snippet into current file
