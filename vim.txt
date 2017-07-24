@@ -10,14 +10,14 @@ very useful with the dot for repeating the change, and also for complex regular 
 !!! this list is filterable by just typing !!!
   This is only available with the CtrlP plugin, and here are other shortcuts that work once the CtrlP plugin is activated:
    - Press <F5> to purge the cache for the current directory (refresh).
-   - Press <c-f> and <c-b> to cycle between modes.
-   - Press <c-d> to switch to filename search instead of full path.
-   - Press <c-r> to switch to regex mode.
-   - Use <c-j>, <c-k> or the arrow keys to navigate the result list.
-   - Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
-   - Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
-   - Use <c-y> to create a new file and its parent directories.
-   - Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+   - Press <C-f> and <C-b> to cycle between modes.
+   - Press <C-d> to switch to filename search instead of full path.
+   - Press <C-r> to switch to regex mode.
+   - Use <C-j>, <C-k> or the arrow keys to navigate the result list.
+   - Use <C-t> or <C-v>, <C-x> to open the selected entry in a new tab or in a new split.
+   - Use <C-n>, <C-p> to select the next/previous string in the prompt's history.
+   - Use <C-y> to create a new file and its parent directories.
+   - Use <C-z> to mark/unmark multiple files and <C-o> to open them.
 
 
 . (full stop) repeats last command
@@ -516,6 +516,8 @@ or use numeric sort
     include verbatim copy of a file in the edited file
 C-x C-f
     in insert mode - fill in a name of a file/directory
+C-x C-k
+    in insert mode - autocomplete word with the help of dictionary used for spellchecking
 C-x C-l
     in insert mode - insert an entire line that is somewhere in the current file
 C-x C-o
@@ -577,6 +579,7 @@ abbreviations:
   list them like so
     :ab
   in normal mode, enter abbreviation as a separate word, followed by space, and the abbreviation will expand. For example try typing `xdate`
+  - to expand an abbreviation without pressing the space bar - press <C-]>
 
 =======
 SPELL-CHECKING
