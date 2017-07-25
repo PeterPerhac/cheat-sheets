@@ -1,25 +1,21 @@
-Table of Contents
-Chapter 1 : Exploring the Actor World
-The Course Overview
-00:03:22
-Understanding the Actor Model
-00:03:20
-Concepts and Terminology
-00:04:06
-Let's Create Hello World
-00:03:24
-Chapter 2 : Playing with Actors
-Actor System and Hierarchical Structure
-00:04:35
-Actor Components and Lifecycle
-00:03:36
-Creating an Actor with Props
-00:04:12
-Talking to an Actor
-00:04:57
+  The Course Overview
+  00:03:22
+  Understanding the Actor Model
+  00:03:20
+  Concepts and Terminology
+  00:04:06
+  Let's Create Hello World
+  00:03:24
+  Actor System and Hierarchical Structure
+  00:04:35
+  Actor Components and Lifecycle
+  00:03:36
+  Creating an Actor with Props
+  00:04:12
+  Talking to an Actor
+  00:04:57
 Supervision and Monitoring
 00:06:00
-Chapter 3 : Working with Akka Basic Tools
 ActorRef Versus Actor Path Versus Actor Selection
 00:05:04
 Sending Messages via Router
@@ -28,7 +24,6 @@ Replacing Actor Behavior via become/unbecome
 00:04:48
 Replacing Actor Behavior via FSM
 00:04:48
-Chpater 4 : Akka Persistence
 Introduction to Akka Persistence
 00:04:27
 Creating Persistent Actors
@@ -39,7 +34,6 @@ Persistence FSM
 00:06:19
 Persistence Query
 00:04:24
-Chapter 5 : Working with Akka Cluster
 Playing with Remote Actors
 00:05:27
 Building a Cluster
@@ -50,7 +44,6 @@ Creating a Singleton Actor in the Cluster
 00:05:45
 Cluster Sharding
 00:05:49
-Chapter 6 : Testing Actors
 How to Test an Actor?
 00:05:44
 Testing a Parent-child Relationship
@@ -59,7 +52,6 @@ Testing FSM
 00:04:25
 Multi Node Testing
 00:06:32
-Chapter 7 : Working with Akka Streams
 Introduction to Akka Streams
 00:05:37
 Reactive Tweets
@@ -70,7 +62,6 @@ Working with Graphs
 00:04:56
 Working with Stream IO
 00:04:17
-Chapter 8 : Working with Akka HTTP
 Introduction to Akka HTTP
 00:04:04
 Working with Client-side API
@@ -81,7 +72,6 @@ Let's Implement a REST API
 00:05:05
 Let's Test Our REST API
 00:03:32
-Chapter 9 : Working with Common Patterns in Akka
 Balancing Workload Across Nodes
 00:05:35
 Throttling Messages
@@ -92,3 +82,29 @@ Ordered Termination
 00:03:45
 Scheduling Periodic Messages
 00:02:57
+The Course Overview
+00:01:27
+Responsive
+00:07:54
+Resilient
+00:05:23
+Elastic
+00:05:57
+Message Driven
+00:06:45
+Putting All Reactive Principles Together
+00:04:37
+Introduction to Akka
+00:09:12
+Introduction to Akka HTTP
+00:07:44
+Getting to Know Core API of Akka HTTP
+00:08:02
+Creating Controllers for our REST Microservice
+00:05:58
+Writing Tests for Our Microservice
+00:07:09
+Making Our Service Comply with Reactive Manifesto Principles
+00:05:24
+Writing
+00:08:10
