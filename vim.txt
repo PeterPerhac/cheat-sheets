@@ -284,6 +284,8 @@ SEARCHING
 
 *
 	to search for next occurrence of word currently under cursor
+[i
+    view (in status bar) the first occurrence of word under cursor
 [I
 	to get a listing of all occurrences of word currently under cursor
 
