@@ -93,7 +93,8 @@ backwards by pressing <C-o>
 forwards by Tabbing
 <C-o> counterpart is <C-i>
 
-<C-g> shows you the current position within currently opened file - file path and line/column and percentage information.
+<C-g> shows the current position within currently opened file - file path (relative to cwd) and line/column and percentage information.
+1 <C-g> same as above but file path is absolute, not relative to cwd
 
 gi goes to insertion mode in the same place where user was last editing.
 gv goes to visual mode, selecting the same selection as was in last visual mode.
