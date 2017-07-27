@@ -16,7 +16,7 @@ convert cute-kittens.jpg -crop +0-20 +repage cute-kittens-cropped.jpg
 ## Animation
 
 ```
-mogrify  -resize 128x  profile*.jpg 
+mogrify  -resize 128x  profile*.jpg
 convert   -delay 0  -loop 0  profile*.jpg  peter.gif
 ```
 
