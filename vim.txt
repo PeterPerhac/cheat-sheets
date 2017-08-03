@@ -658,6 +658,20 @@ surround plugin
   Hello w*orld!             ysiw)       Hello (world)!    # you surround
   Hello w*orld!             yss)        {Hello world!}    # you surround special - whole line
 
+
+SnipMate plugin
+---------------
+
+automatically activates snippets in files based on their file extension.
+Just press Tab to get a snippet to activate and keep pressing Tab to jump from placeholder to placeholder.
+
+in scala, some templates are:
+  - fory - for comprehension
+  - try - try-catch block
+  - match - match on an object with a couple of cases
+  - case - for more cases
+  - def - for knocking up a quick def
+
 =============================
 CONFIGURATION AND KEY MAPPING
 =============================
