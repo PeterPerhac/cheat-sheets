@@ -608,6 +608,17 @@ suggest corrections to misspelled words:
 PLUGINS
 =======
 
+JSON pretty printing with Python:
+
+  :%!python -m json.tool
+  :'<,'>!python -m json.tool
+
+  either do the whole file with % range selector
+  or just the range selected (in visual selection)
+    then act on it with the external python command
+      !python -m json.tool
+
+
 visincr.vba
 -----------
 
