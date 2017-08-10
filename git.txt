@@ -198,6 +198,10 @@ git clean -fdxn
 git gc --prune=now
     clean up a git repository, optionally with --aggressive switch to do a more thorough job that takes longer to perform
 
+execute both below to aggressively shrink the size of your .git repo
+git reflog expire --all --expire=now
+git gc --prune=now --aggressive
+
 git rm --cached -r <some_directory>
     or
 git rm --cached <some_file>
