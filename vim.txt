@@ -584,6 +584,9 @@ abbreviations:
   in normal mode, enter abbreviation as a separate word, followed by space, and the abbreviation will expand. For example try typing `xdate`
   - to expand an abbreviation without pressing the space bar - press <C-]>
 
+  I created a useful abbreviation `xclass` that will insert current filename without extension. It's best to activate it with <C-]>
+    ab xclass <C-R>=expand('%:t:r')<CR>
+
 =======
 SPELL-CHECKING
 =======
