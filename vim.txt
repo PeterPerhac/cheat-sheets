@@ -215,6 +215,9 @@ COPY-PASTING
 copying is called Yanking and so the command y is for yanking
 pasting is called Pasting and so the command p is for pasting
 cutting is same as deleting - any deleted lines end up in a default register, so can just be pasted after deleting
+if a delete or change has overwritten yanked stuff in the unnamed register, we can still refer to the most recently yanked text by addressing the yank register which is number 0.
+  "0p
+  will paste what's been most recently yanked, not whatever may sit in the unnamed register.
 
 
 SELECT TEXT
@@ -727,6 +730,13 @@ to see what is the current value of a setting press <tab> after the equals of a 
   tells you what shell is configured to be used by Vim when using the :sh command
 
 in Insert mode or in the command line, you can press <C-r> % to insert the full path of the file currently edited.
+
+More on <C-r> in Insert mode:
+=============================
+In Insert mode, pressing <C-r> followed by a character will insert the contents of the register referenced by the character into text. This has the beautiful side-effect that all such changes will be bunched into a single repeatable action; i.e. we can re-insert the same text, including the pasted text from register, by pressing the dot (.)
+
+To paste the contents of the yank register into text, just press <C-r>0
+
 
 '0
   upon opening vim, go to where you left off last time
