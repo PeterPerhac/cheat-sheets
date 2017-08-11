@@ -736,6 +736,7 @@ More on <C-r> in Insert mode:
 In Insert mode, pressing <C-r> followed by a character will insert the contents of the register referenced by the character into text. This has the beautiful side-effect that all such changes will be bunched into a single repeatable action; i.e. we can re-insert the same text, including the pasted text from register, by pressing the dot (.)
 
 To paste the contents of the yank register into text, just press <C-r>0
+this <C-r> trick also works in Ex mode (typing into the Vim command line)
 
 
 '0
