@@ -12,6 +12,9 @@ Host *
    UseKeychain yes
 ```
 
+### quotes problems
+make sure the input method - keyboard - selected is not an "international" one. that one is waiting for second keypress to bind two keys into a single glyph.
+
 ### preview problems
 
 Preview stops working
