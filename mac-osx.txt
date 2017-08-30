@@ -2,6 +2,8 @@ when terminal starts asking for ssh key password (perhaps following an OS upgrad
 
 in terminal type `open .` to open the current location (directory) in finder
 
+a profile can be set as Default on the same preferences page as profile selection, somewhere near the + and - signs is a Default button.
+
 Command+Shift+Y
     with any text selected, this will launch Stickies and paste the currently selected text into a fresh sticky. Neat!
 
