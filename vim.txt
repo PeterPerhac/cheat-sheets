@@ -84,6 +84,9 @@ NAVIGATING
 [{       jump to start of current code block (i.e. navigate to parent opening bracket)
 ]}       jump to end of current code block (i.e. navigate to closing bracket of parent block)
 
+zt  move current line towards screen Top
+zb  move current line towards screen Bottom
+
 <C-d> <C-u> jump half a screen up or down
 H M L letters will position the cursor to somewhere in the HIGH, MIDDLE, LOWER portion of the open window.
 
