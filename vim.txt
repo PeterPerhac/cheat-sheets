@@ -367,7 +367,7 @@ in the non-global version of substitute, (i.e. :s/x/y/) use n (to find next occu
             here g is for all occurrences on a line
             and c requests a confirmation of each substitution
 
-if seach part is omitted then the last search performed by ? or / is performed. This is a neat trick to search for regex first, then do the substitution without specifying search part:
+if search part is omitted then the last search performed by ? or / is performed. This is a neat trick to search for regex first, then do the substitution without specifying search part:
 
     /my complicated regexp     " Highlighted as you enter characters
     :%s//replace with this/    " You don't have to type it again
@@ -553,8 +553,9 @@ quantifiers:
     * (star) quantifier does not need escaping BUT:
     + (plus) quantifier however DOES need escaping like so \+
     ? is not recognized, use \= instead
+    for non-greedy matches use .\{-} instead of .*
     the OPEN curly bracket in quantifiers needs to be escaped, otherwise this works as usual: \{5} \{,3} \{2,} \{2,3}
-    round brackets also require escaping, however! note BOTH \( AND \) need to be escaped, not just the open one.
+    BOTH round brackets require escaping - \( AND \) - not just the open one.
 
 
 ====
