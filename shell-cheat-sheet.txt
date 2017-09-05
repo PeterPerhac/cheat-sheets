@@ -280,6 +280,7 @@ Appending an ampersand (&) to the command runs the job in the background.
 CTRL+Z will suspend the current foreground job.
 `bg` will make that command to execute in background (un-suspend).
 `jobs` command to list all background jobs.
+   in the output, the current job is always flagged with a + and the previous job with a -
 `fg` takes a job from background to foreground.
 
 
