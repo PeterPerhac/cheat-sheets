@@ -272,6 +272,17 @@ xz
 xzcat    xzcmp    xzdec    xzdiff   xzegrep  xzfgrep  xzgrep   xzless   xzmore
     familiar utilities to operate on xz'ed files
 
+
+
+JOB CONTROL
+===========
+Appending an ampersand (&) to the command runs the job in the background.
+CTRL+Z will suspend the current foreground job.
+`bg` will make that command to execute in background (un-suspend).
+`jobs` command to list all background jobs.
+`fg` takes a job from background to foreground.
+
+
 LINKS
 =====
 setting up user groups and adding users to groups (setting up the sftp group)
