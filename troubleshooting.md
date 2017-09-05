@@ -55,3 +55,7 @@ this configures the `JAVA_OPTS` environment variable
 
 Tab completion is provided for test names based on the results of the last test:compile. This means that a new sources aren’t available for tab completion until they are compiled and deleted sources won’t be removed from tab completion until a recompile. A new test source can still be manually written out and run using testOnly.
 
+#Unix/Linux
+
+Not sure what the root password is? Perhaps there's none. use `sudo passwd` to create a root password
+
