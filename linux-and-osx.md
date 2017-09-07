@@ -6,7 +6,7 @@ Ctrl+r to search command history
 Ctrl+l to get a screenful of blank lines and the command prompt at the top of the screen. (equivalent of `clear` command)
 Ctrl+u to erase current command line
 Ctrl+s/Ctrl+q to pause and resume a process writing to the console
-Ctrl+c to signal **SIGINT** (interrupt) to a process. This is intended for orderly shutdown. 
+Ctrl+c to signal **SIGINT** (interrupt) to a process. This is intended for orderly shutdown.
 Ctrl+d to signal end of file to a process reading from terminal.
 Ctrl+z is used to suspend a process by sending it the signal SIGSTOP, which is like a sleep signal, that can be undone and the process can be resumed again.
     if you accidentally Ctrl+z your application into oblivion, just bring it back to life with the 'fg' command
@@ -16,6 +16,30 @@ Ctrl+d tells the terminal that it should register an **EOF** on standard input. 
 
 
 ## Signals
+
+
+ Signal     Value     Action   Comment
+ -------------------------------------------------------------------------
+ SIGHUP        1       Term    Hangup detected on controlling terminal or death of controlling process
+ SIGINT        2       Term    Interrupt from keyboard
+ SIGQUIT       3       Core    Quit from keyboard
+ SIGILL        4       Core    Illegal Instruction
+ SIGABRT       6       Core    Abort signal from abort(3)
+ SIGFPE        8       Core    Floating point exception
+ SIGKILL       9       Term    Kill signal
+ SIGSEGV      11       Core    Invalid memory reference
+ SIGPIPE      13       Term    Broken pipe: write to pipe with no readers
+ SIGALRM      14       Term    Timer signal from alarm(2)
+ SIGTERM      15       Term    Termination signal
+ SIGUSR1   30,10,16    Term    User-defined signal 1
+ SIGUSR2   31,12,17    Term    User-defined signal 2
+ SIGCHLD   20,17,18    Ign     Child stopped or terminated
+ SIGCONT   19,18,25    Cont    Continue if stopped
+ SIGSTOP   17,19,23    Stop    Stop process
+ SIGTSTP   18,20,24    Stop    Stop typed at tty
+ SIGTTIN   21,21,26    Stop    tty input for background process
+ SIGTTOU   22,22,27    Stop    tty output for background process
+
 
 **SIGINT** is the interrupt signal. The terminal sends it to the foreground process when the user presses ctrl+c. The default behavior is to terminate the process, but it can be caught or ignored. The intention is to provide a mechanism for an orderly, graceful shutdown.
 
