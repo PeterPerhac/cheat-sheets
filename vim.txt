@@ -693,6 +693,20 @@ in scala, some templates are:
   - case - for more cases
   - def - for knocking up a quick def
 
+
+
+Highlights
+----------
+
+multiple colours for highlighting words under cursor - enable by pressing ,m
+set highlight by pressing \1 \2 \3 etc.
+\0 un-sets current highlight
+
+to clear all highlights, execute command
+  Hclear *
+
+
+
 =============================
 CONFIGURATION AND KEY MAPPING
 =============================
