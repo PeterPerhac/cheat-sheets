@@ -51,6 +51,8 @@ alias
     lists all aliases active in current shell session
 command > out 2>&1
     sends standard output from some command to a file called out, also redirects standard error to standard out, so all ends up in 'out'
+command >| out
+    use the pipe to override the noclobber setting that prevents accidental overwriting of files
 lsof -sTCP:LISTEN -iTCP:27017
 	which process listens on port 27017? for ports below 1000 use "sudo"
     similarly, lists all processess listening on the TCP interface:
@@ -58,6 +60,9 @@ lsof -sTCP:LISTEN -iTCP:27017
 du -cmd 1 | sort -n
 	list current disk usage of files/folders in a directory, in megabytes, in ascending order
 	-c to display total, -m megabytes (or use -k for kilbytes), -d (depth) followed by space 1
+sort -n
+    for sorting files in NUMERIC order use the -n option.
+      ls | sort -n
 mkdir
     makes a directory
         mkdir -p ./some/series/of/folders/that/dont/exist/
