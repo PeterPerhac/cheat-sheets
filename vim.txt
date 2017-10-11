@@ -518,6 +518,10 @@ You can also sort and REMOVE DUPLICATE LINES
 or use numeric sort
     :sort n
 
+reverse order of lines in the entire buffer:
+    :g/^/m0
+      for each line in the file, move it to line 0 (effectively reversing lines)
+
 
 :find some-file
     open a file by searching for it

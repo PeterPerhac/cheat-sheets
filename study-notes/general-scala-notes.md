@@ -105,3 +105,13 @@ Note that awaiting on the **result** of a _failed_ Future is not a very good ide
 
 Use `Await.ready` which returns not the future value of type T but the Awaitable[T] which will be the Failed or Successful Future itself.
 
+In general, a type can be made safely covariant if it is read-only.
+Covariance: if A can be turned into a B, then F[A] can be turned into an F[B]
+  i.e. this is encoded in a Functor
+
+
+**Function inputs are contravariant and function outputs are covariant.**
+
+
+
+
