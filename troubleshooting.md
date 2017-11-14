@@ -38,7 +38,7 @@ scalacOptions need to be set in the sbt build. to do this without editing build 
 
 ```bash
 sbt
-set scalacOptions in ThisBuild ++= Seq("-unchecked", "-deprecation")
+set scalacOptions in ThisBuild ++= Seq("-unchecked", "-deprecation", "-feature")
 compile
 ```
 
