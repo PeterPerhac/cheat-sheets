@@ -74,6 +74,14 @@ g- / g+
 can also use :earlier :later
 like this: :earlier 20s to move to the state of buffer from 20 seconds ago
 
+persistent undo can be configured in a few steps - this will allow you to undo across vim sessions:
+
+first, create an undo directory
+ mkdir ~/.vim/undodir
+
+then, edit your vim configuration, add the following:
+ set undodir=~/.vim/undodir
+ set undofile   " Maintain undo history between sessions
 
 =====
 NAVIGATING
