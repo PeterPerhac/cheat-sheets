@@ -69,3 +69,14 @@ Remove the MDM profile (settings > general > device management) and then try and
 
 
 
+# specs2
+  When coverage won't run because of
+  InvocationTargetException for main in org.specs2.NotifierRunner: null
+
+  the problem is probably incorrect nesting of should { in { in {
+
+    make sure there is only one should at the top and one in at the bottom of the hierarchy
+    in between nesting should be done with >>
+
+
+
