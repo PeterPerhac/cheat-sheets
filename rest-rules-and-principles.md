@@ -1,4 +1,6 @@
-#REST API Design - **Rulebook outline
+#REST API Design Rulebook outline
+
+
 ## URIs
 ### URI Format
   - **Rule:** Forward slash separator (/) must be used to indicate a hierarchical relationship
