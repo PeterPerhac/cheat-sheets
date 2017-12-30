@@ -51,6 +51,16 @@ coverage dropped for no apparent reason. string arguments for Logger not evaluat
 when more memory is needed for running `scala` command, just use the `-J-Xmx2g` switch.
 this configures the `JAVA_OPTS` environment variable
 
+### dependency tree
+
+it's as simple as issuing dependencyTree command
+provided you have added this to your plugins:
+
+```
+addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.9.0")
+```
+
+
 ### Tab completion when running tests
 
 Tab completion is provided for test names based on the results of the last test:compile. This means that a new sources aren’t available for tab completion until they are compiled and deleted sources won’t be removed from tab completion until a recompile. A new test source can still be manually written out and run using testOnly.
@@ -58,6 +68,11 @@ Tab completion is provided for test names based on the results of the last test:
 #Unix/Linux
 
 Not sure what the root password is? Perhaps there's none. use `sudo passwd` to create a root password
+
+have the noclobber setting on and you really want to overwrite a file? use `>|`
+
+If the redirection operator is ‘>’, and the noclobber option to the set builtin has been enabled, the redirection will fail if the file whose name results from the expansion of word exists and is a regular file. If the redirection operator is ‘>|’, or the redirection operator is ‘>’ and the noclobber option is not enabled, the redirection is attempted even if the file named by word exists.
+3.6.2 redirecting output section of bash manual https://www.gnu.org/software/bash/manual/bashref.html#Redirections
 
 
 #iPhone

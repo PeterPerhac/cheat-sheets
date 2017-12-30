@@ -117,6 +117,10 @@ g; jump back to last edited position
 can jump to any line number by typing the number followed by capital G
     e.g. 1233G
         jump to line 1233
+can jump to any part of the current buffer by typing the desired percentage from top:
+    e.g. 50%
+        jump to middle of the buffer
+
 
 can easily place marks in file, like so : ma mb mc md etc...
 can then navigate back to these marks like so: `a `b `c `d etc... (note, it's a backtick)
