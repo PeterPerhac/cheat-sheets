@@ -7,3 +7,13 @@ i.e. docker containers must run Linux distributions and cannot run windows/Linux
 
 Docker - tool for easy programmatic creation and distribution of container images as well as launching and deploying containers themselves. simple command line tools and HTTP APIs that make managing containers easy to automate and creates a homogeneous system for running applications.
 
+
+Ctrl+P+Q to gracefully exit from a container (if attached to it with -it option)
+
+
+
+instructions in Dockerfile:
+  CMD instructions are OVERRIDDEN by run time arguments provided by user
+  ENTRYPOINT instructions are APPENDED TO by run time arguments
+
+
