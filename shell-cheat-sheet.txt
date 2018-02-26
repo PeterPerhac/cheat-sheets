@@ -93,7 +93,7 @@ find
         list MD5 hashes of all files under current directory
     find . -iname systemout
         finds anything (file or directory) with a name like systemout (case-insensitive)
-    find . -maxdepth 1 ! -path . ! -name "*.txt" | xargs rm -rf 
+    find . -maxdepth 1 ! -path . ! -name "*.txt" | xargs rm -rf
         deletes all EXCEPT the pattern *.txt
 useradd / userdel
     add/remove a user from the system
