@@ -88,6 +88,13 @@ advantage of a symbolic link is that it can point to a _nonexistent_ file. This 
 in theory there is a tac command that is doing the same as cat but in reverse order... not on a mac, though
 
 
+# setting up SSH tunneling
+
+```bash
+ssh -fNL localhost:8080:localhost:8080 10.255.18.192
+```
+-f will send it to background and -N will tell it that no command needs to be executed
+
 
 # Ubuntu specific
 
