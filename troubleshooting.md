@@ -95,3 +95,11 @@ Remove the MDM profile (settings > general > device management) and then try and
 
 
 
+#Terminal window Last Login message
+
+```
+touch .hushlogin
+```
+
+to create a file in your home directory, that will stop the Last Login message
+

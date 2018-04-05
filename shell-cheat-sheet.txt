@@ -111,7 +111,7 @@ passwd
         to change the password of pperhac user
 cmp
     for fast-comapring two files, byte-by-byte, stops reading file on first mis-match and reports position of difference
-    e.g. cmp raven.txt raven-huffman-decoded.txt 
+    e.g. cmp raven.txt raven-huffman-decoded.txt
 diff
     show differences between two files
     -i to ignore case
@@ -124,7 +124,7 @@ md5
     calculate MD5 hash / digest / checksum of a file passed as argument
 shasum
     for calculating SHA digests / hashes / checksums
-        e.g. 
+        e.g.
         shasum -a 256 /path/to/file
     or
         shasum -a 1 /path/to/file
