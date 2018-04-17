@@ -103,3 +103,12 @@ touch .hushlogin
 
 to create a file in your home directory, that will stop the Last Login message
 
+
+# CATS (1.0.1)
+## no monad instance for Future
+def that produces an instance of Future requires an instance of ExecutionContext in implicit scope. So remember to not only import FutureInstances but also to import the implicit ExecutionContext.
+
+## mapN doesn't seem to like to work
+not sure if this is a problem on other data types, but when trying to mapN Validated the required Semigroupal instance of Validated isn't in scope, for similar reasons as above, the def that produces the validated semigroup instance requires a semigroup instance for bot types A and B, so if it's Validated[List[String], Foo] then an instance for Foo and an instance for List is required in scope. So try importing the instances for whichever container is on the left of Validated.
+
+
