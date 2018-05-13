@@ -497,15 +497,15 @@ nnoremap <C-h> <C-w><C-h>
   absolute sizings can be used too, just omit the + or -
 
 
-Ctrl-w = = Resize the windows equally
-Ctrl-w > = Incrementally increase the window to the right
-  Takes a parameter, e.g. Ctrl-w 20 >
-Ctrl-w < = Incrementally increase the window to the left
-  Takes a parameter, e.g. Ctrl-w 20 <
-Ctrl-w - = Incrementally decrease the window's height
-  Takes a parameter, e.g. Ctrl-w 10 -
-Ctrl-w + = Incrementally increase the window's height
-  Takes a parameter, e.g. Ctrl-w 10 +
+<C-w> = = Resize the windows equally
+<C-w> > = Incrementally increase the window to the right
+  Takes a parameter, e.g. <C-w> 20 >
+<C-w> < = Incrementally increase the window to the left
+  Takes a parameter, e.g. <C-w> 20 <
+<C-w> - = Incrementally decrease the window's height
+  Takes a parameter, e.g. <C-w> 10 -
+<C-w> + = Incrementally increase the window's height
+  Takes a parameter, e.g. <C-w> 10 +
 
 
 =====
