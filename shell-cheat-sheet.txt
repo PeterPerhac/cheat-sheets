@@ -1,3 +1,28 @@
+ag (silver searcher, addition)
+  ag foo
+    search for text foo in the current directory (recursively, by default)
+  ag -wG scala time app/
+    search for the whole word "time" inside all "scala" files under "app" directory
+  options of interest:
+    -c
+      count matches
+    -g
+      search file names instead of file contents
+    -G
+      search file contents of files, where file name matches pattern
+    -i
+      case-insensitive
+    -n
+      non-recursive (only current dir)
+    -v
+      invert search - only non-matching lines are found
+    -w
+      whole words only
+    -z
+      inside compressed files (zip)
+    -0
+      for further processing with `xargs -0 `
+
 time
     to apply a stopwatch to the execution of a command
         e.g. time sbt package
