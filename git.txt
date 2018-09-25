@@ -166,6 +166,12 @@ git add <<files>>
 git commit -c ORIG_HEAD
 
 
+UNDO LAST GIT AMEND
+===================
+
+git reset --soft HEAD@{1}
+
+
 SQUASH COMMITS - UNPUSHED
 =========================
 

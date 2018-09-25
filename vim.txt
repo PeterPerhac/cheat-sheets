@@ -405,6 +405,10 @@ CLOSING and (not) SAVING
 :wq
 	write and quit
 
+:cq
+    quit with an error code
+      this is good for aborting a git amend operation, shut down the editor with error code in order to not complete the git amend
+
 counterpart of :write (:w) is :read (:r) - this will read the contents of a file and include it in the current buffer
 
 :up
