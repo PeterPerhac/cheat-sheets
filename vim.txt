@@ -549,7 +549,7 @@ reverse order of lines in the entire buffer:
 :read some-file
     include verbatim copy of a file in the edited file
 C-x C-f
-    in insert mode - fill in a name of a file/directory
+    in insert mode - autocomplete a name of a file/directory
 C-x C-k
     in insert mode - autocomplete word with the help of dictionary used for spellchecking
 C-x C-l
