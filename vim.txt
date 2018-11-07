@@ -785,6 +785,15 @@ this <C-r> trick also works in Ex mode (typing into the Vim command line)
 '0
   upon opening vim, go to where you left off last time
 
+
+Bash commands
+=============
+:w !bash
+  to run all lines in current file through bash
+    literally, write this file into the input stream of a newly forked bash process
+:.w !bash
+  to run just the current line as a bash command
+
 =====
 LINKS TO INTERESTING PAGES
 =====
