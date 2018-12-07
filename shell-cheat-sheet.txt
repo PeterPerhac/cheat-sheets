@@ -1,3 +1,9 @@
+hexdump
+  print the binary contents of a file in hexadecimal format
+    -v -C
+      for output similar to Total Commander's viewer
+  00000000  61 62 63 64 65 66 67 68  69 6a 6b 6c 6d 6e 6f 0a  |abcdefghijklmno.|
+
 ag (silver searcher, addition)
   ag foo
     search for text foo in the current directory (recursively, by default)
@@ -29,6 +35,7 @@ time
     output will be something like this:
         real: Elapsed real (wall clock) time used by the process, in seconds.
         user: Total number of CPU-seconds that the process used directly (in user mode).
+
 lame
     for converting between wav and mp3
     install via `brew install lame`
@@ -37,23 +44,30 @@ lame
 
 !123
     execute the command number 123 from the command history
+
 !!
     reexecute last command
+
 say 'some text'
     the computer will say it. Mac will at least.
     say -v ?
       to list all availanle voices
+
 nl
     number lines. This will prepend line numbers in the output.
+
 expand / unexpand
     expand converts tabs to spaces. unexpand converts spaces to tabs.
+
 uniq
     displays unique lines of a file
+
 top
     like the windows task manager in the linux world
     see a pid you don't like, still within the top command use:
         k <pid>
     to kill that process
+
 kill
     kills a process by its PID or job number
         kill 1234
@@ -64,36 +78,45 @@ kill
     by default a TERM signal is sent, which is ignorable by receiving process
         kill -s 9 1234
             sends signal number 9, which is KILL (non-catchable, non-ignorable kill)
+
 open .
     opens current location in Finder (OSX)
     xdg-open . 2>/dev/null &
 	does the same on Ubuntu
+
 /bin/su -
     starts a 'clean' super user shell
     `su -` invokes a login shell after switching the user. A login shell resets most environment variables, providing a clean base.
     `su` just switches the user, providing a normal shell with an environment nearly the same as with the old user, potentially a security risk if current shell uses dangerous aliases
+
 alias
     lists all aliases active in current shell session
 command > out 2>&1
     sends standard output from some command to a file called out, also redirects standard error to standard out, so all ends up in 'out'
+
 command >| out
     use the pipe to override the noclobber setting that prevents accidental overwriting of files
+
 lsof -sTCP:LISTEN -iTCP:27017
 	which process listens on port 27017? for ports below 1000 use "sudo"
     similarly, lists all processess listening on the TCP interface:
         lsof -iTCP -sTCP:LISTEN | sort
+
 du -cmd 1 | sort -n
 	list current disk usage of files/folders in a directory, in megabytes, in ascending order
 	-c to display total, -m megabytes (or use -k for kilbytes), -d (depth) followed by space 1
+
 sort -n
     for sorting files in NUMERIC order use the -n option.
       ls | sort -n
+
 mkdir
     makes a directory
         mkdir -p ./some/series/of/folders/that/dont/exist/
             -p option stands for Parent and will create and neccessary parent directories along the way
         mkdir -m 644 somedir
             -m option is used to set the file permission bits of the final created directory to the specified mode.
+
 cp
     copies files or directories
     -p (preserve) option creates a destination file with the same owner, group, permissions, access date, modification date, and ACLs as the source file.
@@ -102,6 +125,7 @@ cp
         if single src argument is a directory, dst must be a directory
         single file can be copied into another file (!this overwrites dst file!) or a dst directory
         for recursively copying directory structures -R or -r or --recursive option is required
+
 find
 	recursively descends the directory tree for each path listed, evaluating an expression
     <space> or -a or -and -- specify AND operator for multiple conditions
@@ -120,60 +144,76 @@ find
         finds anything (file or directory) with a name like systemout (case-insensitive)
     find . -maxdepth 1 ! -path . ! -name "*.txt" | xargs rm -rf
         deletes all EXCEPT the pattern *.txt
+
 useradd / userdel
     add/remove a user from the system
     /etc/passwd
         file containing information about all users
+
 groupadd / groupdel
     add/remove a group from the system
     /etc/group
         file containing information about all groups
+
 adduser / deluser
     adduser pperhac dba
         adds/removes a user from a group, e.g.
+
 passwd
     passwd pperhac
         to change the password of pperhac user
+
 cmp
     for fast-comapring two files, byte-by-byte, stops reading file on first mis-match and reports position of difference
     e.g. cmp raven.txt raven-huffman-decoded.txt
+
 diff
     show differences between two files
     -i to ignore case
     -b and -B to ignore whitespace/blank lines
     -w ignore ALL whitespace
     –u to do a unified diff - easier to read - actually `git diff` produces same output as `diff -u`
+
 base64
     encode/decode text/files using base 64. `base64 -D` to decode, then paste whatever into the terminal and pres Ctrl+d to signify end of file (input).
+
 md5
     calculate MD5 hash / digest / checksum of a file passed as argument
+
 shasum
     for calculating SHA digests / hashes / checksums
         e.g.
         shasum -a 256 /path/to/file
     or
         shasum -a 1 /path/to/file
+
 xargs
     The xargs utility reads space, tab, newline and end-of-file delimited strings from the standard input and executes <utility> with the strings as arguments.
     e.g.
         find . -type f | xargs md5
         ls | xargs -I{} git -C {} pull
+
 mr (non-standard)
     Multiple Repositories - initialise .mrconfig file in your $WORKSPACE by running this command:
         ls -d */ | xargs -L1 mr register
         (assumes you have cd'ed to the $WORKSPACE directory and created a blank .mrconfig file
+
 wc
 	word count - counts words, lines, characters (&bytes)
+
 printenv
 	prints out the current environment
+
 head -10
 	top ten lines
+
 tail
     show the end of a file; e.g.:
     tail -10
 	    show last ten lines of a file
     tail -10f
         follow the last 10 lines (data appended to output as the file grows)
+
 grep
 	search any given input, selecting lines that match one or more patterns
 	e.g. grep -r --include="*.xml" --exclude=*target* --exclude=*idea* 'metrics' .
@@ -189,71 +229,98 @@ egrep
 	equivalent to grep -E, used to specify pattern as regular expression
     no need to escape brackets and pipes in pattern
 	e.g. egrep -r --include=*.java '^[Pp]attern.*$' .
+
 fgrep
 	equivalent to grep -F, used to find simple text pattern, faster than egrep or grep
+
 cd -
 	previous location
+
 cd
 	cd to home directory
+
 cd $(dirname "$0")
     cd to the directory in which executed script resides
     relative path from current working directory to the currently executing script is available as the 0th env arugment
+
 which
 	like windows "where"
+
 ps aux
 	process status with switches
 		a, u, x
+
 launchctl
 	interfaces with launchd to manage and inspect daemons, agents and XPC services.
+
 cat
     reads from stdIn writes to stdOut
     if filename argument provided, reads from file, writes to stdOut
     `cat somefile` is effectively the same as `cat < somefile`
         -n option causes cat to prepend line numbers to the output
+
 date
 	current date
+
 ifconfig
 	network interface configuration
+
 netstat
 	network status
+
 hostname
 	current hostname
+
 whoami
 	current user
+
 groups
 	current user's groups
+
 chown
 	change owner
+
 chmod
 	change file modes
+
 less
 	display to terminal
     use with -e to exit at EOF
     or  with -X to leave less output behind in the console
+
 nano, vi
 	edit files directly in terminal
+
 atom
 	editor
+
 man <command>
 	displays manual for given command
     like less, use with -X to leave man output in the console
+
 ls -lrt
 	list files, long listing, ordered by time (reversed)
     ls -d */
         lists only directories in current work directory, note the '*/' is required for this to work
         -d to treat directories as plain files; display directories without displaying their contents (do not recurse into them)
         */ to list only what ends with slash
+
 clear
 	clears the screen
+
 touch <file>
 	creates a file
+
 echo
 	print to terminal
+
 jar
     part of the JDK, use "jar -vtf jarfile.jar" to list the contents of a JAR file
+
 openssl
     openssl x509 -noout -text -in <path-to-crt>
         shows details of a standard x509 certificate from a .crt file
+
 tar
     can be used to (un)pack archives of type: tar, pax, cpio, zip, jar, ar
     tar -zxvf file.zip
@@ -262,33 +329,43 @@ tar
         v - Verbose - list files on screen
         f - take input from the File specified
         note that f must come last in the clump of options, as file.zip is the value of the f option
+
 unzip -d ./output-dir/  <zip/jar/war/ear-file>
     extracts a zip file into a target directory
+
 unzip -l <zip/jar/war/ear-file>
     lists the contents of a zip-compressed file
+
 watch
     watch -n 2 git diff
         to keep watching the output of git diff every two seconds
+
 yes
     will repeatedly output 'y' until killed
     if invoked with an argument, will repeatedly output that argument until killed
         yes 'Hello World'
             keeps printing Hello World until pipe broken, command terinated
+
 zip
     zip <zipfile-name> space-separated-list-of-files-or-patterns
+
 zipcloak
     use this to encrypt / password-protect a zip file
+
 zipinfo
     lists the contents of a zip file along with information about the compressed content
     can be an easier to remember option for `unzip -l`
+
 zipgrep
     search for text inside zipped files
     e.g.
         zipgrep -i interceptor my-app.jar
     this will do a case-insensitive grep for the pattern 'interceptor' inside the my-app.jar
+
 xxd
     to view binary files in hex format (like Total Commander Viewer)
     use with -b option to show binary files in binary format (not hex)
+
 xz
     zip up a file. xz will remove original file, and only leave compressed file behind
     xz -k file
@@ -299,6 +376,7 @@ xz
         fast-compress file - weak compression but a lot faster - good for huge text files.
     xz -9 file
         the most thorough compression - cpu intensive
+
 xzcat    xzcmp    xzdec    xzdiff   xzegrep  xzfgrep  xzgrep   xzless   xzmore
     familiar utilities to operate on xz'ed files
 

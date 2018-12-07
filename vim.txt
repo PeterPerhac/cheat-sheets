@@ -309,9 +309,9 @@ SEARCHING
 	to get a listing of all occurrences of word currently under cursor
 
 :%s///gn
-    will count the number (_n_) of lines (_g_) where the previous match occurred
+    will count the number (_n_) of lines where the previous match occurred
+    add _g_ to count ALL occurrences of the match (not just lines including match)
     without the _n_ it's just plain old substitute
-    without the _g_ ALL occurrences of the match are counted (not just lines including match).
 
 
 ** interesting settings for searching
