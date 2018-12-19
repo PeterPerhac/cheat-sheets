@@ -31,3 +31,12 @@ convert source.png -fuzz nn% -transparent white target.png
 
 The larger the fuzz percentage %, the more variation from white is allowed to become transparent.
 
+
+
+to deal with animated gifs use **gifsicle**
+
+```
+brew install gifsicle
+gifsicle --resize 48x48 --colors 16 someGif.gif > smallerGif.gif
+```
+

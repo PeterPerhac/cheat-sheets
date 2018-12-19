@@ -635,6 +635,8 @@ next and previous spellcheck highlight
 
 add word under cursor as "good" word to spellfile
   zg
+undo addition of word to good word list (remove last added)
+  zug
 
 suggest corrections to misspelled words:
   z=

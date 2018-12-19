@@ -56,6 +56,13 @@ coverage dropped for no apparent reason. string arguments for Logger not evaluat
 when more memory is needed for running `scala` command, just use the `-J-Xmx2g` switch.
 this configures the `JAVA_OPTS` environment variable
 
+### upgrading java
+upgrading java is done via brew, but classic brew update / brew upgrade command will not suffice. Java is installed from the java cask. So the command is:
+
+```
+brew cask upgrade
+```
+
 ### dependency tree
 
 it's as simple as issuing dependencyTree command
