@@ -167,12 +167,31 @@ case expression of  pattern -> result
 
 Whereas pattern matching on function parameters can only be done when defining functions, case expressions can be used pretty much anywhere.
 
-
 ```haskell
 describeList :: [a] -> String
 describeList xs = "The list is " ++ case xs of [] -> "empty."
                                                [x] -> "a singleton list."
                                                xs -> "a longer list."
+```
+
+With the `LambdaCase` syntax extension:
+
+```haskell
+{-# LANGUAGE LambdaCase #-}
+```
+we can do matches like so:
+
+```haskell
+orbitalPeriod :: Planet -> Float
+orbitalPeriod = \case
+  Mercury -> 0.2408467
+  Venus   -> 0.61519726
+  Earth   -> 1.0
+  Mars    -> 1.8808158
+  Jupiter -> 11.862615
+  Saturn  -> 29.447498
+  Uranus  -> 84.016846
+  Neptune -> 164.79132
 ```
 
 ### Syntax summary
@@ -730,4 +749,26 @@ mapM print [1,2,3,4,5]
 ```
 
 `mapM_` returns a Monad m of unit; `m ()` and so effectively the evaluated results of the sequenced IO actions are thrown away
+
+
+-------------
+some years pass...
+-------------
+
+Operator precedence notes:
+
+Application (whitespace) is the highest precedence "operator".
+There's no distinction between operators and functions, other than that operators are _infix_ by default, while functions aren't. You can convert functions to infix with **backticks**
+
+```haskell
+2 `f` x
+```
+
+and convert operators to prefix with parentheses:
+
+```haskell
+(+) 2 3
+```
+
+## Case Expressions
 
