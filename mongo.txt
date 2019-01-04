@@ -15,4 +15,8 @@ db.getCollection('readings').aggregate([
         { $sort: { count: -1, _id: 1 } }
 ])
 
+Mongo RESTORE DUMP IMPORT EXPORT
+=========
 
+mongorestore --gzip --archive=stub-data-20190104.gz --db voa-modernised-api-stub
+mongodump --gzip --archive=stub-data-20190104.gz --db voa-modernised-api-stub
