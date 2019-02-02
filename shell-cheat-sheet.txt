@@ -381,6 +381,17 @@ xzcat    xzcmp    xzdec    xzdiff   xzegrep  xzfgrep  xzgrep   xzless   xzmore
     familiar utilities to operate on xz'ed files
 
 
+REDIRECTING OUTPUT
+==================
+
+> file redirects stdout to file
+1> file redirects stdout to file
+2> file redirects stderr to file
+&> file redirects stdout and stderr to file
+
+/dev/null is the null device it takes any input you want and throws it away. It can be used to suppress any output.
+  e.g.
+    yourcommand &> /dev/null
 
 JOB CONTROL
 ===========

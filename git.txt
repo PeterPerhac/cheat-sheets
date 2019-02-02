@@ -172,7 +172,7 @@ UNDO LAST GIT AMEND
 git reset --soft HEAD@{1}
 
 
-SQUASH COMMITS - UNPUSHED
+SQUASH COMMITS - UNPUSHED, merge last n commits
 =========================
 
 git rebase -i origin/master
