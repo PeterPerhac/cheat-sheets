@@ -14,6 +14,8 @@ import cats.implicits._
 There is inline syntax available for `Semigroup`: `|+|`
 there aren't type class instances for `Some` or `None`, but for `Option`.
 
+in order to get somes or nones typed as Option, can use cats syntax `.some`, or just `none[T]`
+
 ## Monoid
 
 `Monoid` extends the `Semigroup` type class, adding an `empty` method to semigroup's `combine`. The `empty` method must return a **value** that when combined with any other instance of that type returns the other instance, i.e.
@@ -308,6 +310,20 @@ We can communicate an error by making it explicit in the data type we return. In
 **Xor is right-biased.** (also, `Either` is right-biased starting from Scala **2.12**)
 
 Type parameters of `Xor` are **covariant**, so when the compiler sees an `Xor[E1, A1]` and an `Xor[E2, A2]`, it will happily try to **unify** the `E1` and `E2` in a `flatMap` call and use the closest common supertype - `Object`, leaving us with practically no type information to use for pattern matching on the error in left side of `Xor`.
+
+
+#Tips
+
+use syntax (extension methods) for lifting:
+`.some`, `none` for Option
+`.asRight`, `.asLeft` for Either,
+`.valid`, `.invalid,` `.validNel`, `.invalidNel` for Validated
+
+`*>` and `>>` differ in that `*>` is strict in its parameter and `>>` is lazy. So take extra care when choosing between the two.
+`*>` is an alias for `productR`, `<*` for `productL`
+
+can `map` and `leftMap` a pair (Tuple2), where map maps the right side value, and leftMap, well, maps the left-side
+
 
 
 #Functors
