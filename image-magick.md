@@ -13,6 +13,15 @@ convert keeps source files
 convert -quality 70 picture.jpg picture-optimised.jpg
 convert cute-kittens.jpg -crop +0-20 +repage cute-kittens-cropped.jpg
 
+### FLIP / FLOP an image
+-flip
+  flip image in the vertical direction |
+    (less useful, sky goes down, grass goes up)
+-flop
+  flop image in the horizontal direction -
+    (usually what you want, mirror view of the image)
+    mogirfy -flop myimage.png
+
 ## Animation
 
 ```
