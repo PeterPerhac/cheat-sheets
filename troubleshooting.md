@@ -135,3 +135,14 @@ git push -f doesn't seem to work with thefuck command too well. good new is, it'
 git push -f -f [enter/↑/↓/ctrl+c]
 
 
+
+GIT DETACHED HEAD
+============
+
+colin had diverging branches, so he did a
+  git reset --hard origin/branch
+this eneded up in a detached head
+fixed it like so:
+  git reset --hard HEAD^^ (go back to the place your branch diverged, --hard if you don't care to lose your stuff)
+  git pull
+

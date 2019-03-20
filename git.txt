@@ -244,3 +244,5 @@ find $WORKSPACE -type d -name "app-config-*" -maxdepth 1 -print -exec git -C {} 
 or do the same with app-configs but with coloured output:
 find $WORKSPACE -type d -path "*app-config-*/.git" -exec dirname {} \; -execdir git pull -r \; -exec echo "$(tput setaf 5)-------------------------------------$(tput sgr0)" \;
 
+
+
