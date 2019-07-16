@@ -1,3 +1,9 @@
+Bash Shebang
+Use:
+#!/usr/bin/env bash
+for portability: different *nixes put bash in different places, and using /usr/bin/env is a workaround to run the first bash found on the PATH.
+
+
 hexdump
   print the binary contents of a file in hexadecimal format
     -v -C
@@ -320,6 +326,11 @@ jar
 openssl
     openssl x509 -noout -text -in <path-to-crt>
         shows details of a standard x509 certificate from a .crt file
+
+shred
+    overwrite bytes of a file. can be used to write arbitrary number of bytes to a file. create a file of a desired size by using this command:
+    shred -s 1000 - > my-file
+        this will write 1000 random bytes into my-file
 
 tar
     can be used to (un)pack archives of type: tar, pax, cpio, zip, jar, ar

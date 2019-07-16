@@ -19,3 +19,7 @@ routesImport ++= Seq("my.import1", "my.other.package"), ...
 
 
 
+find out the classpath of an application from sbt
+```
+sbt "export runtime:fullClasspath"
+```
