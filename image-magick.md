@@ -47,5 +47,8 @@ to deal with animated gifs use **gifsicle**
 ```
 brew install gifsicle
 gifsicle --resize 48x48 --colors 16 someGif.gif > smallerGif.gif
+
+# -U switch good for animated gifs, seq script selects only every other frame
+gifsicle --resize 64x64 -U clock.gif `seq -f "#%g" 0 2 143` -o output.gif
 ```
 

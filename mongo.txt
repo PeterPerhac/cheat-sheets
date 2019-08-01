@@ -24,3 +24,19 @@ mongodump --gzip --archive=stub-data-20190104.gz --db voa-modernised-api-stub
 
 
 view your local mongo log on mac: `vim /usr/local/var/log/mongodb/mongo.log`
+
+to edit mongo conf file on mac run this
+```
+vim /usr/local/etc/mongod.conf
+```
+
+to increase number of possible connections, add this line to the net: section
+  maxIncomingConnections: 2048
+but before you do this, check that maxIncomingConnections is actually a problem. you can do so by connecting to the mongod instance and querying the current connections status of the server:
+
+```bash
+mongo
+db.serverStatus().connections
+exit
+```
+
