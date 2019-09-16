@@ -40,3 +40,16 @@ db.serverStatus().connections
 exit
 ```
 
+
+drop all mongo databases with 'test-' prefix in name
+
+```
+var dbs = db.getMongo().getDBNames()
+for(var i in dbs){
+    db = db.getMongo().getDB( dbs[i] );
+    if (db.getName().startsWith('test-'))
+    {
+        db.dropDatabase();
+    }
+}
+```
