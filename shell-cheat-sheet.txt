@@ -26,6 +26,8 @@ ag (silver searcher, addition)
       case-insensitive
     -n
       non-recursive (only current dir)
+    -u
+      unrestricted (Search all files. This ignores .ignore, .gitignore, etc. It searches binary and  hidden files as well.)
     -v
       invert search - only non-matching lines are found
     -w

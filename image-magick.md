@@ -52,3 +52,18 @@ gifsicle --resize 48x48 --colors 16 someGif.gif > smallerGif.gif
 gifsicle --resize 64x64 -U clock.gif `seq -f "#%g" 0 2 143` -o output.gif
 ```
 
+
+# ppm format
+
+to convert an image to ppm format (raw RGB, i.e. P6 format) just do:
+```
+convert foo.png to foo.ppm
+```
+
+
+if you want to output ppm in P3 format, must specify no compression flag:
+```
+convert foo.png -compress none foo.ppm
+```
+
+

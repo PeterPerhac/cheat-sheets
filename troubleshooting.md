@@ -56,6 +56,22 @@ coverage dropped for no apparent reason. string arguments for Logger not evaluat
 when more memory is needed for running `scala` command, just use the `-J-Xmx2g` switch.
 this configures the `JAVA_OPTS` environment variable
 
+
+### sbt run vs sbt start with system properties
+
+problem: 
+1) sbt run -Dhttp.port=8080
+2) sbt runProd -Dhttp.port=8080
+
+1 works but 2 does not
+
+system properties are not taking effect when a new jvm process is started by sbt in case 2.
+System properties "-Dxxx" are only effective for the jvm in which SBT is running and the play sbt plugin's run task runs the play application directly in that same jvm, so the system properties are effective. In case 2, the plugin will launch a new jvm and run the application in production mode. System properties need to be set from within the SBT process and that is achieved by:
+
+set javaOptions in ThisBuild ++= Seq("-Dhttp.port=8080")
+
+or by exporting JAVA_OPTS variable into your environment prior to launching SBT. SBT will pick up the JAVA_OPTS value when kicking off new jvm.
+
 ### upgrading java
 upgrading java is done via brew, but classic brew update / brew upgrade command will not suffice. Java is installed from the java cask. So the command is:
 
@@ -145,5 +161,20 @@ this eneded up in a detached head
 fixed it like so:
   git reset --hard HEAD^^ (go back to the place your branch diverged, --hard if you don't care to lose your stuff)
   git pull
+
+
+
+403 Forbidden from NGINX
+=============
+I've found that two files with apparently identical details (permissions, ownership the same) can give different result when requested over HTTP / NGINX. Looking into this I found that running the `stat` command on the differing files shows they have different SELinux security context. SELinux is security-enhanced linux and these contexts are managed through security policy management tool /usr/sbin/semanage.
+
+read more on how to make NGINX work with SELinux: https://www.nginx.com/blog/using-nginx-plus-with-selinux/
+
+long story short, to get it to work, I did this:
+
+`semanage permissive -a httpd_t`
+
+
+
 
 
