@@ -76,3 +76,10 @@ Alt+3 to type a hash (#)
 this returns the path to the JDK home
 /Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home
 
+
+
+to flush DNS cache
+  dscacheutil -flushcache
+  sudo killall -HUP mDNSResponder
+
+

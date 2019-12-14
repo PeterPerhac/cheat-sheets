@@ -177,4 +177,10 @@ long story short, to get it to work, I did this:
 
 
 
+#NPM
+global install of package with npm can't be run
+make sure to sudo it
+
+  `sudo npm install -g foo`
+
 
