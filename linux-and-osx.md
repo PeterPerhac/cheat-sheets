@@ -70,7 +70,7 @@ Install `htop` utility as a much better alternative to `top` command:
     brew install htop
 
 
-# File Syste Links
+# File System Links
 
 _ln_: Creates a Hard Link
 The ln (link) utility (without the -s or --symbolic option) creates a hard link to an existing file using the following syntax
