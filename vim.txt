@@ -687,6 +687,13 @@ commentary plugin
 gc{motion}      same as gcc but with a motion
 
 
+Entering characters like Enter or Escape when coding up macros in your config:
+  within the macro string, press Ctrl+v and then Enter or Escape. That will generate ^M or ^[ control characters.
+  e.g. a macro might be defined like this:
+    let @x='/auto$bbbbcaw13'
+    which will include the Enter key press and also an Escape at the end
+
+
 surround plugin
 ---------------
 
