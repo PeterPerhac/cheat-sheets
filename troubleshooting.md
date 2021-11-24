@@ -193,3 +193,8 @@ when the external monitor is switching off after unplugging from AC power, this 
    `sudo pmset disablesleep 1`
 
 
+
+
+when the Microsoft wireless keyboard isn't sending the correct characters - especially backtick `` ` `` and backslash `\` then Go to 
+System Preferences -> Keyboard -> Change Keyboard Type... -> press the button -> on the last page manually select the American layout (third option)
+
