@@ -1,4 +1,4 @@
-Bash Shebang
+/hexBash Shebang
 Use:
 #!/usr/bin/env bash
 for portability: different *nixes put bash in different places, and using /usr/bin/env is a workaround to run the first bash found on the PATH.

@@ -10,6 +10,14 @@ connect to server like so:
   psql -h <host> -p <port> --user <user> -d <db> --password
 
 
+if you want to avoid typing the password every time, you can setup a .pgpass file in your home directory. This file needs to be chmod'ed to 0600 like so
+    `chmod 0600 .pgpass`
+
+and the contents is host<colon>port<colon>database<colon>user<colon>password
+e.g.:
+    `localhost:5432:booklog:booklog:booklog`
+
+
 psql is exited by `\q` or just by pressing Ctrl+D
 
 there is a bunch of backslash commands

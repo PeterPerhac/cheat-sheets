@@ -198,3 +198,14 @@ when the external monitor is switching off after unplugging from AC power, this 
 when the Microsoft wireless keyboard isn't sending the correct characters - especially backtick `` ` `` and backslash `\` then Go to 
 System Preferences -> Keyboard -> Change Keyboard Type... -> press the button -> on the last page manually select the American layout (third option)
 
+
+
+
+
+When Git refuses a push because there's no tracking branch
+you can make sure to set the current branch to be tracked every time by this command
+
+    git config --global push.default current
+
+
+
