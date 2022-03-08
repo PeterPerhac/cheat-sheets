@@ -141,17 +141,6 @@ not sure if this is a problem on other data types, but when trying to mapN Valid
 
 
 
-#various other
-
-## thefuck command not suggesting correct git push command
-
-git push -f doesn't seem to work with thefuck command too well. good new is, it's not needed. use the fuck command only in cases when pushing a new branch that does not exist remotely yet. Then the force switch is not required, and the fuck command works as expected.
-
-> fuck
-git push -f -f [enter/↑/↓/ctrl+c]
-
-
-
 GIT DETACHED HEAD
 ============
 
