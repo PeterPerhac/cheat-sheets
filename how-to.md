@@ -44,3 +44,20 @@ git push origin --delete master
    -n         --notice          Turn on notices (for debugging) (default=off)
 
 
+
+
+
+## How to make an animated gif emoji
+make individual frames. If they are exported as PNG, you will have to convert them to GIF first
+
+```bash
+# careful, this will overwrite any existing same-name gifs in the directory
+mogrify -format gif *.png
+```
+
+Then it's a simple gifsicle command, listing the individual frames in the correct order
+
+```bash
+gifsicle --disposal=previous --delay=50 --loop -O3 get.gif well.gif soon.gif >| animated.gif
+```
+
