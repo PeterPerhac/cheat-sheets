@@ -172,6 +172,11 @@ UNDO LAST GIT AMEND
 git reset --soft HEAD@{1}
 
 
+if `git commit -C HEAD@{1}` is used, the committed changes will be under someone else's name. Use this command to reset the author:
+
+git commit --amend --reset-author
+
+
 SQUASH COMMITS - UNPUSHED, merge last n commits
 =========================
 
